@@ -3,6 +3,7 @@ import '../models/cat.dart';
 import '../models/group.dart';
 import '../models/weight_record.dart';
 import '../models/feeding_record.dart';
+import '../models/medical_record.dart';
 import '../services/storage_service.dart';
 
 class CatProvider with ChangeNotifier {
@@ -10,6 +11,7 @@ class CatProvider with ChangeNotifier {
   List<Cat> _cats = [];
   Map<String, List<WeightRecord>> _weightRecords = {};
   Map<String, List<FeedingRecord>> _feedingRecords = {};
+  Map<String, List<MedicalRecord>> _medicalRecords = {};
   List<String> _foodTypes = [];
   bool _isInitialized = false;
 
@@ -25,6 +27,7 @@ class CatProvider with ChangeNotifier {
     _cats = await StorageService.loadCats();
     _weightRecords = await StorageService.loadWeightRecords();
     _feedingRecords = await StorageService.loadFeedingRecords();
+    _medicalRecords = await StorageService.loadMedicalRecords();
     _foodTypes = await StorageService.loadFoodTypes();
 
     // If no data exists, initialize with defaults
@@ -116,12 +119,20 @@ class CatProvider with ChangeNotifier {
     await StorageService.saveFeedingRecords(_feedingRecords);
   }
 
+  Future<void> _saveMedicalRecords() async {
+    await StorageService.saveMedicalRecords(_medicalRecords);
+  }
+
   List<WeightRecord> getWeightRecords(String catId) {
     return _weightRecords[catId] ?? [];
   }
 
   List<FeedingRecord> getFeedingRecords(String catId) {
     return _feedingRecords[catId] ?? [];
+  }
+
+  List<MedicalRecord> getMedicalRecords(String catId) {
+    return _medicalRecords[catId] ?? [];
   }
 
   bool hasFeedingRecordToday(String catId) {
@@ -241,6 +252,40 @@ class CatProvider with ChangeNotifier {
     }
   }
 
+  Future<void> addMedicalRecord(String catId, MedicalRecord record) async {
+    if (!_medicalRecords.containsKey(catId)) {
+      _medicalRecords[catId] = [];
+    }
+    
+    // Check if there are already 10 records (max limit)
+    if (_medicalRecords[catId]!.length >= 10) {
+      throw Exception('Maximum 10 medical records allowed');
+    }
+    
+    _medicalRecords[catId]!.add(record);
+    await _saveMedicalRecords();
+    notifyListeners();
+  }
+
+  Future<void> updateMedicalRecord(String catId, String recordId, MedicalRecord updatedRecord) async {
+    if (_medicalRecords.containsKey(catId)) {
+      final index = _medicalRecords[catId]!.indexWhere((r) => r.id == recordId);
+      if (index != -1) {
+        _medicalRecords[catId]![index] = updatedRecord;
+        await _saveMedicalRecords();
+        notifyListeners();
+      }
+    }
+  }
+
+  Future<void> deleteMedicalRecord(String catId, String recordId) async {
+    if (_medicalRecords.containsKey(catId)) {
+      _medicalRecords[catId]!.removeWhere((r) => r.id == recordId);
+      await _saveMedicalRecords();
+      notifyListeners();
+    }
+  }
+
   List<Cat> getCatsByGroup(String groupId) {
     return _cats.where((cat) => cat.groupId == groupId).toList();
   }
@@ -337,7 +382,11 @@ class CatProvider with ChangeNotifier {
     // Remove all feeding records for this cat
     _feedingRecords.remove(catId);
     await _saveFeedingRecords();
-
+    
+    // Remove all medical records for this cat
+    _medicalRecords.remove(catId);
+    await _saveMedicalRecords();
+    
     notifyListeners();
   }
 

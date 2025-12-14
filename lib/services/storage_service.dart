@@ -4,12 +4,14 @@ import '../models/cat.dart';
 import '../models/group.dart';
 import '../models/weight_record.dart';
 import '../models/feeding_record.dart';
+import '../models/medical_record.dart';
 
 class StorageService {
   static const String _groupsBoxName = 'groups';
   static const String _catsBoxName = 'cats';
   static const String _weightRecordsBoxName = 'weightRecords';
   static const String _feedingRecordsBoxName = 'feedingRecords';
+  static const String _medicalRecordsBoxName = 'medicalRecords';
   static const String _foodTypesBoxName = 'foodTypes';
 
   static Future<void> init() async {
@@ -168,6 +170,43 @@ class StorageService {
       return decoded.map((f) => f.toString()).toList();
     } catch (e) {
       return [];
+    }
+  }
+
+  // Medical Records
+  static Future<void> saveMedicalRecords(Map<String, List<MedicalRecord>> records) async {
+    final box = await Hive.openBox(_medicalRecordsBoxName);
+    final recordsJson = <String, dynamic>{};
+    records.forEach((catId, recordList) {
+      recordsJson[catId] = recordList.map((r) => {
+        'id': r.id,
+        'date': r.date.toIso8601String(),
+        'title': r.title,
+        'notes': r.notes,
+      }).toList();
+    });
+    await box.put('records', jsonEncode(recordsJson));
+  }
+
+  static Future<Map<String, List<MedicalRecord>>> loadMedicalRecords() async {
+    try {
+      final box = await Hive.openBox(_medicalRecordsBoxName);
+      final recordsJson = box.get('records');
+      if (recordsJson == null) return {};
+      
+      final Map<String, dynamic> decoded = jsonDecode(recordsJson);
+      final Map<String, List<MedicalRecord>> records = {};
+      decoded.forEach((catId, recordList) {
+        records[catId] = (recordList as List).map((r) => MedicalRecord(
+          id: r['id'],
+          date: DateTime.parse(r['date']),
+          title: r['title'],
+          notes: r['notes'],
+        )).toList();
+      });
+      return records;
+    } catch (e) {
+      return {};
     }
   }
 }

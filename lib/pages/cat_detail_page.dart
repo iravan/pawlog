@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../providers/cat_provider.dart';
 import '../utils/string_utils.dart';
 import 'tabs/cat_info_tab.dart';
+import 'tabs/medical_history_tab.dart';
 import 'tabs/weight_records_tab.dart';
 import 'tabs/feeding_records_tab.dart';
 
@@ -51,6 +52,7 @@ class _CatDetailPageState extends State<CatDetailPage> {
 
     final tabs = [
       CatInfoTab(catId: widget.catId),
+      MedicalHistoryTab(catId: widget.catId),
       WeightRecordsTab(catId: widget.catId),
       FeedingRecordsTab(catId: widget.catId),
     ];
@@ -74,8 +76,9 @@ class _CatDetailPageState extends State<CatDetailPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _buildTabIndicator(0, 'Info', _currentPage == 0),
-                _buildTabIndicator(1, 'Weight', _currentPage == 1),
-                _buildTabIndicator(2, 'Feeding', _currentPage == 2),
+                _buildTabIndicator(1, 'Medical', _currentPage == 1),
+                _buildTabIndicator(2, 'Weight', _currentPage == 2),
+                _buildTabIndicator(3, 'Feeding', _currentPage == 3),
               ],
             ),
           ),

@@ -115,6 +115,62 @@ class CatInfoTab extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
+                const SizedBox(height: 24),
+                // Medical History Tags
+                Consumer<CatProvider>(
+                  builder: (context, catProvider, _) {
+                    final medicalRecords = catProvider.getMedicalRecords(catId);
+                    
+                    if (medicalRecords.isEmpty) {
+                      return const SizedBox.shrink();
+                    }
+                    
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0, bottom: 12.0),
+                          child: Text(
+                            'Medical History',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey.shade700,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Wrap(
+                            spacing: 8,
+                            runSpacing: 8,
+                            children: medicalRecords.map((record) {
+                              return Chip(
+                                label: Text(
+                                  record.title,
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.red.shade700,
+                                  ),
+                                ),
+                                backgroundColor: Colors.red.shade50,
+                                side: BorderSide(
+                                  color: Colors.red.shade200,
+                                  width: 1,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                padding: const EdgeInsets.symmetric(horizontal: 8),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
                 const SizedBox(height: 32),
                 // Latest Weight
                 if (latestWeightRecord != null)
