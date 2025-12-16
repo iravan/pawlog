@@ -435,12 +435,18 @@ class CatInfoTab extends StatelessWidget {
         ),
         const SizedBox(height: 24),
         Center(
-          child: TextButton(
+          child: TextButton.icon(
             onPressed: () => _deleteCat(context),
-            child: Text(
-              'Delete Pet',
+            icon: Icon(
+              Icons.delete_outline,
+              size: 18,
+              color: Colors.grey.shade500,
+            ),
+            label: Text(
+              'Delete',
               style: TextStyle(
-                fontSize: 13,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
                 color: Colors.grey.shade500,
                 decoration: TextDecoration.underline,
                 decorationColor: Colors.grey.shade400,

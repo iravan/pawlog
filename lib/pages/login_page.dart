@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
+import '../services/storage_service.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -31,7 +32,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
                 const Text(
-                  'PawLog',
+                  'PawsLog',
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.w500,
@@ -54,8 +55,9 @@ class LoginPage extends StatelessWidget {
                   width: double.infinity,
                   height: 56,
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       authProvider.bypassLogin();
+                      await StorageService.setHasSeenOnboarding(true);
                       if (context.mounted) {
                         Navigator.of(context).pushReplacementNamed('/main');
                       }

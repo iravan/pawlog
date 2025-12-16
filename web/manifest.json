@@ -1,6 +1,6 @@
 {
-    "name": "pawlog",
-    "short_name": "pawlog",
+    "name": "pawslog",
+    "short_name": "pawslog",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

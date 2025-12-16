@@ -13,9 +13,29 @@ class StorageService {
   static const String _feedingRecordsBoxName = 'feedingRecords';
   static const String _medicalRecordsBoxName = 'medicalRecords';
   static const String _foodTypesBoxName = 'foodTypes';
+  static const String _settingsBoxName = 'settings';
+  static const String _hasSeenOnboardingKey = 'hasSeenOnboarding';
 
   static Future<void> init() async {
     await Hive.initFlutter();
+  }
+
+  static Future<bool> hasSeenOnboarding() async {
+    try {
+      final box = await Hive.openBox(_settingsBoxName);
+      return box.get(_hasSeenOnboardingKey, defaultValue: false) as bool;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  static Future<void> setHasSeenOnboarding(bool value) async {
+    try {
+      final box = await Hive.openBox(_settingsBoxName);
+      await box.put(_hasSeenOnboardingKey, value);
+    } catch (e) {
+      // Ignore errors
+    }
   }
 
   // Groups

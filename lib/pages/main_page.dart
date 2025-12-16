@@ -253,6 +253,10 @@ class _MainPageState extends State<MainPage> {
                         final catsInGroup = _filterCatsByTags(
                           catProvider.getCatsByGroup(group.id),
                         );
+                        // Hide group if no matching pets when filters are active
+                        if (_selectedTags.isNotEmpty && catsInGroup.isEmpty) {
+                          return const SizedBox.shrink();
+                        }
                         final isExpanded = _expandedGroups[group.id] ?? false;
                         return _buildGroupCard(
                           context,

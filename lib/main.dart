@@ -12,11 +12,37 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class _MyAppState extends State<MyApp> {
+  String? _initialRoute;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkFirstRun();
+  }
+
+  Future<void> _checkFirstRun() async {
+    final hasSeenOnboarding = await StorageService.hasSeenOnboarding();
+    if (mounted) {
+      setState(() {
+        _initialRoute = hasSeenOnboarding ? '/main' : '/login';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    if (_initialRoute == null) {
+      // Show a loading screen while checking first run
+      return MaterialApp(
+        home: Scaffold(
+          body: Center(
+            child: CircularProgressIndicator(),
+          ),
+        ),
+      );
+    }
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
@@ -29,7 +55,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'PawLog',
+        title: 'PawsLog',
         theme: ThemeData(
           // Bootstrap-like color scheme
           colorScheme: ColorScheme.light(
@@ -189,7 +215,7 @@ class MyApp extends StatelessWidget {
           ),
           // Bootstrap-style FloatingActionButton
           floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: Theme.of(context).colorScheme.primary,
+            backgroundColor: const Color(0xFF0D6EFD),
             foregroundColor: Colors.white,
             elevation: 4,
             highlightElevation: 8,
@@ -202,7 +228,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        initialRoute: '/login',
+        initialRoute: _initialRoute,
         routes: {
           '/login': (context) => const LoginPage(),
           '/main': (context) => const MainPage(),
@@ -210,4 +236,11 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
 }

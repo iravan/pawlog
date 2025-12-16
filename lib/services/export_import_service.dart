@@ -26,54 +26,64 @@ class ExportImportService {
       // Convert weight records
       for (var cat in cats) {
         final records = catProvider.getWeightRecords(cat.id);
-        weightRecords[cat.id] = records.map((r) => {
-          'id': r.id,
-          'date': r.date.toIso8601String(),
-          'weight': r.weight,
-        }).toList();
+        weightRecords[cat.id] = records
+            .map((r) => {
+                  'id': r.id,
+                  'date': r.date.toIso8601String(),
+                  'weight': r.weight,
+                })
+            .toList();
       }
 
       // Convert feeding records
       for (var cat in cats) {
         final records = catProvider.getFeedingRecords(cat.id);
-        feedingRecords[cat.id] = records.map((r) => {
-          'id': r.id,
-          'date': r.date.toIso8601String(),
-          'foodType': r.foodType,
-          'amount': r.amount,
-          'notes': r.notes,
-        }).toList();
+        feedingRecords[cat.id] = records
+            .map((r) => {
+                  'id': r.id,
+                  'date': r.date.toIso8601String(),
+                  'foodType': r.foodType,
+                  'amount': r.amount,
+                  'notes': r.notes,
+                })
+            .toList();
       }
 
       // Convert medical records
       for (var cat in cats) {
         final records = catProvider.getMedicalRecords(cat.id);
-        medicalRecords[cat.id] = records.map((r) => {
-          'id': r.id,
-          'date': r.date.toIso8601String(),
-          'title': r.title,
-          'notes': r.notes,
-        }).toList();
+        medicalRecords[cat.id] = records
+            .map((r) => {
+                  'id': r.id,
+                  'date': r.date.toIso8601String(),
+                  'title': r.title,
+                  'notes': r.notes,
+                })
+            .toList();
       }
 
       // Build YAML structure
       final yamlData = {
         'version': '1.0',
         'exportDate': DateTime.now().toIso8601String(),
-        'groups': groups.map((g) => {
-          'id': g.id,
-          'name': g.name,
-          'description': g.description,
-          'icon': g.icon,
-        }).toList(),
-        'cats': cats.map((c) => {
-          'id': c.id,
-          'name': c.name,
-          'description': c.description,
-          'icon': c.icon,
-          'groupId': c.groupId,
-          'tags': c.tags,
-        }).toList(),
+        'groups': groups
+            .map((g) => {
+                  'id': g.id,
+                  'name': g.name,
+                  'description': g.description,
+                  'icon': g.icon,
+                })
+            .toList(),
+        'cats': cats
+            .map((c) => {
+                  'id': c.id,
+                  'name': c.name,
+                  'description': c.description,
+                  'icon': c.icon,
+                  'groupId': c.groupId,
+                  'tags': c.tags,
+                })
+            .toList(),
         'weightRecords': weightRecords,
         'feedingRecords': feedingRecords,
         'medicalRecords': medicalRecords,
@@ -85,15 +95,16 @@ class ExportImportService {
 
       // Save to temporary file and share
       final directory = await getTemporaryDirectory();
-      final timestamp = DateTime.now().toIso8601String().replaceAll(':', '-').split('.')[0];
-      final file = File('${directory.path}/pawlog_export_$timestamp.yaml');
+      final timestamp =
+          DateTime.now().toIso8601String().replaceAll(':', '-').split('.')[0];
+      final file = File('${directory.path}/pawslog_export_$timestamp.yaml');
       await file.writeAsString(yamlString);
 
       // Share the file
       await Share.shareXFiles(
         [XFile(file.path)],
-        text: 'Pawlog Data Export',
-        subject: 'Pawlog Backup',
+        text: 'PawsLog Data Export',
+        subject: 'PawsLog Backup',
       );
 
       return null; // Success
@@ -134,28 +145,32 @@ class ExportImportService {
       // Import groups
       if (yamlData['groups'] != null) {
         final groupsData = yamlData['groups'] as List;
-        final groups = groupsData.map((g) => Group(
-          id: g['id'] as String,
-          name: g['name'] as String,
-          description: g['description'] as String?,
-          icon: g['icon'] as String,
-        )).toList();
+        final groups = groupsData
+            .map((g) => Group(
+                  id: g['id'] as String,
+                  name: g['name'] as String,
+                  description: g['description'] as String?,
+                  icon: g['icon'] as String,
+                ))
+            .toList();
         await catProvider.saveGroupsDirectly(groups);
       }
 
       // Import cats
       if (yamlData['cats'] != null) {
         final catsData = yamlData['cats'] as List;
-        final cats = catsData.map((c) => Cat(
-          id: c['id'] as String,
-          name: c['name'] as String,
-          description: c['description'] as String?,
-          icon: c['icon'] as String,
-          groupId: c['groupId'] as String?,
-          tags: c['tags'] != null 
-              ? List<String>.from(c['tags'] as List)
-              : [],
-        )).toList();
+        final cats = catsData
+            .map((c) => Cat(
+                  id: c['id'] as String,
+                  name: c['name'] as String,
+                  description: c['description'] as String?,
+                  icon: c['icon'] as String,
+                  groupId: c['groupId'] as String?,
+                  tags: c['tags'] != null
+                      ? List<String>.from(c['tags'] as List)
+                      : [],
+                ))
+            .toList();
         await catProvider.saveCatsDirectly(cats);
       }
 
@@ -164,11 +179,13 @@ class ExportImportService {
         final weightRecordsData = yamlData['weightRecords'] as Map;
         final weightRecords = <String, List<WeightRecord>>{};
         weightRecordsData.forEach((catId, recordsList) {
-          final records = (recordsList as List).map((r) => WeightRecord(
-            id: r['id'] as String,
-            date: DateTime.parse(r['date'] as String),
-            weight: (r['weight'] as num).toDouble(),
-          )).toList();
+          final records = (recordsList as List)
+              .map((r) => WeightRecord(
+                    id: r['id'] as String,
+                    date: DateTime.parse(r['date'] as String),
+                    weight: (r['weight'] as num).toDouble(),
+                  ))
+              .toList();
           weightRecords[catId as String] = records;
         });
         await catProvider.saveWeightRecordsDirectly(weightRecords);
@@ -179,13 +196,15 @@ class ExportImportService {
         final feedingRecordsData = yamlData['feedingRecords'] as Map;
         final feedingRecords = <String, List<FeedingRecord>>{};
         feedingRecordsData.forEach((catId, recordsList) {
-          final records = (recordsList as List).map((r) => FeedingRecord(
-            id: r['id'] as String,
-            date: DateTime.parse(r['date'] as String),
-            foodType: r['foodType'] as String,
-            amount: (r['amount'] as num).toDouble(),
-            notes: r['notes'] as String?,
-          )).toList();
+          final records = (recordsList as List)
+              .map((r) => FeedingRecord(
+                    id: r['id'] as String,
+                    date: DateTime.parse(r['date'] as String),
+                    foodType: r['foodType'] as String,
+                    amount: (r['amount'] as num).toDouble(),
+                    notes: r['notes'] as String?,
+                  ))
+              .toList();
           feedingRecords[catId as String] = records;
         });
         await catProvider.saveFeedingRecordsDirectly(feedingRecords);
@@ -196,12 +215,14 @@ class ExportImportService {
         final medicalRecordsData = yamlData['medicalRecords'] as Map;
         final medicalRecords = <String, List<MedicalRecord>>{};
         medicalRecordsData.forEach((catId, recordsList) {
-          final records = (recordsList as List).map((r) => MedicalRecord(
-            id: r['id'] as String,
-            date: DateTime.parse(r['date'] as String),
-            title: r['title'] as String,
-            notes: r['notes'] as String?,
-          )).toList();
+          final records = (recordsList as List)
+              .map((r) => MedicalRecord(
+                    id: r['id'] as String,
+                    date: DateTime.parse(r['date'] as String),
+                    title: r['title'] as String,
+                    notes: r['notes'] as String?,
+                  ))
+              .toList();
           medicalRecords[catId as String] = records;
         });
         await catProvider.saveMedicalRecordsDirectly(medicalRecords);
@@ -307,4 +328,3 @@ class ExportImportService {
     return double.tryParse(str) != null || int.tryParse(str) != null;
   }
 }
-
