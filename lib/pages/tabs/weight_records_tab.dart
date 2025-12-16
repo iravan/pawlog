@@ -72,14 +72,25 @@ class WeightRecordsTab extends StatelessWidget {
                 ],
               ),
             ),
-            floatingActionButton: FloatingActionButton(
+            floatingActionButton: FloatingActionButton.extended(
               onPressed: () {
                 showDialog(
                   context: context,
                   builder: (context) => AddWeightRecordDialog(catId: catId),
                 );
               },
-              child: const Icon(Icons.add),
+              icon: const Icon(Icons.add, size: 24),
+              label: const Text(
+                'Add Weight',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Colors.white,
+              elevation: 4,
+              highlightElevation: 8,
             ),
           );
         }
@@ -131,23 +142,38 @@ class WeightRecordsTab extends StatelessWidget {
                   ...dayRecords.map((record) => Card(
                         margin: const EdgeInsets.only(bottom: 12),
                         elevation: 1,
+                        shadowColor: Colors.black.withOpacity(0.1),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(8),
+                          side: BorderSide(
+                            color: Colors.grey.shade300,
+                            width: 1,
+                          ),
                         ),
                         child: ListTile(
                           contentPadding: const EdgeInsets.all(16),
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.deepPurple.shade100,
-                            child: const Icon(
+                          leading: Container(
+                            width: 48,
+                            height: 48,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .primary
+                                  .withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: Icon(
                               Icons.monitor_weight,
-                              color: Colors.deepPurple,
+                              color: Theme.of(context).colorScheme.primary,
+                              size: 24,
                             ),
                           ),
                           title: Text(
                             '${record.weight} kg',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey.shade900,
                             ),
                           ),
                           subtitle: null,
@@ -169,14 +195,34 @@ class WeightRecordsTab extends StatelessWidget {
                                 showDialog(
                                   context: context,
                                   builder: (context) => AlertDialog(
-                                    title: const Text('Delete Weight Record'),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    title: Text(
+                                      'Delete Weight Record',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.grey.shade900,
+                                      ),
+                                    ),
                                     content: Text(
-                                        'Are you sure you want to delete this weight record (${record.weight} kg)?'),
+                                      'Are you sure you want to delete this weight record (${record.weight} kg)?',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey.shade700,
+                                      ),
+                                    ),
                                     actions: [
                                       TextButton(
                                         onPressed: () =>
                                             Navigator.of(context).pop(),
-                                        child: const Text('Cancel'),
+                                        child: Text(
+                                          'Cancel',
+                                          style: TextStyle(
+                                            color: Colors.grey.shade600,
+                                          ),
+                                        ),
                                       ),
                                       ElevatedButton(
                                         onPressed: () {
@@ -185,8 +231,15 @@ class WeightRecordsTab extends StatelessWidget {
                                           Navigator.of(context).pop();
                                         },
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.red,
+                                          backgroundColor: Theme.of(context)
+                                              .colorScheme
+                                              .error,
                                           foregroundColor: Colors.white,
+                                          elevation: 0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                          ),
                                         ),
                                         child: const Text('Delete'),
                                       ),
@@ -226,14 +279,25 @@ class WeightRecordsTab extends StatelessWidget {
               );
             },
           ),
-          floatingActionButton: FloatingActionButton(
+          floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
               showDialog(
                 context: context,
                 builder: (context) => AddWeightRecordDialog(catId: catId),
               );
             },
-            child: const Icon(Icons.add),
+            icon: const Icon(Icons.add, size: 24),
+            label: const Text(
+              'Add Weight',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            foregroundColor: Colors.white,
+            elevation: 4,
+            highlightElevation: 8,
           ),
         );
       },

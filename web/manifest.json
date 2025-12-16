@@ -1,6 +1,6 @@
 {
-    "name": "petlog",
-    "short_name": "petlog",
+    "name": "pawlog",
+    "short_name": "pawlog",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

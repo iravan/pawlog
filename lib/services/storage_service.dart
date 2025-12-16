@@ -21,12 +21,14 @@ class StorageService {
   // Groups
   static Future<void> saveGroups(List<Group> groups) async {
     final box = await Hive.openBox(_groupsBoxName);
-    final groupsJson = groups.map((g) => {
-      'id': g.id,
-      'name': g.name,
-      'description': g.description,
-      'icon': g.icon,
-    }).toList();
+    final groupsJson = groups
+        .map((g) => {
+              'id': g.id,
+              'name': g.name,
+              'description': g.description,
+              'icon': g.icon,
+            })
+        .toList();
     await box.put('groups', jsonEncode(groupsJson));
   }
 
@@ -35,29 +37,36 @@ class StorageService {
       final box = await Hive.openBox(_groupsBoxName);
       final groupsJson = box.get('groups');
       if (groupsJson == null) return [];
-      
+
       final List<dynamic> decoded = jsonDecode(groupsJson);
-      return decoded.map((g) => Group(
-        id: g['id'],
-        name: g['name'],
-        description: g['description'],
-        icon: g['icon'],
-      )).toList();
+      return decoded
+          .map((g) => Group(
+                id: g['id'],
+                name: g['name'],
+                description: g['description'],
+                icon: g['icon'],
+              ))
+          .toList();
     } catch (e) {
       return [];
     }
   }
 
-  // Cats
+  // Cats/Pets
   static Future<void> saveCats(List<Cat> cats) async {
     final box = await Hive.openBox(_catsBoxName);
-    final catsJson = cats.map((c) => {
-      'id': c.id,
-      'name': c.name,
-      'description': c.description,
-      'icon': c.icon,
-      'groupId': c.groupId,
-    }).toList();
+    final catsJson = cats
+        .map((c) => {
+              'id': c.id,
+              'name': c.name,
+              'description': c.description,
+              'icon': c.icon,
+              'groupId': c.groupId,
+              'tags': c.tags,
+              'type':
+                  c.type.toString().split('.').last, // Save as 'cat' or 'dog'
+            })
+        .toList();
     await box.put('cats', jsonEncode(catsJson));
   }
 
@@ -66,30 +75,49 @@ class StorageService {
       final box = await Hive.openBox(_catsBoxName);
       final catsJson = box.get('cats');
       if (catsJson == null) return [];
-      
+
       final List<dynamic> decoded = jsonDecode(catsJson);
-      return decoded.map((c) => Cat(
-        id: c['id'],
-        name: c['name'],
-        description: c['description'],
-        icon: c['icon'],
-        groupId: c['groupId'],
-      )).toList();
+      return decoded.map((c) {
+        // Handle pet type - default to cat for backward compatibility
+        PetType petType = PetType.cat;
+        if (c['type'] != null) {
+          try {
+            petType = PetType.values.firstWhere(
+              (e) => e.toString().split('.').last == c['type'],
+              orElse: () => PetType.cat,
+            );
+          } catch (e) {
+            petType = PetType.cat;
+          }
+        }
+        return Pet(
+          id: c['id'],
+          name: c['name'],
+          description: c['description'] as String?,
+          icon: c['icon'],
+          groupId: c['groupId'],
+          tags: c['tags'] != null ? List<String>.from(c['tags'] as List) : [],
+          type: petType,
+        );
+      }).toList();
     } catch (e) {
       return [];
     }
   }
 
   // Weight Records
-  static Future<void> saveWeightRecords(Map<String, List<WeightRecord>> records) async {
+  static Future<void> saveWeightRecords(
+      Map<String, List<WeightRecord>> records) async {
     final box = await Hive.openBox(_weightRecordsBoxName);
     final recordsJson = <String, dynamic>{};
     records.forEach((catId, recordList) {
-      recordsJson[catId] = recordList.map((r) => {
-        'id': r.id,
-        'date': r.date.toIso8601String(),
-        'weight': r.weight,
-      }).toList();
+      recordsJson[catId] = recordList
+          .map((r) => {
+                'id': r.id,
+                'date': r.date.toIso8601String(),
+                'weight': r.weight,
+              })
+          .toList();
     });
     await box.put('records', jsonEncode(recordsJson));
   }
@@ -99,15 +127,17 @@ class StorageService {
       final box = await Hive.openBox(_weightRecordsBoxName);
       final recordsJson = box.get('records');
       if (recordsJson == null) return {};
-      
+
       final Map<String, dynamic> decoded = jsonDecode(recordsJson);
       final Map<String, List<WeightRecord>> records = {};
       decoded.forEach((catId, recordList) {
-        records[catId] = (recordList as List).map((r) => WeightRecord(
-          id: r['id'],
-          date: DateTime.parse(r['date']),
-          weight: (r['weight'] as num).toDouble(),
-        )).toList();
+        records[catId] = (recordList as List)
+            .map((r) => WeightRecord(
+                  id: r['id'],
+                  date: DateTime.parse(r['date']),
+                  weight: (r['weight'] as num).toDouble(),
+                ))
+            .toList();
       });
       return records;
     } catch (e) {
@@ -116,17 +146,20 @@ class StorageService {
   }
 
   // Feeding Records
-  static Future<void> saveFeedingRecords(Map<String, List<FeedingRecord>> records) async {
+  static Future<void> saveFeedingRecords(
+      Map<String, List<FeedingRecord>> records) async {
     final box = await Hive.openBox(_feedingRecordsBoxName);
     final recordsJson = <String, dynamic>{};
     records.forEach((catId, recordList) {
-      recordsJson[catId] = recordList.map((r) => {
-        'id': r.id,
-        'date': r.date.toIso8601String(),
-        'foodType': r.foodType,
-        'amount': r.amount,
-        'notes': r.notes,
-      }).toList();
+      recordsJson[catId] = recordList
+          .map((r) => {
+                'id': r.id,
+                'date': r.date.toIso8601String(),
+                'foodType': r.foodType,
+                'amount': r.amount,
+                'notes': r.notes,
+              })
+          .toList();
     });
     await box.put('records', jsonEncode(recordsJson));
   }
@@ -136,17 +169,19 @@ class StorageService {
       final box = await Hive.openBox(_feedingRecordsBoxName);
       final recordsJson = box.get('records');
       if (recordsJson == null) return {};
-      
+
       final Map<String, dynamic> decoded = jsonDecode(recordsJson);
       final Map<String, List<FeedingRecord>> records = {};
       decoded.forEach((catId, recordList) {
-        records[catId] = (recordList as List).map((r) => FeedingRecord(
-          id: r['id'],
-          date: DateTime.parse(r['date']),
-          foodType: r['foodType'],
-          amount: (r['amount'] as num).toDouble(),
-          notes: r['notes'],
-        )).toList();
+        records[catId] = (recordList as List)
+            .map((r) => FeedingRecord(
+                  id: r['id'],
+                  date: DateTime.parse(r['date']),
+                  foodType: r['foodType'],
+                  amount: (r['amount'] as num).toDouble(),
+                  notes: r['notes'],
+                ))
+            .toList();
       });
       return records;
     } catch (e) {
@@ -165,7 +200,7 @@ class StorageService {
       final box = await Hive.openBox(_foodTypesBoxName);
       final foodTypesJson = box.get('foodTypes');
       if (foodTypesJson == null) return [];
-      
+
       final List<dynamic> decoded = jsonDecode(foodTypesJson);
       return decoded.map((f) => f.toString()).toList();
     } catch (e) {
@@ -174,16 +209,19 @@ class StorageService {
   }
 
   // Medical Records
-  static Future<void> saveMedicalRecords(Map<String, List<MedicalRecord>> records) async {
+  static Future<void> saveMedicalRecords(
+      Map<String, List<MedicalRecord>> records) async {
     final box = await Hive.openBox(_medicalRecordsBoxName);
     final recordsJson = <String, dynamic>{};
     records.forEach((catId, recordList) {
-      recordsJson[catId] = recordList.map((r) => {
-        'id': r.id,
-        'date': r.date.toIso8601String(),
-        'title': r.title,
-        'notes': r.notes,
-      }).toList();
+      recordsJson[catId] = recordList
+          .map((r) => {
+                'id': r.id,
+                'date': r.date.toIso8601String(),
+                'title': r.title,
+                'notes': r.notes,
+              })
+          .toList();
     });
     await box.put('records', jsonEncode(recordsJson));
   }
@@ -193,16 +231,18 @@ class StorageService {
       final box = await Hive.openBox(_medicalRecordsBoxName);
       final recordsJson = box.get('records');
       if (recordsJson == null) return {};
-      
+
       final Map<String, dynamic> decoded = jsonDecode(recordsJson);
       final Map<String, List<MedicalRecord>> records = {};
       decoded.forEach((catId, recordList) {
-        records[catId] = (recordList as List).map((r) => MedicalRecord(
-          id: r['id'],
-          date: DateTime.parse(r['date']),
-          title: r['title'],
-          notes: r['notes'],
-        )).toList();
+        records[catId] = (recordList as List)
+            .map((r) => MedicalRecord(
+                  id: r['id'],
+                  date: DateTime.parse(r['date']),
+                  title: r['title'],
+                  notes: r['notes'],
+                ))
+            .toList();
       });
       return records;
     } catch (e) {
@@ -210,4 +250,3 @@ class StorageService {
     }
   }
 }
-

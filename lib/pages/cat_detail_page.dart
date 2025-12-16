@@ -66,20 +66,23 @@ class _CatDetailPageState extends State<CatDetailPage> {
             Text(StringUtils.getFirstTwoWords(cat.name)),
           ],
         ),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.white,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(48),
           child: Container(
             height: 48,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildTabIndicator(0, 'Info', _currentPage == 0),
-                _buildTabIndicator(1, 'Medical', _currentPage == 1),
-                _buildTabIndicator(2, 'Weight', _currentPage == 2),
-                _buildTabIndicator(3, 'Feeding', _currentPage == 3),
-              ],
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildTabIndicator(0, 'Info', _currentPage == 0),
+                  _buildTabIndicator(1, 'Medical', _currentPage == 1),
+                  _buildTabIndicator(2, 'Weight', _currentPage == 2),
+                  _buildTabIndicator(3, 'Feeding', _currentPage == 3),
+                ],
+              ),
             ),
           ),
         ),
@@ -103,19 +106,20 @@ class _CatDetailPageState extends State<CatDetailPage> {
         );
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 4),
         decoration: BoxDecoration(
           color: isActive
               ? Theme.of(context).colorScheme.primary
               : Colors.transparent,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(6),
         ),
         child: Text(
           label,
           style: TextStyle(
             color: isActive ? Colors.white : Colors.grey,
             fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-            fontSize: 16,
+            fontSize: 14,
           ),
         ),
       ),

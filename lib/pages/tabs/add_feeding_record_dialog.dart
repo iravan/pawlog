@@ -98,12 +98,21 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
           }
         } catch (e) {
           if (context.mounted) {
+            final errorMessage = e.toString().replaceAll('Exception: ', '');
+            final isLimitError = errorMessage.contains('Maximum') && 
+                                 errorMessage.contains('feeding records');
+            
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(e.toString().replaceAll('Exception: ', '')),
+                content: Text(errorMessage),
                 backgroundColor: Colors.red,
               ),
             );
+            
+            // Close dialog if limit is reached
+            if (isLimitError) {
+              Navigator.of(context).pop();
+            }
           }
         }
       }
@@ -112,134 +121,322 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text(
-          widget.record != null ? 'Edit Feeding Record' : 'Add Feeding Record'),
-      content: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Consumer<CatProvider>(
-                builder: (context, catProvider, _) {
-                  // Remove duplicates and ensure selected value exists
-                  final uniqueFoodTypes =
-                      catProvider.foodTypes.toSet().toList();
-                  String? validSelectedValue = _selectedFoodType;
-
-                  // For new records, set default to first food type
-                  if (widget.record == null &&
-                      _selectedFoodType == null &&
-                      uniqueFoodTypes.isNotEmpty) {
-                    validSelectedValue = uniqueFoodTypes.first;
-                    // Update state to reflect the default selection
-                    WidgetsBinding.instance.addPostFrameCallback((_) {
-                      if (mounted) {
-                        setState(() {
-                          _selectedFoodType = validSelectedValue;
-                        });
-                      }
-                    });
-                  } else if (_selectedFoodType != null &&
-                      !uniqueFoodTypes.contains(_selectedFoodType)) {
-                    validSelectedValue = null;
-                  }
-
-                  return DropdownButtonFormField<String>(
-                    value: validSelectedValue,
-                    decoration: const InputDecoration(
-                      labelText: 'Food Type',
-                      prefixIcon: Icon(Icons.restaurant),
+    final isEdit = widget.record != null;
+    
+    return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 500, maxHeight: 700),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Header
+            Container(
+              padding: const EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                ),
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.grey.shade200,
+                    width: 1,
+                  ),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    items: uniqueFoodTypes.map((foodType) {
-                      return DropdownMenuItem(
-                        value: foodType,
-                        child: Text(foodType),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedFoodType = value;
-                      });
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please select a food type';
-                      }
-                      return null;
-                    },
-                  );
-                },
-              ),
-              const SizedBox(height: 16),
-              TextFormField(
-                controller: _amountController,
-                decoration: const InputDecoration(
-                  labelText: 'Amount (grams)',
-                  prefixIcon: Icon(Icons.scale),
-                  hintText: '0.5 - 1000',
-                ),
-                keyboardType:
-                    const TextInputType.numberWithOptions(decimal: true),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
+                    child: Icon(
+                      Icons.restaurant,
+                      color: Theme.of(context).colorScheme.primary,
+                      size: 24,
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          isEdit ? 'Edit Feeding Record' : 'Add Feeding Record',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.grey.shade900,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          isEdit
+                              ? 'Update feeding information'
+                              : 'Record your cat\'s feeding',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.grey.shade600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.close, color: Colors.grey.shade600),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
                 ],
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter amount';
-                  }
-                  final amount = double.tryParse(value);
-                  if (amount == null) {
-                    return 'Please enter a valid number';
-                  }
-                  if (amount < 0.5 || amount > 1000) {
-                    return 'Amount must be between 0.5 and 1000';
-                  }
-                  // Check decimal places
-                  final parts = value.split('.');
-                  if (parts.length > 1 && parts[1].length > 2) {
-                    return 'Maximum 2 decimal places allowed';
-                  }
-                  return null;
-                },
               ),
-              const SizedBox(height: 16),
-              InkWell(
-                onTap: () => _selectDate(context),
-                child: InputDecorator(
-                  decoration: const InputDecoration(
-                    labelText: 'Date',
-                    prefixIcon: Icon(Icons.calendar_today),
-                  ),
-                  child: Text(
-                    '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
+            ),
+            // Content
+            Flexible(
+              child: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Food Type Section
+                      Consumer<CatProvider>(
+                        builder: (context, catProvider, _) {
+                          final uniqueFoodTypes =
+                              catProvider.foodTypes.toSet().toList();
+                          String? validSelectedValue = _selectedFoodType;
+
+                          if (widget.record == null &&
+                              _selectedFoodType == null &&
+                              uniqueFoodTypes.isNotEmpty) {
+                            validSelectedValue = uniqueFoodTypes.first;
+                            WidgetsBinding.instance.addPostFrameCallback((_) {
+                              if (mounted) {
+                                setState(() {
+                                  _selectedFoodType = validSelectedValue;
+                                });
+                              }
+                            });
+                          } else if (_selectedFoodType != null &&
+                              !uniqueFoodTypes.contains(_selectedFoodType)) {
+                            validSelectedValue = null;
+                          }
+
+                          return DropdownButtonFormField<String>(
+                            value: validSelectedValue,
+                            decoration: InputDecoration(
+                              labelText: 'Food Type',
+                              hintText: 'Select food type',
+                              prefixIcon: Icon(
+                                Icons.restaurant,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              filled: true,
+                              fillColor: Colors.grey.shade50,
+                            ),
+                            items: uniqueFoodTypes.map((foodType) {
+                              return DropdownMenuItem(
+                                value: foodType,
+                                child: Text(foodType),
+                              );
+                            }).toList(),
+                            onChanged: (value) {
+                              setState(() {
+                                _selectedFoodType = value;
+                              });
+                            },
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please select a food type';
+                              }
+                              return null;
+                            },
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 24),
+                      // Amount Section
+                      TextFormField(
+                        controller: _amountController,
+                        decoration: InputDecoration(
+                          labelText: 'Amount (grams)',
+                          hintText: '0.5 - 1000',
+                          prefixIcon: Icon(
+                            Icons.scale,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                          filled: true,
+                          fillColor: Colors.grey.shade50,
+                        ),
+                        keyboardType:
+                            const TextInputType.numberWithOptions(decimal: true),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'^\d+\.?\d{0,2}')),
+                        ],
+                        style: const TextStyle(fontSize: 16),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter amount';
+                          }
+                          final amount = double.tryParse(value);
+                          if (amount == null) {
+                            return 'Please enter a valid number';
+                          }
+                          if (amount < 0.5 || amount > 1000) {
+                            return 'Amount must be between 0.5 and 1000';
+                          }
+                          final parts = value.split('.');
+                          if (parts.length > 1 && parts[1].length > 2) {
+                            return 'Maximum 2 decimal places allowed';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 24),
+                      // Date Section
+                      Text(
+                        'Date',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.grey.shade900,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      InkWell(
+                        onTap: () => _selectDate(context),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 16,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade50,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: Colors.grey.shade300),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.calendar_today,
+                                color: Theme.of(context).colorScheme.primary,
+                                size: 20,
+                              ),
+                              const SizedBox(width: 12),
+                              Text(
+                                '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                              const Spacer(),
+                              Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.grey.shade600,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      // Notes Section
+                      TextFormField(
+                        controller: _notesController,
+                        decoration: InputDecoration(
+                          labelText: 'Notes (optional)',
+                          hintText: 'Add any additional notes...',
+                          prefixIcon: Icon(
+                            Icons.note,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                          filled: true,
+                          fillColor: Colors.grey.shade50,
+                        ),
+                        maxLines: 3,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
-              TextFormField(
-                controller: _notesController,
-                decoration: const InputDecoration(
-                  labelText: 'Notes (optional)',
-                  prefixIcon: Icon(Icons.note),
+            ),
+            // Footer Actions
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade50,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(16),
+                  bottomRight: Radius.circular(16),
                 ),
-                maxLines: 3,
+                border: Border(
+                  top: BorderSide(
+                    color: Colors.grey.shade200,
+                    width: 1,
+                  ),
+                ),
               ),
-            ],
-          ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  OutlinedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 12,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text(
+                      'Cancel',
+                      style: TextStyle(
+                        color: Colors.grey.shade700,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  ElevatedButton.icon(
+                    onPressed: _saveRecord,
+                    icon: const Icon(Icons.check, size: 20),
+                    label: const Text(
+                      'Save',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      foregroundColor: Colors.white,
+                      elevation: 0,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 12,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
-        ),
-        ElevatedButton(
-          onPressed: _saveRecord,
-          child: const Text('Save'),
-        ),
-      ],
     );
   }
 }

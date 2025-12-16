@@ -15,7 +15,7 @@ class MedicalHistoryTab extends StatelessWidget {
     return Consumer<CatProvider>(
       builder: (context, catProvider, _) {
         final records = catProvider.getMedicalRecords(catId);
-        
+
         if (records.isEmpty) {
           return Scaffold(
             body: Center(
@@ -46,14 +46,25 @@ class MedicalHistoryTab extends StatelessWidget {
                 ],
               ),
             ),
-            floatingActionButton: FloatingActionButton(
+            floatingActionButton: FloatingActionButton.extended(
               onPressed: () {
                 showDialog(
                   context: context,
                   builder: (context) => AddMedicalRecordDialog(catId: catId),
                 );
               },
-              child: const Icon(Icons.add),
+              icon: const Icon(Icons.add, size: 24),
+              label: const Text(
+                'Add Record',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Colors.white,
+              elevation: 4,
+              highlightElevation: 8,
             ),
           );
         }
@@ -66,29 +77,46 @@ class MedicalHistoryTab extends StatelessWidget {
           body: ListView.builder(
             padding: const EdgeInsets.all(16),
             physics: const AlwaysScrollableScrollPhysics(),
+            cacheExtent:
+                1000, // Cache more items for smoother scrolling with 100+ records
             itemCount: sortedRecords.length,
             itemBuilder: (context, index) {
               final record = sortedRecords[index];
+              // Use key for better performance with many items
               return Card(
+                key: ValueKey(record.id),
                 margin: const EdgeInsets.only(bottom: 12),
                 elevation: 1,
+                shadowColor: Colors.black.withOpacity(0.1),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(8),
+                  side: BorderSide(
+                    color: Colors.grey.shade300,
+                    width: 1,
+                  ),
                 ),
                 child: ListTile(
                   contentPadding: const EdgeInsets.all(16),
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.red.shade100,
-                    child: const Icon(
+                  leading: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color:
+                          Theme.of(context).colorScheme.error.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Icon(
                       Icons.medical_services,
-                      color: Colors.red,
+                      color: Theme.of(context).colorScheme.error,
+                      size: 24,
                     ),
                   ),
                   title: Text(
                     record.title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey.shade900,
                     ),
                   ),
                   subtitle: Column(
@@ -133,21 +161,48 @@ class MedicalHistoryTab extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                            title: const Text('Delete Medical Record'),
-                            content: Text('Are you sure you want to delete "${record.title}"?'),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            title: Text(
+                              'Delete Medical Record',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.grey.shade900,
+                              ),
+                            ),
+                            content: Text(
+                              'Are you sure you want to delete "${record.title}"?',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey.shade700,
+                              ),
+                            ),
                             actions: [
                               TextButton(
                                 onPressed: () => Navigator.of(context).pop(),
-                                child: const Text('Cancel'),
+                                child: Text(
+                                  'Cancel',
+                                  style: TextStyle(
+                                    color: Colors.grey.shade600,
+                                  ),
+                                ),
                               ),
                               ElevatedButton(
                                 onPressed: () {
-                                  catProvider.deleteMedicalRecord(catId, record.id);
+                                  catProvider.deleteMedicalRecord(
+                                      catId, record.id);
                                   Navigator.of(context).pop();
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.red,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.error,
                                   foregroundColor: Colors.white,
+                                  elevation: 0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(6),
+                                  ),
                                 ),
                                 child: const Text('Delete'),
                               ),
@@ -183,20 +238,28 @@ class MedicalHistoryTab extends StatelessWidget {
               );
             },
           ),
-          floatingActionButton: records.length >= 10
-              ? null
-              : FloatingActionButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) => AddMedicalRecordDialog(catId: catId),
-                    );
-                  },
-                  child: const Icon(Icons.add),
-                ),
+          floatingActionButton: FloatingActionButton.extended(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AddMedicalRecordDialog(catId: catId),
+              );
+            },
+            icon: const Icon(Icons.add, size: 24),
+            label: const Text(
+              'Add Record',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            foregroundColor: Colors.white,
+            elevation: 4,
+            highlightElevation: 8,
+          ),
         );
       },
     );
   }
 }
-

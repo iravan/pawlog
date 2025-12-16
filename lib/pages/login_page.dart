@@ -17,26 +17,35 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.pets,
-                  size: 100,
-                  color: Colors.deepPurple,
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF0D6EFD).withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(
+                    Icons.pets,
+                    size: 64,
+                    color: Color(0xFF0D6EFD),
+                  ),
                 ),
                 const SizedBox(height: 32),
                 const Text(
-                  'PetLog',
+                  'PawLog',
                   style: TextStyle(
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple,
+                    fontSize: 36,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF212529),
+                    letterSpacing: -0.5,
                   ),
                 ),
-                const SizedBox(height: 16),
-                const Text(
+                const SizedBox(height: 12),
+                Text(
                   'Track your pet\'s health and activities',
                   style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey,
+                    fontSize: 15,
+                    color: Colors.grey.shade600,
+                    height: 1.4,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -44,79 +53,27 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   height: 56,
-                  child: ElevatedButton.icon(
-                    onPressed: () async {
-                      final success = await authProvider.signInWithGoogle();
-                      if (success && context.mounted) {
+                  child: ElevatedButton(
+                    onPressed: () {
+                      authProvider.bypassLogin();
+                      if (context.mounted) {
                         Navigator.of(context).pushReplacementNamed('/main');
-                      } else if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Failed to sign in with Google'),
-                          ),
-                        );
                       }
                     },
-                    icon: const Icon(Icons.g_mobiledata, size: 28),
-                    label: const Text(
-                      'Sign in with Google',
-                      style: TextStyle(fontSize: 18),
-                    ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black87,
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                SizedBox(
-                  width: double.infinity,
-                  height: 56,
-                  child: ElevatedButton.icon(
-                    onPressed: () async {
-                      final success = await authProvider.signInWithApple();
-                      if (success && context.mounted) {
-                        Navigator.of(context).pushReplacementNamed('/main');
-                      } else if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Failed to sign in with Apple'),
-                          ),
-                        );
-                      }
-                    },
-                    icon: const Icon(Icons.apple, size: 28),
-                    label: const Text(
-                      'Sign in with Apple',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
                       foregroundColor: Colors.white,
-                      elevation: 2,
+                      elevation: 0,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 32),
-                TextButton(
-                  onPressed: () {
-                    authProvider.bypassLogin();
-                    if (context.mounted) {
-                      Navigator.of(context).pushReplacementNamed('/main');
-                    }
-                  },
-                  child: const Text(
-                    'Continue without login',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
+                    child: const Text(
+                      'Get Started',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),

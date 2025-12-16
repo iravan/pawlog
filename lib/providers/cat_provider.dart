@@ -58,20 +58,20 @@ class CatProvider with ChangeNotifier {
     return [
       Group(
         id: 'group1',
-        name: 'Indoor Cats',
-        description: 'Cats that stay indoors',
+        name: 'Indoor Pets',
+        description: 'Pets that stay indoors',
         icon: '🏠',
       ),
       Group(
         id: 'group2',
-        name: 'Outdoor Cats',
-        description: 'Cats that go outside',
+        name: 'Outdoor Pets',
+        description: 'Pets that go outside',
         icon: '🌳',
       ),
       Group(
         id: 'group3',
-        name: 'Kittens',
-        description: 'Young cats under 1 year',
+        name: 'Young Pets',
+        description: 'Young pets under 1 year',
         icon: '🐾',
       ),
     ];
@@ -79,26 +79,29 @@ class CatProvider with ChangeNotifier {
 
   List<Cat> _getDefaultCats() {
     return [
-      Cat(
+      Pet(
         id: '1',
         name: 'Whiskers',
         description: 'A playful orange tabby who loves to explore',
         icon: '🐱',
         groupId: 'group1',
+        type: PetType.cat,
       ),
-      Cat(
+      Pet(
         id: '2',
         name: 'Luna',
         description: 'A graceful black cat with green eyes',
         icon: '🐈',
         groupId: 'group1',
+        type: PetType.cat,
       ),
-      Cat(
+      Pet(
         id: '3',
         name: 'Max',
-        description: 'A friendly white Persian cat',
-        icon: '🐈‍⬛',
+        description: 'A friendly golden retriever',
+        icon: '🐶',
         groupId: 'group2',
+        type: PetType.dog,
       ),
     ];
   }
@@ -256,18 +259,14 @@ class CatProvider with ChangeNotifier {
     if (!_medicalRecords.containsKey(catId)) {
       _medicalRecords[catId] = [];
     }
-    
-    // Check if there are already 10 records (max limit)
-    if (_medicalRecords[catId]!.length >= 10) {
-      throw Exception('Maximum 10 medical records allowed');
-    }
-    
+
     _medicalRecords[catId]!.add(record);
     await _saveMedicalRecords();
     notifyListeners();
   }
 
-  Future<void> updateMedicalRecord(String catId, String recordId, MedicalRecord updatedRecord) async {
+  Future<void> updateMedicalRecord(
+      String catId, String recordId, MedicalRecord updatedRecord) async {
     if (_medicalRecords.containsKey(catId)) {
       final index = _medicalRecords[catId]!.indexWhere((r) => r.id == recordId);
       if (index != -1) {
@@ -335,12 +334,14 @@ class CatProvider with ChangeNotifier {
     // Set groupId to null for cats in this group
     _cats = _cats.map((cat) {
       if (cat.groupId == groupId) {
-        return Cat(
+        return Pet(
           id: cat.id,
           name: cat.name,
           description: cat.description,
           icon: cat.icon,
           groupId: null,
+          tags: cat.tags,
+          type: cat.type,
         );
       }
       return cat;
@@ -352,18 +353,61 @@ class CatProvider with ChangeNotifier {
   Future<void> updateCat(
     String catId,
     String name,
-    String description,
+    String? description,
     String icon,
-    String? groupId,
-  ) async {
+    String? groupId, [
+    PetType? type,
+  ]) async {
     final index = _cats.indexWhere((c) => c.id == catId);
     if (index != -1) {
-      _cats[index] = Cat(
+      final existingCat = _cats[index];
+      _cats[index] = Pet(
         id: catId,
         name: name,
         description: description,
         icon: icon,
         groupId: groupId,
+        tags: existingCat.tags,
+        type: type ?? existingCat.type,
+      );
+      await _saveCats();
+      notifyListeners();
+    }
+  }
+
+  Future<void> addTagToCat(String catId, String tag) async {
+    final index = _cats.indexWhere((c) => c.id == catId);
+    if (index != -1) {
+      final cat = _cats[index];
+      final trimmedTag = tag.trim();
+      if (trimmedTag.isNotEmpty && !cat.tags.contains(trimmedTag)) {
+        _cats[index] = Pet(
+          id: cat.id,
+          name: cat.name,
+          description: cat.description,
+          icon: cat.icon,
+          groupId: cat.groupId,
+          tags: [...cat.tags, trimmedTag],
+          type: cat.type,
+        );
+        await _saveCats();
+        notifyListeners();
+      }
+    }
+  }
+
+  Future<void> removeTagFromCat(String catId, String tag) async {
+    final index = _cats.indexWhere((c) => c.id == catId);
+    if (index != -1) {
+      final cat = _cats[index];
+      _cats[index] = Pet(
+        id: cat.id,
+        name: cat.name,
+        description: cat.description,
+        icon: cat.icon,
+        groupId: cat.groupId,
+        tags: cat.tags.where((t) => t != tag).toList(),
+        type: cat.type,
       );
       await _saveCats();
       notifyListeners();
@@ -382,11 +426,11 @@ class CatProvider with ChangeNotifier {
     // Remove all feeding records for this cat
     _feedingRecords.remove(catId);
     await _saveFeedingRecords();
-    
+
     // Remove all medical records for this cat
     _medicalRecords.remove(catId);
     await _saveMedicalRecords();
-    
+
     notifyListeners();
   }
 
@@ -414,6 +458,46 @@ class CatProvider with ChangeNotifier {
 
   Future<void> removeFoodType(String foodType) async {
     _foodTypes.remove(foodType);
+    await StorageService.saveFoodTypes(_foodTypes);
+    notifyListeners();
+  }
+
+  // Direct save methods for import functionality
+  Future<void> saveGroupsDirectly(List<Group> groups) async {
+    _groups = groups;
+    await _saveGroups();
+    notifyListeners();
+  }
+
+  Future<void> saveCatsDirectly(List<Cat> cats) async {
+    _cats = cats;
+    await _saveCats();
+    notifyListeners();
+  }
+
+  Future<void> saveWeightRecordsDirectly(
+      Map<String, List<WeightRecord>> records) async {
+    _weightRecords = records;
+    await _saveWeightRecords();
+    notifyListeners();
+  }
+
+  Future<void> saveFeedingRecordsDirectly(
+      Map<String, List<FeedingRecord>> records) async {
+    _feedingRecords = records;
+    await _saveFeedingRecords();
+    notifyListeners();
+  }
+
+  Future<void> saveMedicalRecordsDirectly(
+      Map<String, List<MedicalRecord>> records) async {
+    _medicalRecords = records;
+    await _saveMedicalRecords();
+    notifyListeners();
+  }
+
+  Future<void> saveFoodTypesDirectly(List<String> foodTypes) async {
+    _foodTypes = foodTypes;
     await StorageService.saveFoodTypes(_foodTypes);
     notifyListeners();
   }

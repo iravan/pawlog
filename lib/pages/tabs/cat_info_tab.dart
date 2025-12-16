@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/cat_provider.dart';
+import '../../models/cat.dart';
 import '../../utils/string_utils.dart';
 import 'edit_cat_dialog.dart';
 
@@ -18,25 +19,48 @@ class CatInfoTab extends StatelessWidget {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete Cat'),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        title: Text(
+          'Delete Pet',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+            color: Colors.grey.shade900,
+          ),
+        ),
         content: Text(
           'Are you sure you want to delete "${cat.name}"?\n\n'
           'This will permanently delete:\n'
-          '- The cat profile\n'
+          '- The pet profile\n'
           '- All weight records\n'
           '- All feeding records\n\n'
           'This action cannot be undone.',
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.grey.shade700,
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(
+              'Cancel',
+              style: TextStyle(
+                color: Colors.grey.shade600,
+              ),
+            ),
           ),
           ElevatedButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: Theme.of(context).colorScheme.error,
               foregroundColor: Colors.white,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(6),
+              ),
             ),
             child: const Text('Delete'),
           ),
@@ -64,7 +88,7 @@ class CatInfoTab extends StatelessWidget {
         final cat = catProvider.getCatById(catId);
 
         if (cat == null) {
-          return const Center(child: Text('Cat not found'));
+          return const Center(child: Text('Pet not found'));
         }
 
         final weightRecords = catProvider.getWeightRecords(catId);
@@ -74,213 +98,104 @@ class CatInfoTab extends StatelessWidget {
             : null;
 
         return Scaffold(
+          backgroundColor: Colors.grey.shade50,
           body: SingleChildScrollView(
-            padding: const EdgeInsets.all(24),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 20),
-                // Cat Icon
-                CircleAvatar(
-                  radius: 60,
-                  backgroundColor: Colors.deepPurple.shade100,
-                  child: Text(
-                    cat.icon,
-                    style: const TextStyle(fontSize: 64),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                // Cat Name
-                Text(
-                  StringUtils.getFirstTwoWords(cat.name),
-                  style: const TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                // Cat Description
+                // Header Section with Gradient-like Background
                 Container(
-                  padding: const EdgeInsets.all(16),
+                  width: double.infinity,
+                  padding: const EdgeInsets.fromLTRB(24, 40, 24, 32),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Text(
-                    cat.description,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey.shade700,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(height: 24),
-                // Medical History Tags
-                Consumer<CatProvider>(
-                  builder: (context, catProvider, _) {
-                    final medicalRecords = catProvider.getMedicalRecords(catId);
-                    
-                    if (medicalRecords.isEmpty) {
-                      return const SizedBox.shrink();
-                    }
-                    
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0, bottom: 12.0),
-                          child: Text(
-                            'Medical History',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey.shade700,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: Wrap(
-                            spacing: 8,
-                            runSpacing: 8,
-                            children: medicalRecords.map((record) {
-                              return Chip(
-                                label: Text(
-                                  record.title,
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.red.shade700,
-                                  ),
-                                ),
-                                backgroundColor: Colors.red.shade50,
-                                side: BorderSide(
-                                  color: Colors.red.shade200,
-                                  width: 1,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                padding: const EdgeInsets.symmetric(horizontal: 8),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-                const SizedBox(height: 32),
-                // Latest Weight
-                if (latestWeightRecord != null)
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple.shade50,
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(
-                        color: Colors.deepPurple.shade200,
-                        width: 2,
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.05),
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
                       ),
-                    ),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.monitor_weight,
-                              color: Colors.deepPurple,
-                              size: 32,
-                            ),
-                            const SizedBox(width: 12),
-                            Text(
-                              'Latest Weight',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.deepPurple,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          '${latestWeightRecord.weight} kg',
-                          style: const TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                else
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.monitor_weight_outlined,
-                          color: Colors.grey.shade400,
-                          size: 32,
-                        ),
-                        const SizedBox(width: 12),
-                        Text(
-                          'No weight records yet',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.grey.shade600,
-                          ),
-                        ),
-                      ],
-                    ),
+                    ],
                   ),
-                const SizedBox(height: 32),
-                // Edit Button
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => EditCatDialog(cat: cat),
-                      );
-                    },
-                    icon: const Icon(Icons.edit),
-                    label: const Text(
-                      'Edit Cat Information',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
-                      foregroundColor: Colors.white,
-                    ),
+                  child: Column(
+                    children: [
+                      // Cat Icon with better styling
+                      Container(
+                        padding: const EdgeInsets.all(24),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .primary
+                              .withOpacity(0.08),
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.2),
+                            width: 1,
+                          ),
+                        ),
+                        child: Text(
+                          cat.icon,
+                          style: const TextStyle(fontSize: 72),
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      // Cat Name
+                      Text(
+                        StringUtils.getFirstTwoWords(cat.name),
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.grey.shade900,
+                          letterSpacing: -0.5,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      if (cat.description != null &&
+                          cat.description!.isNotEmpty) ...[
+                        const SizedBox(height: 16),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 14,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade50,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: Colors.grey.shade200,
+                              width: 1,
+                            ),
+                          ),
+                          child: Text(
+                            cat.description!,
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.grey.shade700,
+                              height: 1.6,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
                 ),
-                const SizedBox(height: 16),
-                // Delete Button
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton.icon(
-                    onPressed: () => _deleteCat(context),
-                    icon: const Icon(Icons.delete),
-                    label: const Text(
-                      'Delete Cat',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
-                    ),
+                // Content Section
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      // Tags Section
+                      _buildTagsSection(context, catProvider, cat),
+                      const SizedBox(height: 16),
+                      // Latest Weight Card
+                      _buildWeightCard(context, latestWeightRecord),
+                      const SizedBox(height: 24),
+                      // Action Buttons
+                      _buildActionButtons(context, cat, catProvider),
+                    ],
                   ),
                 ),
               ],
@@ -288,6 +203,352 @@ class CatInfoTab extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildTagsSection(
+    BuildContext context,
+    CatProvider catProvider,
+    Cat cat,
+  ) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey.shade200),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Icons.label_outline,
+                    size: 20,
+                    color: Colors.grey.shade600,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Tags',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey.shade900,
+                    ),
+                  ),
+                ],
+              ),
+              OutlinedButton.icon(
+                onPressed: () => _showAddTagDialog(context, catProvider, cat),
+                icon: const Icon(Icons.add, size: 18),
+                label: const Text('Add'),
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 8,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          if (cat.tags.isEmpty)
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: Center(
+                child: Text(
+                  'No tags yet',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey.shade500,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+            )
+          else
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: cat.tags.map((tag) {
+                return Chip(
+                  label: Text(tag),
+                  deleteIcon: const Icon(Icons.close, size: 16),
+                  onDeleted: () {
+                    catProvider.removeTagFromCat(cat.id, tag);
+                  },
+                  backgroundColor:
+                      Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                  deleteIconColor: Colors.grey.shade600,
+                  labelStyle: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    side: BorderSide(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.3),
+                      width: 1,
+                    ),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                );
+              }).toList(),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildWeightCard(BuildContext context, dynamic latestWeightRecord) {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey.shade200),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: latestWeightRecord != null
+          ? Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Icon(
+                        Icons.monitor_weight,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: 24,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Text(
+                      'Latest Weight',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey.shade700,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  '${latestWeightRecord.weight} kg',
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.w700,
+                    color: Theme.of(context).colorScheme.primary,
+                    letterSpacing: -1,
+                  ),
+                ),
+              ],
+            )
+          : Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.monitor_weight_outlined,
+                  color: Colors.grey.shade400,
+                  size: 28,
+                ),
+                const SizedBox(width: 12),
+                Text(
+                  'No weight records yet',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.grey.shade600,
+                  ),
+                ),
+              ],
+            ),
+    );
+  }
+
+  Widget _buildActionButtons(
+    BuildContext context,
+    Cat cat,
+    CatProvider catProvider,
+  ) {
+    return Column(
+      children: [
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton.icon(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => EditCatDialog(cat: cat),
+              );
+            },
+            icon: const Icon(Icons.edit_outlined, size: 20),
+            label: const Text(
+              'Edit',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Colors.white,
+              elevation: 0,
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 24),
+        Center(
+          child: TextButton(
+            onPressed: () => _deleteCat(context),
+            child: Text(
+              'Delete Pet',
+              style: TextStyle(
+                fontSize: 13,
+                color: Colors.grey.shade500,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.grey.shade400,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+      ],
+    );
+  }
+
+  Future<void> _showAddTagDialog(
+    BuildContext context,
+    CatProvider catProvider,
+    Cat cat,
+  ) async {
+    await showDialog(
+      context: context,
+      builder: (context) => _AddTagDialog(
+        catProvider: catProvider,
+        cat: cat,
+      ),
+    );
+  }
+}
+
+class _AddTagDialog extends StatefulWidget {
+  final CatProvider catProvider;
+  final Cat cat;
+
+  const _AddTagDialog({
+    required this.catProvider,
+    required this.cat,
+  });
+
+  @override
+  State<_AddTagDialog> createState() => _AddTagDialogState();
+}
+
+class _AddTagDialogState extends State<_AddTagDialog> {
+  late final TextEditingController _tagController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tagController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _tagController.dispose();
+    super.dispose();
+  }
+
+  void _addTag() {
+    if (_tagController.text.trim().isNotEmpty) {
+      widget.catProvider.addTagToCat(widget.cat.id, _tagController.text.trim());
+    }
+    Navigator.of(context).pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      title: Text(
+        'Add Tag',
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w500,
+          color: Colors.grey.shade900,
+        ),
+      ),
+      content: TextField(
+        controller: _tagController,
+        autofocus: true,
+        decoration: const InputDecoration(
+          labelText: 'Tag name',
+          hintText: 'Enter tag name',
+        ),
+        onSubmitted: (_) => _addTag(),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(
+            'Cancel',
+            style: TextStyle(
+              color: Colors.grey.shade600,
+            ),
+          ),
+        ),
+        ElevatedButton(
+          onPressed: _addTag,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            foregroundColor: Colors.white,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(6),
+            ),
+          ),
+          child: const Text('Add'),
+        ),
+      ],
     );
   }
 }
