@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark mode launch background - darker gray for better contrast -->
+    <color name="launch_background">#121212</color>
+    <!-- Primary color for consistency -->
+    <color name="primary_blue">#0D6EFD</color>
+</resources>

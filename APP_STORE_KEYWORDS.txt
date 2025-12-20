@@ -1,0 +1,21 @@
+KEYWORDS FOR APP STORE CONNECT
+(100 character limit - comma-separated, no spaces)
+
+OPTION 1 - Current (77 characters):
+pet,health,weight,feeding,medical,records,cats,dogs,tracking,care,veterinary,wellness
+
+OPTION 2 - Expanded (100 characters):
+pet,health,weight,feeding,medical,records,cats,dogs,tracking,care,veterinary,wellness,animal,vet,appointment
+
+OPTION 3 - Focused on search terms (100 characters):
+pet,health,weight,feeding,medical,records,cats,dogs,tracking,care,veterinary,wellness,animal,vet,appointment,diet
+
+OPTION 4 - Maximum coverage (100 characters):
+pet,health,weight,feeding,medical,records,cats,dogs,tracking,care,veterinary,wellness,animal,vet,appointment,diet,log
+
+RECOMMENDED (100 characters exactly):
+pet,health,weight,feeding,medical,records,cats,dogs,tracking,care,veterinary,wellness,animal,vet,appointment,diet
+
+CHARACTER COUNT: 100
+
+
