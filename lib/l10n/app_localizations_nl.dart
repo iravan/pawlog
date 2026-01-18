@@ -351,7 +351,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get catNotFound => 'Kat niet gevonden';
 
   @override
-  String get help => 'Help';
+  String get help => 'Hulp';
 
   @override
   String get changeThemeColor => 'Themakleur wijzigen';
@@ -513,7 +513,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get foodTypes => 'Voedselsoorten';
 
   @override
-  String get managingFoodTypes => 'Managing Food Types';
+  String get managingFoodTypes => 'Voedselsoorten Beheren';
 
   @override
   String get managingFoodTypesDescription =>
@@ -566,4 +566,57 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       'Voedselsoorten voor voedingsrecords toevoegen en beheren';
+
+  @override
+  String get defaultGroupIndoorPets => 'Binnenhuisdieren';
+
+  @override
+  String get defaultGroupIndoorPetsDescription =>
+      'Huisdieren die binnen blijven';
+
+  @override
+  String get defaultGroupOutdoorPets => 'Buitendieren';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription =>
+      'Huisdieren die naar buiten gaan';
+
+  @override
+  String get defaultGroupYoungPets => 'Jonge Huisdieren';
+
+  @override
+  String get defaultGroupYoungPetsDescription =>
+      'Jonge huisdieren onder 1 jaar';
+
+  @override
+  String get defaultPetWhiskersName => 'Snorharen';
+
+  @override
+  String get defaultPetWhiskersDescription =>
+      'Een speelse oranje tabby die graag verkent';
+
+  @override
+  String get defaultPetLunaName => 'Luna';
+
+  @override
+  String get defaultPetLunaDescription =>
+      'Een sierlijke zwarte kat met groene ogen';
+
+  @override
+  String get defaultPetMaxName => 'Max';
+
+  @override
+  String get defaultPetMaxDescription => 'Een vriendelijke golden retriever';
+
+  @override
+  String get defaultFoodTypeWetFood => 'Natvoer';
+
+  @override
+  String get defaultFoodTypeDryFood => 'Droogvoer';
+
+  @override
+  String get today => 'Vandaag';
+
+  @override
+  String get yesterday => 'Gisteren';
 }

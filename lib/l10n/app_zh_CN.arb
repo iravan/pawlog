@@ -66,6 +66,10 @@
   "addRecord": "添加记录",
   "noMedicalRecordsYet": "还没有医疗记录",
   "catNotFound": "未找到猫",
+  "help": "帮助",
+  "@help": {
+    "description": "Help button tooltip"
+  },
   "info": "信息",
   "medical": "医疗",
   "weight": "体重",
@@ -151,6 +155,10 @@
   "importingData": "导入数据",
   "importingDataDescription": "导入先前导出的数据以恢复您的宠物和记录。",
   "foodTypes": "食物类型",
+  "managingFoodTypes": "管理食物类型",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "转到右上角的菜单（三点）并选择「管理食物类型」以添加、编辑或删除食物类型。",
   "usingFoodTypes": "使用食物类型",
   "usingFoodTypesDescription": "添加喂食记录时，从您保存的食物类型中选择。这有助于保持追踪的一致性。",
@@ -165,5 +173,21 @@
   "noFoodTypesYet": "尚无食物类型",
   "foodTypeName": "食物类型名称",
   "addNewFoodType": "添加新食物类型",
-  "addAndManageFoodTypesForFeedingRecords": "添加和管理喂食记录的食物类型"
+  "addAndManageFoodTypesForFeedingRecords": "添加和管理喂食记录的食物类型",
+  "defaultGroupIndoorPets": "室内宠物",
+  "defaultGroupIndoorPetsDescription": "待在室内的宠物",
+  "defaultGroupOutdoorPets": "户外宠物",
+  "defaultGroupOutdoorPetsDescription": "会外出的宠物",
+  "defaultGroupYoungPets": "幼年宠物",
+  "defaultGroupYoungPetsDescription": "1岁以下的幼年宠物",
+  "defaultPetWhiskersName": "胡须",
+  "defaultPetWhiskersDescription": "一只喜欢探索的顽皮橙色虎斑猫",
+  "defaultPetLunaName": "露娜",
+  "defaultPetLunaDescription": "一只优雅的黑猫，有着绿色的眼睛",
+  "defaultPetMaxName": "麦克斯",
+  "defaultPetMaxDescription": "一只友善的金毛寻回犬",
+  "defaultFoodTypeWetFood": "湿粮",
+  "defaultFoodTypeDryFood": "干粮",
+  "today": "今天",
+  "yesterday": "昨天"
 }

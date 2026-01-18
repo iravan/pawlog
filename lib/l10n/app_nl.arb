@@ -66,6 +66,10 @@
   "addRecord": "Record Toevoegen",
   "noMedicalRecordsYet": "Nog geen medische records",
   "catNotFound": "Kat niet gevonden",
+  "help": "Hulp",
+  "@help": {
+    "description": "Help button tooltip"
+  },
   "info": "Info",
   "medical": "Medisch",
   "weight": "Gewicht",
@@ -151,6 +155,10 @@
   "importingData": "Gegevens Importeren",
   "importingDataDescription": "Importeer eerder geëxporteerde gegevens om uw huisdieren en records te herstellen.",
   "foodTypes": "Voedselsoorten",
+  "managingFoodTypes": "Voedselsoorten Beheren",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "Ga naar het menu (drie punten) in de rechterbovenhoek en selecteer \"Voedselsoorten Beheren\" om voedselsoorten toe te voegen, te bewerken of te verwijderen.",
   "usingFoodTypes": "Voedselsoorten Gebruiken",
   "usingFoodTypesDescription": "Selecteer bij het toevoegen van een voedingsrecord uit uw opgeslagen voedselsoorten. Dit helpt de consistentie bij het volgen te behouden.",
@@ -165,5 +173,21 @@
   "noFoodTypesYet": "Nog geen voedselsoorten",
   "foodTypeName": "Naam Voedselsoort",
   "addNewFoodType": "Nieuwe Voedselsoort Toevoegen",
-  "addAndManageFoodTypesForFeedingRecords": "Voedselsoorten voor voedingsrecords toevoegen en beheren"
+  "addAndManageFoodTypesForFeedingRecords": "Voedselsoorten voor voedingsrecords toevoegen en beheren",
+  "defaultGroupIndoorPets": "Binnenhuisdieren",
+  "defaultGroupIndoorPetsDescription": "Huisdieren die binnen blijven",
+  "defaultGroupOutdoorPets": "Buitendieren",
+  "defaultGroupOutdoorPetsDescription": "Huisdieren die naar buiten gaan",
+  "defaultGroupYoungPets": "Jonge Huisdieren",
+  "defaultGroupYoungPetsDescription": "Jonge huisdieren onder 1 jaar",
+  "defaultPetWhiskersName": "Snorharen",
+  "defaultPetWhiskersDescription": "Een speelse oranje tabby die graag verkent",
+  "defaultPetLunaName": "Luna",
+  "defaultPetLunaDescription": "Een sierlijke zwarte kat met groene ogen",
+  "defaultPetMaxName": "Max",
+  "defaultPetMaxDescription": "Een vriendelijke golden retriever",
+  "defaultFoodTypeWetFood": "Natvoer",
+  "defaultFoodTypeDryFood": "Droogvoer",
+  "today": "Vandaag",
+  "yesterday": "Gisteren"
 }

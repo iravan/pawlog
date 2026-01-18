@@ -1,170 +1,807 @@
 {
   "@@locale": "es",
   "appTitle": "PawsLog",
+  "@appTitle": {
+    "description": "The app title"
+  },
   "trackYourPetsHealth": "Rastrea la salud y actividades de tu mascota",
+  "@trackYourPetsHealth": {
+    "description": "Subtitle on login page"
+  },
   "getStarted": "Comenzar",
+  "@getStarted": {
+    "description": "Button on login page"
+  },
   "myPets": "Mis Mascotas",
+  "@myPets": {
+    "description": "App bar title on main page"
+  },
   "noGroupsOrPetsAvailable": "No hay grupos o mascotas disponibles",
+  "@noGroupsOrPetsAvailable": {
+    "description": "Empty state message"
+  },
   "newGroup": "Nuevo Grupo",
+  "@newGroup": {
+    "description": "Floating action button label"
+  },
   "createGroup": "Crear Grupo",
+  "@createGroup": {
+    "description": "Tooltip for create group button"
+  },
   "filterByTags": "Filtrar por etiquetas:",
+  "@filterByTags": {
+    "description": "Label for tag filter section"
+  },
   "clear": "Limpiar",
+  "@clear": {
+    "description": "Button to clear tag filters"
+  },
   "ungroupedPets": "Mascotas Sin Grupo",
+  "@ungroupedPets": {
+    "description": "Title for ungrouped pets section"
+  },
   "petCount": "{count, plural, =0{0 mascotas} =1{1 mascota} other{{count} mascotas}}",
+  "@petCount": {
+    "description": "Pet count text with pluralization",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "noPetsInThisGroup": "No hay mascotas en este grupo",
+  "@noPetsInThisGroup": {
+    "description": "Empty state for group"
+  },
   "addPet": "Agregar Mascota",
+  "@addPet": {
+    "description": "Button to add a pet"
+  },
   "expand": "Expandir",
+  "@expand": {
+    "description": "Tooltip for expand button"
+  },
   "collapse": "Contraer",
+  "@collapse": {
+    "description": "Tooltip for collapse button"
+  },
   "feedGroup": "Alimentar Grupo",
+  "@feedGroup": {
+    "description": "Tooltip for feed group button"
+  },
   "editGroup": "Editar Grupo",
+  "@editGroup": {
+    "description": "Menu item to edit group"
+  },
   "deleteGroup": "Eliminar Grupo",
+  "@deleteGroup": {
+    "description": "Menu item to delete group"
+  },
   "deleteGroupTitle": "Eliminar Grupo",
+  "@deleteGroupTitle": {
+    "description": "Dialog title for deleting group"
+  },
   "deleteGroupConfirmEmpty": "¿Estás seguro de que deseas eliminar \"{groupName}\"?",
+  "@deleteGroupConfirmEmpty": {
+    "description": "Confirmation message for deleting empty group",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      }
+    }
+  },
   "deleteGroupConfirmWithPets": "¿Estás seguro de que deseas eliminar \"{groupName}\"?\n\nEsto eliminará {count} gato(s) de este grupo.",
+  "@deleteGroupConfirmWithPets": {
+    "description": "Confirmation message for deleting group with pets",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "cancel": "Cancelar",
+  "@cancel": {
+    "description": "Cancel button"
+  },
   "delete": "Eliminar",
+  "@delete": {
+    "description": "Delete button"
+  },
   "manageFoodTypes": "Gestionar Tipos de Comida",
+  "@manageFoodTypes": {
+    "description": "Menu item for managing food types"
+  },
   "importData": "Importar Datos",
+  "@importData": {
+    "description": "Menu item for importing data"
+  },
   "exportData": "Exportar Datos",
+  "@exportData": {
+    "description": "Menu item for exporting data"
+  },
   "dataImportedSuccessfully": "¡Datos importados exitosamente!",
+  "@dataImportedSuccessfully": {
+    "description": "Success message after importing"
+  },
   "addNewPet": "Agregar Nueva Mascota",
+  "@addNewPet": {
+    "description": "Dialog title for adding pet"
+  },
   "createANewPetProfile": "Crear un nuevo perfil de mascota",
+  "@createANewPetProfile": {
+    "description": "Subtitle in add pet dialog"
+  },
   "petType": "Tipo de Mascota",
+  "@petType": {
+    "description": "Label for pet type selection"
+  },
   "cat": "Gato",
+  "@cat": {
+    "description": "Cat pet type"
+  },
   "dog": "Perro",
+  "@dog": {
+    "description": "Dog pet type"
+  },
   "name": "Nombre",
+  "@name": {
+    "description": "Name field label"
+  },
   "enterPetName": "Ingresa el nombre de la mascota",
+  "@enterPetName": {
+    "description": "Hint for pet name field"
+  },
   "pleaseEnterACatName": "Por favor ingresa un nombre de mascota",
+  "@pleaseEnterACatName": {
+    "description": "Validation error for pet name"
+  },
   "descriptionOptional": "Descripción (opcional)",
+  "@descriptionOptional": {
+    "description": "Description field label"
+  },
   "tellUsAboutYourPet": "Cuéntanos sobre tu mascota...",
+  "@tellUsAboutYourPet": {
+    "description": "Hint for description field"
+  },
   "selectIcon": "Seleccionar Icono",
+  "@selectIcon": {
+    "description": "Label for icon selection"
+  },
   "editGroupTitle": "Editar Grupo",
+  "@editGroupTitle": {
+    "description": "Dialog title for editing group"
+  },
   "createGroupTitle": "Crear Grupo",
+  "@createGroupTitle": {
+    "description": "Dialog title for creating group"
+  },
   "updateGroupInformation": "Actualizar información del grupo",
+  "@updateGroupInformation": {
+    "description": "Subtitle in edit group dialog"
+  },
   "organizeYourPetsIntoGroups": "Organiza tus mascotas en grupos",
+  "@organizeYourPetsIntoGroups": {
+    "description": "Subtitle in create group dialog"
+  },
   "enterGroupName": "Ingresa el nombre del grupo",
+  "@enterGroupName": {
+    "description": "Hint for group name field"
+  },
   "pleaseEnterAGroupName": "Por favor ingresa un nombre de grupo",
+  "@pleaseEnterAGroupName": {
+    "description": "Validation error for group name"
+  },
   "describeThisGroup": "Describe este grupo...",
+  "@describeThisGroup": {
+    "description": "Hint for group description field"
+  },
   "saveChanges": "Guardar Cambios",
+  "@saveChanges": {
+    "description": "Button to save changes"
+  },
   "deletePet": "Eliminar Mascota",
+  "@deletePet": {
+    "description": "Dialog title for deleting pet"
+  },
   "deletePetConfirm": "¿Estás seguro de que deseas eliminar \"{petName}\"?\n\nEsto eliminará permanentemente:\n- El perfil de la mascota\n- Todos los registros de peso\n- Todos los registros de alimentación\n\nEsta acción no se puede deshacer.",
+  "@deletePetConfirm": {
+    "description": "Confirmation message for deleting pet",
+    "placeholders": {
+      "petName": {
+        "type": "String"
+      }
+    }
+  },
   "petHasBeenDeleted": "{petName} ha sido eliminado",
+  "@petHasBeenDeleted": {
+    "description": "Message after pet deletion",
+    "placeholders": {
+      "petName": {
+        "type": "String"
+      }
+    }
+  },
   "petNotFound": "Mascota no encontrada",
+  "@petNotFound": {
+    "description": "Error message when pet not found"
+  },
   "tags": "Etiquetas",
+  "@tags": {
+    "description": "Tags section title"
+  },
   "add": "Agregar",
+  "@add": {
+    "description": "Add button"
+  },
   "noTagsYet": "Aún no hay etiquetas",
+  "@noTagsYet": {
+    "description": "Empty state for tags"
+  },
   "latestWeight": "Último Peso",
+  "@latestWeight": {
+    "description": "Latest weight card title"
+  },
   "noWeightRecordsYet": "Aún no hay registros de peso",
+  "@noWeightRecordsYet": {
+    "description": "Empty state for weight records"
+  },
   "edit": "Editar",
+  "@edit": {
+    "description": "Edit button"
+  },
   "addTag": "Agregar Etiqueta",
+  "@addTag": {
+    "description": "Dialog title for adding tag"
+  },
   "tagName": "Nombre de etiqueta",
+  "@tagName": {
+    "description": "Label for tag name field"
+  },
   "enterTagName": "Ingresa el nombre de la etiqueta",
+  "@enterTagName": {
+    "description": "Hint for tag name field"
+  },
   "noFeedingRecordsYet": "Aún no hay registros de alimentación",
+  "@noFeedingRecordsYet": {
+    "description": "Empty state for feeding records"
+  },
   "tapTheButtonToAddARecord": "Toca el botón + para agregar un registro",
+  "@tapTheButtonToAddARecord": {
+    "description": "Hint text for empty records"
+  },
   "addFeeding": "Agregar Alimentación",
+  "@addFeeding": {
+    "description": "Button to add feeding record"
+  },
   "addWeight": "Agregar Peso",
+  "@addWeight": {
+    "description": "Button to add weight record"
+  },
   "addRecord": "Agregar Registro",
+  "@addRecord": {
+    "description": "Button to add medical record"
+  },
   "noMedicalRecordsYet": "Aún no hay registros médicos",
-  "catNotFound": "Gato no encontrado",
+  "@noMedicalRecordsYet": {
+    "description": "Empty state for medical records"
+  },
   "info": "Info",
+  "@info": {
+    "description": "Info tab label"
+  },
   "medical": "Médico",
+  "@medical": {
+    "description": "Medical tab label"
+  },
   "weight": "Peso",
+  "@weight": {
+    "description": "Weight tab label"
+  },
   "feeding": "Alimentación",
+  "@feeding": {
+    "description": "Feeding tab label"
+  },
   "addFeedingRecord": "Agregar Registro de Alimentación",
+  "@addFeedingRecord": {
+    "description": "Dialog title for adding feeding record"
+  },
   "editFeedingRecord": "Editar Registro de Alimentación",
+  "@editFeedingRecord": {
+    "description": "Dialog title for editing feeding record"
+  },
   "recordYourPetsFeeding": "Registrar la alimentación de tu mascota",
+  "@recordYourPetsFeeding": {
+    "description": "Subtitle in add feeding dialog"
+  },
   "updateFeedingInformation": "Actualizar información de alimentación",
+  "@updateFeedingInformation": {
+    "description": "Subtitle in edit feeding dialog"
+  },
   "foodType": "Tipo de Comida",
+  "@foodType": {
+    "description": "Label for food type field"
+  },
   "selectFoodType": "Seleccionar tipo de comida",
+  "@selectFoodType": {
+    "description": "Hint for food type field"
+  },
   "pleaseSelectAFoodType": "Por favor selecciona un tipo de comida",
+  "@pleaseSelectAFoodType": {
+    "description": "Validation error for food type"
+  },
   "amount": "Cantidad",
+  "@amount": {
+    "description": "Label for amount field"
+  },
   "enterAmount": "Ingresa la cantidad",
-  "pleaseEnterAValidAmount": "Por favor ingresa una cantidad válida (0.5-1000)",
+  "@enterAmount": {
+    "description": "Hint for amount field"
+  },
+  "pleaseEnterAValidAmount": "Por favor ingresa una cantidad válida (0,5-1000)",
+  "@pleaseEnterAValidAmount": {
+    "description": "Validation error for amount"
+  },
   "date": "Fecha",
+  "@date": {
+    "description": "Label for date field"
+  },
   "selectDate": "Seleccionar fecha",
+  "@selectDate": {
+    "description": "Hint for date field"
+  },
   "notes": "Notas",
+  "@notes": {
+    "description": "Label for notes field"
+  },
   "enterNotes": "Ingresa notas (opcional)",
+  "@enterNotes": {
+    "description": "Hint for notes field"
+  },
   "addWeightRecord": "Agregar Registro de Peso",
+  "@addWeightRecord": {
+    "description": "Dialog title for adding weight record"
+  },
   "editWeightRecord": "Editar Registro de Peso",
+  "@editWeightRecord": {
+    "description": "Dialog title for editing weight record"
+  },
   "recordYourCatsWeight": "Registrar el peso de tu gato",
+  "@recordYourCatsWeight": {
+    "description": "Subtitle in add weight dialog"
+  },
   "updateWeightInformation": "Actualizar información de peso",
+  "@updateWeightInformation": {
+    "description": "Subtitle in edit weight dialog"
+  },
   "weightKg": "Peso (kg)",
+  "@weightKg": {
+    "description": "Label for weight field"
+  },
   "enterWeight": "Ingresa el peso",
+  "@enterWeight": {
+    "description": "Hint for weight field"
+  },
   "pleaseEnterAValidWeight": "Por favor ingresa un peso válido",
+  "@pleaseEnterAValidWeight": {
+    "description": "Validation error for weight"
+  },
   "addMedicalRecord": "Agregar Registro Médico",
+  "@addMedicalRecord": {
+    "description": "Dialog title for adding medical record"
+  },
   "editMedicalRecord": "Editar Registro Médico",
+  "@editMedicalRecord": {
+    "description": "Dialog title for editing medical record"
+  },
   "recordMedicalInformation": "Registrar información médica",
+  "@recordMedicalInformation": {
+    "description": "Subtitle in add medical dialog"
+  },
   "updateMedicalInformation": "Actualizar información médica",
+  "@updateMedicalInformation": {
+    "description": "Subtitle in edit medical dialog"
+  },
   "title": "Título",
+  "@title": {
+    "description": "Label for title field"
+  },
   "enterTitle": "Ingresa el título",
+  "@enterTitle": {
+    "description": "Hint for title field"
+  },
   "pleaseEnterATitle": "Por favor ingresa un título",
-  "foodTypeAdded": "{foodType} agregado",
-  "deleteFoodType": "Eliminar Tipo de Comida",
-  "deleteFoodTypeConfirm": "¿Estás seguro de que deseas eliminar \"{foodType}\"?\n\nEsto lo eliminará de todos los registros de alimentación.",
-  "editFoodType": "Editar Tipo de Comida",
-  "enterFoodTypeName": "Ingresa el nombre del tipo de comida",
-  "pleaseEnterAFoodTypeName": "Por favor ingresa un nombre de tipo de comida",
-  "saveToAllCats": "Guardar para Todos los Gatos",
-  "addedToCats": "Agregado a {successCount} gato(s). {failedCount} gato(s) ya tienen 5 registros para este día.",
-  "addedToAllCats": "Agregado a todos los {count} gato(s) exitosamente",
+  "@pleaseEnterATitle": {
+    "description": "Validation error for title"
+  },
   "deleteGroupConfirmWithPetsFixed": "¿Estás seguro de que deseas eliminar \"{groupName}\"?\n\nEsto eliminará {count} mascota(s) de este grupo.",
+  "@deleteGroupConfirmWithPetsFixed": {
+    "description": "Confirmation message for deleting group with pets (fixed)",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "editPetInformation": "Editar Información de la Mascota",
+  "@editPetInformation": {
+    "description": "Dialog title for editing pet"
+  },
   "updateYourPetsDetails": "Actualizar los detalles de tu mascota",
+  "@updateYourPetsDetails": {
+    "description": "Subtitle in edit pet dialog"
+  },
   "groupOptional": "Grupo (opcional)",
+  "@groupOptional": {
+    "description": "Label for group selection field"
+  },
   "selectAGroup": "Seleccionar un grupo",
+  "@selectAGroup": {
+    "description": "Hint for group selection"
+  },
   "noGroup": "Sin Grupo",
+  "@noGroup": {
+    "description": "Option for no group"
+  },
   "description": "Descripción",
+  "@description": {
+    "description": "Description section title"
+  },
   "group": "Grupo",
+  "@group": {
+    "description": "Group section title"
+  },
+  "catNotFound": "Gato no encontrado",
+  "@catNotFound": {
+    "description": "App bar title when cat not found"
+  },
+  "help": "Ayuda",
+  "@help": {
+    "description": "Help button tooltip"
+  },
   "changeThemeColor": "Cambiar color del tema",
+  "@changeThemeColor": {
+    "description": "Theme color button tooltip"
+  },
   "themeColor": "Color del Tema",
+  "@themeColor": {
+    "description": "Theme color picker dialog title"
+  },
+  "foodTypeAdded": "{foodType} agregado",
+  "@foodTypeAdded": {
+    "description": "Snackbar message when food type is added",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFoodType": "Eliminar Tipo de Comida",
+  "@deleteFoodType": {
+    "description": "Dialog title for deleting food type"
+  },
+  "deleteFoodTypeConfirm": "¿Estás seguro de que deseas eliminar \"{foodType}\"?\n\nEsto lo eliminará de todos los registros de alimentación.",
+  "@deleteFoodTypeConfirm": {
+    "description": "Confirmation message for deleting food type",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      }
+    }
+  },
+  "editFoodType": "Editar Tipo de Comida",
+  "@editFoodType": {
+    "description": "Dialog title for editing food type"
+  },
+  "enterFoodTypeName": "Ingresa el nombre del tipo de comida",
+  "@enterFoodTypeName": {
+    "description": "Hint for food type input"
+  },
+  "pleaseEnterAFoodTypeName": "Por favor ingresa un nombre de tipo de comida",
+  "@pleaseEnterAFoodTypeName": {
+    "description": "Validation message for food type name"
+  },
+  "saveToAllCats": "Guardar para Todos los Gatos",
+  "@saveToAllCats": {
+    "description": "Button label for group feeding"
+  },
+  "addedToCats": "Agregado a {successCount} gato(s). {failedCount} gato(s) ya tienen 5 registros para este día.",
+  "@addedToCats": {
+    "description": "Message when group feeding is partially successful",
+    "placeholders": {
+      "successCount": {
+        "type": "int"
+      },
+      "failedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "addedToAllCats": "Agregado a todos los {count} gato(s) exitosamente",
+  "@addedToAllCats": {
+    "description": "Message when group feeding is fully successful",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "groupFeeding": "Alimentación en Grupo",
+  "@groupFeeding": {
+    "description": "Dialog title for group feeding"
+  },
   "recordFeedingForAllPetsInGroup": "Registrar alimentación para todas las mascotas de este grupo",
+  "@recordFeedingForAllPetsInGroup": {
+    "description": "Subtitle for group feeding dialog"
+  },
+  "help": "Ayuda",
+  "@help": {
+    "description": "Help page title"
+  },
   "gettingStarted": "Primeros Pasos",
+  "@gettingStarted": {
+    "description": "Help section title"
+  },
   "creatingYourFirstPet": "Crear Tu Primera Mascota",
+  "@creatingYourFirstPet": {
+    "description": "Help item title"
+  },
   "creatingYourFirstPetDescription": "Toca el botón \"Nuevo Grupo\" en la parte inferior para crear un grupo, luego toca \"Agregar Mascota\" para agregar tu primera mascota al grupo.",
+  "@creatingYourFirstPetDescription": {
+    "description": "Help item description"
+  },
   "addingPets": "Agregar Mascotas",
+  "@addingPets": {
+    "description": "Help item title"
+  },
   "addingPetsDescription": "Puedes agregar mascotas directamente a un grupo o agregarlas sin grupo. Las mascotas se pueden mover entre grupos más tarde.",
+  "@addingPetsDescription": {
+    "description": "Help item description"
+  },
   "petTypes": "Tipos de Mascotas",
+  "@petTypes": {
+    "description": "Help item title"
+  },
   "petTypesDescription": "Elige entre Gato o Perro al agregar una mascota. También puedes seleccionar un ícono personalizado para cada mascota.",
+  "@petTypesDescription": {
+    "description": "Help item description"
+  },
   "managingPets": "Gestionar Mascotas",
+  "@managingPets": {
+    "description": "Help section title"
+  },
   "viewingPetDetails": "Ver Detalles de la Mascota",
+  "@viewingPetDetails": {
+    "description": "Help item title"
+  },
   "viewingPetDetailsDescription": "Toca cualquier mascota en la lista para ver información detallada, incluyendo registros de peso, historial de alimentación y registros médicos.",
+  "@viewingPetDetailsDescription": {
+    "description": "Help item description"
+  },
   "editingPetInformation": "Editar Información de la Mascota",
+  "@editingPetInformation": {
+    "description": "Help item title"
+  },
   "editingPetInformationDescription": "Toca el botón \"Editar\" en la pestaña de información de la mascota para actualizar el nombre, descripción, ícono o asignación de grupo.",
+  "@editingPetInformationDescription": {
+    "description": "Help item description"
+  },
   "deletingPets": "Eliminar Mascotas",
+  "@deletingPets": {
+    "description": "Help item title"
+  },
   "deletingPetsDescription": "Usa el botón \"Eliminar\" en la pestaña de información de la mascota para eliminar permanentemente una mascota y todos los registros asociados.",
+  "@deletingPetsDescription": {
+    "description": "Help item description"
+  },
   "recordingData": "Registrar Datos",
+  "@recordingData": {
+    "description": "Help section title"
+  },
   "weightRecords": "Registros de Peso",
+  "@weightRecords": {
+    "description": "Help item title"
+  },
   "weightRecordsDescription": "Rastrea el peso de tu mascota con el tiempo. Toca el botón + en la pestaña de Peso para agregar un nuevo registro.",
+  "@weightRecordsDescription": {
+    "description": "Help item description"
+  },
   "feedingRecords": "Registros de Alimentación",
+  "@feedingRecords": {
+    "description": "Help item title"
+  },
   "feedingRecordsDescription": "Registra horarios de alimentación, tipos de comida y cantidades. Puedes agregar hasta 5 registros por día por mascota.",
+  "@feedingRecordsDescription": {
+    "description": "Help item description"
+  },
   "medicalRecords": "Registros Médicos",
+  "@medicalRecords": {
+    "description": "Help item title"
+  },
   "medicalRecordsDescription": "Lleva un registro de visitas al veterinario, medicamentos, vacunas y otra información médica.",
+  "@medicalRecordsDescription": {
+    "description": "Help item description"
+  },
   "groupsAndOrganization": "Grupos y Organización",
+  "@groupsAndOrganization": {
+    "description": "Help section title"
+  },
   "creatingGroups": "Crear Grupos",
+  "@creatingGroups": {
+    "description": "Help item title"
+  },
   "creatingGroupsDescription": "Crea grupos para organizar tus mascotas. Toca \"Nuevo Grupo\" para crear un grupo, luego agrega mascotas a él.",
+  "@creatingGroupsDescription": {
+    "description": "Help item description"
+  },
   "groupFeedingDescription": "Usa la función de alimentación en grupo para registrar la misma alimentación para todas las mascotas de un grupo a la vez.",
-  "tagsDescription": "Agrega etiquetas a tus mascotas para filtrar fácilmente. Las etiquetas te ayudan a organizar y encontrar mascotas rápidamente usando la barra de filtro en la parte superior.",
+  "@groupFeedingDescription": {
+    "description": "Help item description"
+  },
+  "tagsDescription": "Agrega etiquetas a las mascotas para filtrar fácilmente. Toca \"Agregar\" en la sección de Etiquetas para crear etiquetas personalizadas.",
+  "@tagsDescription": {
+    "description": "Help item description"
+  },
   "dataManagement": "Gestión de Datos",
+  "@dataManagement": {
+    "description": "Help section title"
+  },
   "exportingData": "Exportar Datos",
+  "@exportingData": {
+    "description": "Help item title"
+  },
   "exportingDataDescription": "Exporta tus datos para compartir o hacer respaldo. Ve a Configuración y toca \"Exportar Datos\".",
+  "@exportingDataDescription": {
+    "description": "Help item description"
+  },
   "importingData": "Importar Datos",
+  "@importingData": {
+    "description": "Help item title"
+  },
   "importingDataDescription": "Importa datos previamente exportados para restaurar tus mascotas y registros.",
+  "@importingDataDescription": {
+    "description": "Help item description"
+  },
   "foodTypes": "Tipos de Comida",
+  "@foodTypes": {
+    "description": "Help section title"
+  },
   "managingFoodTypes": "Gestionar Tipos de Comida",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "Ve al menú (tres puntos) en la esquina superior derecha y selecciona \"Gestionar Tipos de Comida\" para agregar, editar o eliminar tipos de comida.",
+  "@managingFoodTypesDescription": {
+    "description": "Help item description"
+  },
   "usingFoodTypes": "Usar Tipos de Comida",
+  "@usingFoodTypes": {
+    "description": "Help item title"
+  },
   "usingFoodTypesDescription": "Al agregar un registro de alimentación, selecciona de tus tipos de comida guardados. Esto ayuda a mantener la consistencia en el seguimiento.",
+  "@usingFoodTypesDescription": {
+    "description": "Help item description"
+  },
   "localStorage": "Almacenamiento Local",
+  "@localStorage": {
+    "description": "Help item title"
+  },
   "localStorageDescription": "Todos tus datos se almacenan localmente en tu dispositivo. Tu información de mascotas permanece privada y es accesible sin conexión.",
+  "@localStorageDescription": {
+    "description": "Help item description"
+  },
   "customization": "Personalización",
+  "@customization": {
+    "description": "Help section title"
+  },
   "themeColors": "Colores del Tema",
+  "@themeColors": {
+    "description": "Help item title"
+  },
   "themeColorsDescription": "Cambia el color del tema de la aplicación tocando el ícono de paleta en la esquina superior derecha. Elige entre una variedad de colores para personalizar tu experiencia.",
+  "@themeColorsDescription": {
+    "description": "Help item description"
+  },
   "thisWillAddAFeedingRecordToCats": "Esto agregará un registro de alimentación a {count} gato(s):",
+  "@thisWillAddAFeedingRecordToCats": {
+    "description": "Message in group feeding dialog",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "type": "tipo",
+  "@type": {
+    "description": "Singular form of type"
+  },
   "types": "tipos",
+  "@types": {
+    "description": "Plural form of type"
+  },
   "noFoodTypesYet": "Aún no hay tipos de comida",
+  "@noFoodTypesYet": {
+    "description": "Empty state message for food types"
+  },
   "foodTypeName": "Nombre del Tipo de Comida",
+  "@foodTypeName": {
+    "description": "Label for food type name input"
+  },
   "addNewFoodType": "Agregar Nuevo Tipo de Comida",
-  "addAndManageFoodTypesForFeedingRecords": "Agregar y gestionar tipos de comida para registros de alimentación"
+  "@addNewFoodType": {
+    "description": "Section title for adding food type"
+  },
+  "addAndManageFoodTypesForFeedingRecords": "Agregar y gestionar tipos de comida para registros de alimentación",
+  "@addAndManageFoodTypesForFeedingRecords": {
+    "description": "Subtitle for food types dialog"
+  },
+  "defaultGroupIndoorPets": "Mascotas de Interior",
+  "@defaultGroupIndoorPets": {
+    "description": "Default group name for indoor pets"
+  },
+  "defaultGroupIndoorPetsDescription": "Mascotas que permanecen en el interior",
+  "@defaultGroupIndoorPetsDescription": {
+    "description": "Default group description for indoor pets"
+  },
+  "defaultGroupOutdoorPets": "Mascotas de Exterior",
+  "@defaultGroupOutdoorPets": {
+    "description": "Default group name for outdoor pets"
+  },
+  "defaultGroupOutdoorPetsDescription": "Mascotas que salen al exterior",
+  "@defaultGroupOutdoorPetsDescription": {
+    "description": "Default group description for outdoor pets"
+  },
+  "defaultGroupYoungPets": "Mascotas Jóvenes",
+  "@defaultGroupYoungPets": {
+    "description": "Default group name for young pets"
+  },
+  "defaultGroupYoungPetsDescription": "Mascotas jóvenes menores de 1 año",
+  "@defaultGroupYoungPetsDescription": {
+    "description": "Default group description for young pets"
+  },
+  "defaultPetWhiskersName": "Bigotes",
+  "@defaultPetWhiskersName": {
+    "description": "Default pet name - Whiskers"
+  },
+  "defaultPetWhiskersDescription": "Un gato atigrado naranja juguetón al que le encanta explorar",
+  "@defaultPetWhiskersDescription": {
+    "description": "Default pet description - Whiskers"
+  },
+  "defaultPetLunaName": "Luna",
+  "@defaultPetLunaName": {
+    "description": "Default pet name - Luna"
+  },
+  "defaultPetLunaDescription": "Una elegante gata negra con ojos verdes",
+  "@defaultPetLunaDescription": {
+    "description": "Default pet description - Luna"
+  },
+  "defaultPetMaxName": "Max",
+  "@defaultPetMaxName": {
+    "description": "Default pet name - Max"
+  },
+  "defaultPetMaxDescription": "Un golden retriever amigable",
+  "@defaultPetMaxDescription": {
+    "description": "Default pet description - Max"
+  },
+  "defaultFoodTypeWetFood": "Comida húmeda",
+  "@defaultFoodTypeWetFood": {
+    "description": "Default food type - wet food"
+  },
+  "defaultFoodTypeDryFood": "Comida seca",
+  "@defaultFoodTypeDryFood": {
+    "description": "Default food type - dry food"
+  },
+  "today": "Hoy",
+  "@today": {
+    "description": "Label for today's date"
+  },
+  "yesterday": "Ayer",
+  "@yesterday": {
+    "description": "Label for yesterday's date"
+  }
 }

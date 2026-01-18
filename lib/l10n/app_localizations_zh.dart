@@ -346,7 +346,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get catNotFound => '未找到貓';
 
   @override
-  String get help => 'Help';
+  String get help => '幫助';
 
   @override
   String get changeThemeColor => '更改主題顏色';
@@ -495,7 +495,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get foodTypes => '食物類型';
 
   @override
-  String get managingFoodTypes => 'Managing Food Types';
+  String get managingFoodTypes => '管理食物類型';
 
   @override
   String get managingFoodTypesDescription =>
@@ -544,6 +544,54 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get addAndManageFoodTypesForFeedingRecords => '添加和管理餵食記錄的食物類型';
+
+  @override
+  String get defaultGroupIndoorPets => '室內寵物';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => '待在室內的寵物';
+
+  @override
+  String get defaultGroupOutdoorPets => '戶外寵物';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => '會外出的寵物';
+
+  @override
+  String get defaultGroupYoungPets => '幼年寵物';
+
+  @override
+  String get defaultGroupYoungPetsDescription => '1歲以下的幼年寵物';
+
+  @override
+  String get defaultPetWhiskersName => '鬍鬚';
+
+  @override
+  String get defaultPetWhiskersDescription => '一隻喜歡探索的頑皮橙色虎斑貓';
+
+  @override
+  String get defaultPetLunaName => '露娜';
+
+  @override
+  String get defaultPetLunaDescription => '一隻優雅的黑貓，有著綠色的眼睛';
+
+  @override
+  String get defaultPetMaxName => '麥克斯';
+
+  @override
+  String get defaultPetMaxDescription => '一隻友善的金毛尋回犬';
+
+  @override
+  String get defaultFoodTypeWetFood => '濕糧';
+
+  @override
+  String get defaultFoodTypeDryFood => '乾糧';
+
+  @override
+  String get today => '今天';
+
+  @override
+  String get yesterday => '昨天';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -888,6 +936,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get catNotFound => '未找到猫';
 
   @override
+  String get help => '帮助';
+
+  @override
   String get changeThemeColor => '更改主题颜色';
 
   @override
@@ -1034,6 +1085,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get foodTypes => '食物类型';
 
   @override
+  String get managingFoodTypes => '管理食物类型';
+
+  @override
   String get managingFoodTypesDescription =>
       '转到右上角的菜单（三点）并选择「管理食物类型」以添加、编辑或删除食物类型。';
 
@@ -1080,6 +1134,54 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get addAndManageFoodTypesForFeedingRecords => '添加和管理喂食记录的食物类型';
+
+  @override
+  String get defaultGroupIndoorPets => '室内宠物';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => '待在室内的宠物';
+
+  @override
+  String get defaultGroupOutdoorPets => '户外宠物';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => '会外出的宠物';
+
+  @override
+  String get defaultGroupYoungPets => '幼年宠物';
+
+  @override
+  String get defaultGroupYoungPetsDescription => '1岁以下的幼年宠物';
+
+  @override
+  String get defaultPetWhiskersName => '胡须';
+
+  @override
+  String get defaultPetWhiskersDescription => '一只喜欢探索的顽皮橙色虎斑猫';
+
+  @override
+  String get defaultPetLunaName => '露娜';
+
+  @override
+  String get defaultPetLunaDescription => '一只优雅的黑猫，有着绿色的眼睛';
+
+  @override
+  String get defaultPetMaxName => '麦克斯';
+
+  @override
+  String get defaultPetMaxDescription => '一只友善的金毛寻回犬';
+
+  @override
+  String get defaultFoodTypeWetFood => '湿粮';
+
+  @override
+  String get defaultFoodTypeDryFood => '干粮';
+
+  @override
+  String get today => '今天';
+
+  @override
+  String get yesterday => '昨天';
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).
@@ -1424,6 +1526,9 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get catNotFound => '未找到貓';
 
   @override
+  String get help => '幫助';
+
+  @override
   String get changeThemeColor => '更改主題顏色';
 
   @override
@@ -1570,6 +1675,9 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get foodTypes => '食物類型';
 
   @override
+  String get managingFoodTypes => '管理食物類型';
+
+  @override
   String get managingFoodTypesDescription =>
       '轉到右上角的菜單（三點）並選擇「管理食物類型」以添加、編輯或刪除食物類型。';
 
@@ -1616,6 +1724,54 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get addAndManageFoodTypesForFeedingRecords => '添加和管理餵食記錄的食物類型';
+
+  @override
+  String get defaultGroupIndoorPets => '室內寵物';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => '待在室內的寵物';
+
+  @override
+  String get defaultGroupOutdoorPets => '戶外寵物';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => '會外出的寵物';
+
+  @override
+  String get defaultGroupYoungPets => '幼年寵物';
+
+  @override
+  String get defaultGroupYoungPetsDescription => '1歲以下的幼年寵物';
+
+  @override
+  String get defaultPetWhiskersName => '鬍鬚';
+
+  @override
+  String get defaultPetWhiskersDescription => '一隻喜歡探索的頑皮橙色虎斑貓';
+
+  @override
+  String get defaultPetLunaName => '露娜';
+
+  @override
+  String get defaultPetLunaDescription => '一隻優雅的黑貓，有著綠色的眼睛';
+
+  @override
+  String get defaultPetMaxName => '麥克斯';
+
+  @override
+  String get defaultPetMaxDescription => '一隻友善的金毛尋回犬';
+
+  @override
+  String get defaultFoodTypeWetFood => '濕糧';
+
+  @override
+  String get defaultFoodTypeDryFood => '乾糧';
+
+  @override
+  String get today => '今天';
+
+  @override
+  String get yesterday => '昨天';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -1960,6 +2116,9 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get catNotFound => '找不到貓';
 
   @override
+  String get help => '說明';
+
+  @override
   String get changeThemeColor => '更改主題顏色';
 
   @override
@@ -2106,6 +2265,9 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get foodTypes => '食物類型';
 
   @override
+  String get managingFoodTypes => '管理食物類型';
+
+  @override
   String get managingFoodTypesDescription =>
       '前往右上角的選單（三點）並選擇「管理食物類型」以新增、編輯或刪除食物類型。';
 
@@ -2153,4 +2315,52 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get addAndManageFoodTypesForFeedingRecords => '新增和管理餵食記錄的食物類型';
+
+  @override
+  String get defaultGroupIndoorPets => '室內寵物';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => '待在室內的寵物';
+
+  @override
+  String get defaultGroupOutdoorPets => '戶外寵物';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => '會外出的寵物';
+
+  @override
+  String get defaultGroupYoungPets => '幼年寵物';
+
+  @override
+  String get defaultGroupYoungPetsDescription => '1歲以下的幼年寵物';
+
+  @override
+  String get defaultPetWhiskersName => '鬍鬚';
+
+  @override
+  String get defaultPetWhiskersDescription => '一隻喜歡探索的頑皮橙色虎斑貓';
+
+  @override
+  String get defaultPetLunaName => '露娜';
+
+  @override
+  String get defaultPetLunaDescription => '一隻優雅的黑貓，有著綠色的眼睛';
+
+  @override
+  String get defaultPetMaxName => '麥克斯';
+
+  @override
+  String get defaultPetMaxDescription => '一隻友善的金毛尋回犬';
+
+  @override
+  String get defaultFoodTypeWetFood => '濕糧';
+
+  @override
+  String get defaultFoodTypeDryFood => '乾糧';
+
+  @override
+  String get today => '今天';
+
+  @override
+  String get yesterday => '昨天';
 }

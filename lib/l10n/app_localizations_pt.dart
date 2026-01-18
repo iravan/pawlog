@@ -349,7 +349,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get catNotFound => 'Gato não encontrado';
 
   @override
-  String get help => 'Help';
+  String get help => 'Ajuda';
 
   @override
   String get changeThemeColor => 'Alterar cor do tema';
@@ -511,7 +511,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get foodTypes => 'Tipos de Comida';
 
   @override
-  String get managingFoodTypes => 'Managing Food Types';
+  String get managingFoodTypes => 'Gerenciar Tipos de Comida';
 
   @override
   String get managingFoodTypesDescription =>
@@ -564,4 +564,56 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       'Adicionar e gerenciar tipos de comida para registros de alimentação';
+
+  @override
+  String get defaultGroupIndoorPets => 'Animais de Interior';
+
+  @override
+  String get defaultGroupIndoorPetsDescription =>
+      'Animais que ficam dentro de casa';
+
+  @override
+  String get defaultGroupOutdoorPets => 'Animais de Exterior';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => 'Animais que saem';
+
+  @override
+  String get defaultGroupYoungPets => 'Animais Jovens';
+
+  @override
+  String get defaultGroupYoungPetsDescription =>
+      'Animais jovens com menos de 1 ano';
+
+  @override
+  String get defaultPetWhiskersName => 'Bigodes';
+
+  @override
+  String get defaultPetWhiskersDescription =>
+      'Um gato tigrado laranja brincalhão que adora explorar';
+
+  @override
+  String get defaultPetLunaName => 'Luna';
+
+  @override
+  String get defaultPetLunaDescription =>
+      'Uma gata preta elegante com olhos verdes';
+
+  @override
+  String get defaultPetMaxName => 'Max';
+
+  @override
+  String get defaultPetMaxDescription => 'Um golden retriever amigável';
+
+  @override
+  String get defaultFoodTypeWetFood => 'Comida úmida';
+
+  @override
+  String get defaultFoodTypeDryFood => 'Comida seca';
+
+  @override
+  String get today => 'Hoje';
+
+  @override
+  String get yesterday => 'Ontem';
 }

@@ -360,7 +360,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get catNotFound => 'Chat non trouvé';
 
   @override
-  String get help => 'Help';
+  String get help => 'Aide';
 
   @override
   String get changeThemeColor => 'Changer la couleur du thème';
@@ -522,7 +522,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get foodTypes => 'Types de Nourriture';
 
   @override
-  String get managingFoodTypes => 'Managing Food Types';
+  String get managingFoodTypes => 'Gérer les Types de Nourriture';
 
   @override
   String get managingFoodTypesDescription =>
@@ -575,4 +575,56 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       'Ajouter et gérer les types de nourriture pour les enregistrements d\'alimentation';
+
+  @override
+  String get defaultGroupIndoorPets => 'Animaux d\'Intérieur';
+
+  @override
+  String get defaultGroupIndoorPetsDescription =>
+      'Animaux qui restent à l\'intérieur';
+
+  @override
+  String get defaultGroupOutdoorPets => 'Animaux d\'Extérieur';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => 'Animaux qui sortent';
+
+  @override
+  String get defaultGroupYoungPets => 'Jeunes Animaux';
+
+  @override
+  String get defaultGroupYoungPetsDescription =>
+      'Jeunes animaux de moins d\'un an';
+
+  @override
+  String get defaultPetWhiskersName => 'Moustaches';
+
+  @override
+  String get defaultPetWhiskersDescription =>
+      'Un chat tigré orange joueur qui adore explorer';
+
+  @override
+  String get defaultPetLunaName => 'Luna';
+
+  @override
+  String get defaultPetLunaDescription =>
+      'Une élégante chatte noire aux yeux verts';
+
+  @override
+  String get defaultPetMaxName => 'Max';
+
+  @override
+  String get defaultPetMaxDescription => 'Un golden retriever amical';
+
+  @override
+  String get defaultFoodTypeWetFood => 'Nourriture humide';
+
+  @override
+  String get defaultFoodTypeDryFood => 'Nourriture sèche';
+
+  @override
+  String get today => 'Aujourd\'hui';
+
+  @override
+  String get yesterday => 'Hier';
 }

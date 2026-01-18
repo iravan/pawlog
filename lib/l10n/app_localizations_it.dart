@@ -351,7 +351,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get catNotFound => 'Gatto non trovato';
 
   @override
-  String get help => 'Help';
+  String get help => 'Aiuto';
 
   @override
   String get changeThemeColor => 'Cambia colore tema';
@@ -513,7 +513,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get foodTypes => 'Tipi di Cibo';
 
   @override
-  String get managingFoodTypes => 'Managing Food Types';
+  String get managingFoodTypes => 'Gestire i Tipi di Cibo';
 
   @override
   String get managingFoodTypesDescription =>
@@ -566,4 +566,54 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       'Aggiungi e gestisci tipi di cibo per registri di alimentazione';
+
+  @override
+  String get defaultGroupIndoorPets => 'Animali Domestici';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => 'Animali che stanno in casa';
+
+  @override
+  String get defaultGroupOutdoorPets => 'Animali da Esterno';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => 'Animali che escono';
+
+  @override
+  String get defaultGroupYoungPets => 'Animali Giovani';
+
+  @override
+  String get defaultGroupYoungPetsDescription => 'Animali giovani sotto 1 anno';
+
+  @override
+  String get defaultPetWhiskersName => 'Baffi';
+
+  @override
+  String get defaultPetWhiskersDescription =>
+      'Un gatto tigrato arancione giocherellone che ama esplorare';
+
+  @override
+  String get defaultPetLunaName => 'Luna';
+
+  @override
+  String get defaultPetLunaDescription =>
+      'Un\'elegante gatta nera con occhi verdi';
+
+  @override
+  String get defaultPetMaxName => 'Max';
+
+  @override
+  String get defaultPetMaxDescription => 'Un golden retriever amichevole';
+
+  @override
+  String get defaultFoodTypeWetFood => 'Cibo umido';
+
+  @override
+  String get defaultFoodTypeDryFood => 'Cibo secco';
+
+  @override
+  String get today => 'Oggi';
+
+  @override
+  String get yesterday => 'Ieri';
 }

@@ -739,5 +739,69 @@
   "addAndManageFoodTypesForFeedingRecords": "Futtersorten für Fütterungsaufzeichnungen hinzufügen und verwalten",
   "@addAndManageFoodTypesForFeedingRecords": {
     "description": "Subtitle for food types dialog"
+  },
+  "defaultGroupIndoorPets": "Haustiere im Haus",
+  "@defaultGroupIndoorPets": {
+    "description": "Default group name for indoor pets"
+  },
+  "defaultGroupIndoorPetsDescription": "Haustiere, die im Haus bleiben",
+  "@defaultGroupIndoorPetsDescription": {
+    "description": "Default group description for indoor pets"
+  },
+  "defaultGroupOutdoorPets": "Haustiere im Freien",
+  "@defaultGroupOutdoorPets": {
+    "description": "Default group name for outdoor pets"
+  },
+  "defaultGroupOutdoorPetsDescription": "Haustiere, die nach draußen gehen",
+  "@defaultGroupOutdoorPetsDescription": {
+    "description": "Default group description for outdoor pets"
+  },
+  "defaultGroupYoungPets": "Junge Haustiere",
+  "@defaultGroupYoungPets": {
+    "description": "Default group name for young pets"
+  },
+  "defaultGroupYoungPetsDescription": "Junge Haustiere unter 1 Jahr",
+  "@defaultGroupYoungPetsDescription": {
+    "description": "Default group description for young pets"
+  },
+  "defaultPetWhiskersName": "Schnurrbart",
+  "@defaultPetWhiskersName": {
+    "description": "Default pet name - Whiskers"
+  },
+  "defaultPetWhiskersDescription": "Ein verspielter orangefarbener Tabby, der gerne erkundet",
+  "@defaultPetWhiskersDescription": {
+    "description": "Default pet description - Whiskers"
+  },
+  "defaultPetLunaName": "Luna",
+  "@defaultPetLunaName": {
+    "description": "Default pet name - Luna"
+  },
+  "defaultPetLunaDescription": "Eine anmutige schwarze Katze mit grünen Augen",
+  "@defaultPetLunaDescription": {
+    "description": "Default pet description - Luna"
+  },
+  "defaultPetMaxName": "Max",
+  "@defaultPetMaxName": {
+    "description": "Default pet name - Max"
+  },
+  "defaultPetMaxDescription": "Ein freundlicher Golden Retriever",
+  "@defaultPetMaxDescription": {
+    "description": "Default pet description - Max"
+  },
+  "defaultFoodTypeWetFood": "Nassfutter",
+  "@defaultFoodTypeWetFood": {
+    "description": "Default food type - wet food"
+  },
+  "defaultFoodTypeDryFood": "Trockenfutter",
+  "@defaultFoodTypeDryFood": {
+    "description": "Default food type - dry food"
+  },
+  "today": "Heute",
+  "@today": {
+    "description": "Label for today's date"
+  },
+  "yesterday": "Gestern",
+  "@yesterday": {
+    "description": "Label for yesterday's date"
   }
 }

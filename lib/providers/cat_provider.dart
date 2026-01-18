@@ -5,6 +5,7 @@ import '../models/weight_record.dart';
 import '../models/feeding_record.dart';
 import '../models/medical_record.dart';
 import '../services/storage_service.dart';
+import '../l10n/app_localizations.dart';
 
 class CatProvider with ChangeNotifier {
   List<Group> _groups = [];
@@ -19,7 +20,7 @@ class CatProvider with ChangeNotifier {
   List<Cat> get cats => _cats;
   List<String> get foodTypes => _foodTypes;
 
-  Future<void> initialize() async {
+  Future<void> initialize([AppLocalizations? l10n]) async {
     if (_isInitialized) return;
 
     // Load data from storage
@@ -32,17 +33,17 @@ class CatProvider with ChangeNotifier {
 
     // If no data exists, initialize with defaults
     if (_groups.isEmpty) {
-      _groups = _getDefaultGroups();
+      _groups = _getDefaultGroups(l10n);
       await StorageService.saveGroups(_groups);
     }
 
     if (_cats.isEmpty) {
-      _cats = _getDefaultCats();
+      _cats = _getDefaultCats(l10n);
       await StorageService.saveCats(_cats);
     }
 
     if (_foodTypes.isEmpty) {
-      _foodTypes = _getDefaultFoodTypes();
+      _foodTypes = _getDefaultFoodTypes(l10n);
       await StorageService.saveFoodTypes(_foodTypes);
     }
 
@@ -50,11 +51,36 @@ class CatProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<String> _getDefaultFoodTypes() {
+  List<String> _getDefaultFoodTypes(AppLocalizations? l10n) {
+    if (l10n != null) {
+      return [l10n.defaultFoodTypeWetFood, l10n.defaultFoodTypeDryFood];
+    }
     return ['Wet food', 'Dry Food'];
   }
 
-  List<Group> _getDefaultGroups() {
+  List<Group> _getDefaultGroups(AppLocalizations? l10n) {
+    if (l10n != null) {
+      return [
+        Group(
+          id: 'group1',
+          name: l10n.defaultGroupIndoorPets,
+          description: l10n.defaultGroupIndoorPetsDescription,
+          icon: '🏠',
+        ),
+        Group(
+          id: 'group2',
+          name: l10n.defaultGroupOutdoorPets,
+          description: l10n.defaultGroupOutdoorPetsDescription,
+          icon: '🌳',
+        ),
+        Group(
+          id: 'group3',
+          name: l10n.defaultGroupYoungPets,
+          description: l10n.defaultGroupYoungPetsDescription,
+          icon: '🐾',
+        ),
+      ];
+    }
     return [
       Group(
         id: 'group1',
@@ -77,7 +103,35 @@ class CatProvider with ChangeNotifier {
     ];
   }
 
-  List<Cat> _getDefaultCats() {
+  List<Cat> _getDefaultCats(AppLocalizations? l10n) {
+    if (l10n != null) {
+      return [
+        Pet(
+          id: '1',
+          name: l10n.defaultPetWhiskersName,
+          description: l10n.defaultPetWhiskersDescription,
+          icon: '🐱',
+          groupId: 'group1',
+          type: PetType.cat,
+        ),
+        Pet(
+          id: '2',
+          name: l10n.defaultPetLunaName,
+          description: l10n.defaultPetLunaDescription,
+          icon: '🐈',
+          groupId: 'group1',
+          type: PetType.cat,
+        ),
+        Pet(
+          id: '3',
+          name: l10n.defaultPetMaxName,
+          description: l10n.defaultPetMaxDescription,
+          icon: '🐶',
+          groupId: 'group2',
+          type: PetType.dog,
+        ),
+      ];
+    }
     return [
       Pet(
         id: '1',

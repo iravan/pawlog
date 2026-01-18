@@ -561,4 +561,54 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       'Add and manage food types for feeding records';
+
+  @override
+  String get defaultGroupIndoorPets => 'Indoor Pets';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => 'Pets that stay indoors';
+
+  @override
+  String get defaultGroupOutdoorPets => 'Outdoor Pets';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => 'Pets that go outside';
+
+  @override
+  String get defaultGroupYoungPets => 'Young Pets';
+
+  @override
+  String get defaultGroupYoungPetsDescription => 'Young pets under 1 year';
+
+  @override
+  String get defaultPetWhiskersName => 'Whiskers';
+
+  @override
+  String get defaultPetWhiskersDescription =>
+      'A playful orange tabby who loves to explore';
+
+  @override
+  String get defaultPetLunaName => 'Luna';
+
+  @override
+  String get defaultPetLunaDescription =>
+      'A graceful black cat with green eyes';
+
+  @override
+  String get defaultPetMaxName => 'Max';
+
+  @override
+  String get defaultPetMaxDescription => 'A friendly golden retriever';
+
+  @override
+  String get defaultFoodTypeWetFood => 'Wet food';
+
+  @override
+  String get defaultFoodTypeDryFood => 'Dry Food';
+
+  @override
+  String get today => 'Today';
+
+  @override
+  String get yesterday => 'Yesterday';
 }

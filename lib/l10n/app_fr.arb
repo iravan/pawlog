@@ -66,6 +66,10 @@
   "addRecord": "Ajouter un Enregistrement",
   "noMedicalRecordsYet": "Aucun enregistrement médical pour le moment",
   "catNotFound": "Chat non trouvé",
+  "help": "Aide",
+  "@help": {
+    "description": "Help button tooltip"
+  },
   "info": "Info",
   "medical": "Médical",
   "weight": "Poids",
@@ -151,6 +155,10 @@
   "importingData": "Importer les Données",
   "importingDataDescription": "Importez des données précédemment exportées pour restaurer vos animaux et enregistrements.",
   "foodTypes": "Types de Nourriture",
+  "managingFoodTypes": "Gérer les Types de Nourriture",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "Allez dans le menu (trois points) dans le coin supérieur droit et sélectionnez \"Gérer les Types de Nourriture\" pour ajouter, modifier ou supprimer des types de nourriture.",
   "usingFoodTypes": "Utiliser les Types de Nourriture",
   "usingFoodTypesDescription": "Lors de l'ajout d'un enregistrement d'alimentation, sélectionnez parmi vos types de nourriture enregistrés. Cela aide à maintenir la cohérence dans le suivi.",
@@ -165,5 +173,21 @@
   "noFoodTypesYet": "Aucun type de nourriture pour le moment",
   "foodTypeName": "Nom du Type de Nourriture",
   "addNewFoodType": "Ajouter un Nouveau Type de Nourriture",
-  "addAndManageFoodTypesForFeedingRecords": "Ajouter et gérer les types de nourriture pour les enregistrements d'alimentation"
+  "addAndManageFoodTypesForFeedingRecords": "Ajouter et gérer les types de nourriture pour les enregistrements d'alimentation",
+  "defaultGroupIndoorPets": "Animaux d'Intérieur",
+  "defaultGroupIndoorPetsDescription": "Animaux qui restent à l'intérieur",
+  "defaultGroupOutdoorPets": "Animaux d'Extérieur",
+  "defaultGroupOutdoorPetsDescription": "Animaux qui sortent",
+  "defaultGroupYoungPets": "Jeunes Animaux",
+  "defaultGroupYoungPetsDescription": "Jeunes animaux de moins d'un an",
+  "defaultPetWhiskersName": "Moustaches",
+  "defaultPetWhiskersDescription": "Un chat tigré orange joueur qui adore explorer",
+  "defaultPetLunaName": "Luna",
+  "defaultPetLunaDescription": "Une élégante chatte noire aux yeux verts",
+  "defaultPetMaxName": "Max",
+  "defaultPetMaxDescription": "Un golden retriever amical",
+  "defaultFoodTypeWetFood": "Nourriture humide",
+  "defaultFoodTypeDryFood": "Nourriture sèche",
+  "today": "Aujourd'hui",
+  "yesterday": "Hier"
 }

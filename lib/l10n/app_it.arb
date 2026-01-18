@@ -66,6 +66,10 @@
   "addRecord": "Aggiungi Registro",
   "noMedicalRecordsYet": "Nessun registro medico ancora",
   "catNotFound": "Gatto non trovato",
+  "help": "Aiuto",
+  "@help": {
+    "description": "Help button tooltip"
+  },
   "info": "Info",
   "medical": "Medico",
   "weight": "Peso",
@@ -151,6 +155,10 @@
   "importingData": "Importare Dati",
   "importingDataDescription": "Importa dati precedentemente esportati per ripristinare i tuoi animali e registri.",
   "foodTypes": "Tipi di Cibo",
+  "managingFoodTypes": "Gestire i Tipi di Cibo",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "Vai al menu (tre punti) nell'angolo in alto a destra e seleziona \"Gestisci Tipi di Cibo\" per aggiungere, modificare o rimuovere tipi di cibo.",
   "usingFoodTypes": "Usare Tipi di Cibo",
   "usingFoodTypesDescription": "Quando aggiungi un registro di alimentazione, seleziona dai tuoi tipi di cibo salvati. Questo aiuta a mantenere la coerenza nel tracciamento.",
@@ -165,5 +173,21 @@
   "noFoodTypesYet": "Nessun tipo di cibo ancora",
   "foodTypeName": "Nome Tipo di Cibo",
   "addNewFoodType": "Aggiungi Nuovo Tipo di Cibo",
-  "addAndManageFoodTypesForFeedingRecords": "Aggiungi e gestisci tipi di cibo per registri di alimentazione"
+  "addAndManageFoodTypesForFeedingRecords": "Aggiungi e gestisci tipi di cibo per registri di alimentazione",
+  "defaultGroupIndoorPets": "Animali Domestici",
+  "defaultGroupIndoorPetsDescription": "Animali che stanno in casa",
+  "defaultGroupOutdoorPets": "Animali da Esterno",
+  "defaultGroupOutdoorPetsDescription": "Animali che escono",
+  "defaultGroupYoungPets": "Animali Giovani",
+  "defaultGroupYoungPetsDescription": "Animali giovani sotto 1 anno",
+  "defaultPetWhiskersName": "Baffi",
+  "defaultPetWhiskersDescription": "Un gatto tigrato arancione giocherellone che ama esplorare",
+  "defaultPetLunaName": "Luna",
+  "defaultPetLunaDescription": "Un'elegante gatta nera con occhi verdi",
+  "defaultPetMaxName": "Max",
+  "defaultPetMaxDescription": "Un golden retriever amichevole",
+  "defaultFoodTypeWetFood": "Cibo umido",
+  "defaultFoodTypeDryFood": "Cibo secco",
+  "today": "Oggi",
+  "yesterday": "Ieri"
 }

@@ -571,4 +571,56 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       'Futtersorten für Fütterungsaufzeichnungen hinzufügen und verwalten';
+
+  @override
+  String get defaultGroupIndoorPets => 'Haustiere im Haus';
+
+  @override
+  String get defaultGroupIndoorPetsDescription =>
+      'Haustiere, die im Haus bleiben';
+
+  @override
+  String get defaultGroupOutdoorPets => 'Haustiere im Freien';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription =>
+      'Haustiere, die nach draußen gehen';
+
+  @override
+  String get defaultGroupYoungPets => 'Junge Haustiere';
+
+  @override
+  String get defaultGroupYoungPetsDescription => 'Junge Haustiere unter 1 Jahr';
+
+  @override
+  String get defaultPetWhiskersName => 'Schnurrbart';
+
+  @override
+  String get defaultPetWhiskersDescription =>
+      'Ein verspielter orangefarbener Tabby, der gerne erkundet';
+
+  @override
+  String get defaultPetLunaName => 'Luna';
+
+  @override
+  String get defaultPetLunaDescription =>
+      'Eine anmutige schwarze Katze mit grünen Augen';
+
+  @override
+  String get defaultPetMaxName => 'Max';
+
+  @override
+  String get defaultPetMaxDescription => 'Ein freundlicher Golden Retriever';
+
+  @override
+  String get defaultFoodTypeWetFood => 'Nassfutter';
+
+  @override
+  String get defaultFoodTypeDryFood => 'Trockenfutter';
+
+  @override
+  String get today => 'Heute';
+
+  @override
+  String get yesterday => 'Gestern';
 }

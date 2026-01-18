@@ -346,7 +346,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get catNotFound => '고양이를 찾을 수 없습니다';
 
   @override
-  String get help => 'Help';
+  String get help => '도움말';
 
   @override
   String get changeThemeColor => '테마 색상 변경';
@@ -504,7 +504,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get foodTypes => '사료 종류';
 
   @override
-  String get managingFoodTypes => 'Managing Food Types';
+  String get managingFoodTypes => '사료 종류 관리';
 
   @override
   String get managingFoodTypesDescription =>
@@ -557,4 +557,52 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       '급여 기록을 위한 사료 종류 추가 및 관리';
+
+  @override
+  String get defaultGroupIndoorPets => '실내 반려동물';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => '실내에 머무는 반려동물';
+
+  @override
+  String get defaultGroupOutdoorPets => '야외 반려동물';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => '밖으로 나가는 반려동물';
+
+  @override
+  String get defaultGroupYoungPets => '어린 반려동물';
+
+  @override
+  String get defaultGroupYoungPetsDescription => '1세 미만의 어린 반려동물';
+
+  @override
+  String get defaultPetWhiskersName => '수염';
+
+  @override
+  String get defaultPetWhiskersDescription => '탐험을 좋아하는 장난스러운 주황색 줄무늬 고양이';
+
+  @override
+  String get defaultPetLunaName => '루나';
+
+  @override
+  String get defaultPetLunaDescription => '초록색 눈을 가진 우아한 검은 고양이';
+
+  @override
+  String get defaultPetMaxName => '맥스';
+
+  @override
+  String get defaultPetMaxDescription => '친근한 골든 리트리버';
+
+  @override
+  String get defaultFoodTypeWetFood => '습식 사료';
+
+  @override
+  String get defaultFoodTypeDryFood => '건식 사료';
+
+  @override
+  String get today => '오늘';
+
+  @override
+  String get yesterday => '어제';
 }

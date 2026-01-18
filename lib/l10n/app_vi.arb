@@ -66,6 +66,10 @@
   "addRecord": "Thêm Bản Ghi",
   "noMedicalRecordsYet": "Chưa có bản ghi y tế",
   "catNotFound": "Không tìm thấy mèo",
+  "help": "Trợ giúp",
+  "@help": {
+    "description": "Help button tooltip"
+  },
   "info": "Thông Tin",
   "medical": "Y Tế",
   "weight": "Cân Nặng",
@@ -151,6 +155,10 @@
   "importingData": "Nhập Dữ Liệu",
   "importingDataDescription": "Nhập dữ liệu đã xuất trước đó để khôi phục thú cưng và hồ sơ của bạn.",
   "foodTypes": "Loại Thức Ăn",
+  "managingFoodTypes": "Quản Lý Loại Thức Ăn",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "Đi tới menu (ba chấm) ở góc trên bên phải và chọn \"Quản Lý Loại Thức Ăn\" để thêm, chỉnh sửa hoặc xóa loại thức ăn.",
   "usingFoodTypes": "Sử Dụng Loại Thức Ăn",
   "usingFoodTypesDescription": "Khi thêm hồ sơ cho ăn, hãy chọn từ các loại thức ăn đã lưu của bạn. Điều này giúp duy trì tính nhất quán trong việc theo dõi.",
@@ -165,5 +173,21 @@
   "noFoodTypesYet": "Chưa có loại thức ăn",
   "foodTypeName": "Tên Loại Thức Ăn",
   "addNewFoodType": "Thêm Loại Thức Ăn Mới",
-  "addAndManageFoodTypesForFeedingRecords": "Thêm và quản lý loại thức ăn cho hồ sơ cho ăn"
+  "addAndManageFoodTypesForFeedingRecords": "Thêm và quản lý loại thức ăn cho hồ sơ cho ăn",
+  "defaultGroupIndoorPets": "Thú Cưng Trong Nhà",
+  "defaultGroupIndoorPetsDescription": "Thú cưng ở trong nhà",
+  "defaultGroupOutdoorPets": "Thú Cưng Ngoài Trời",
+  "defaultGroupOutdoorPetsDescription": "Thú cưng ra ngoài",
+  "defaultGroupYoungPets": "Thú Cưng Non",
+  "defaultGroupYoungPetsDescription": "Thú cưng non dưới 1 tuổi",
+  "defaultPetWhiskersName": "Râu",
+  "defaultPetWhiskersDescription": "Một chú mèo tabby cam vui tươi thích khám phá",
+  "defaultPetLunaName": "Luna",
+  "defaultPetLunaDescription": "Một chú mèo đen thanh lịch với đôi mắt xanh lá cây",
+  "defaultPetMaxName": "Max",
+  "defaultPetMaxDescription": "Một chú golden retriever thân thiện",
+  "defaultFoodTypeWetFood": "Thức ăn ướt",
+  "defaultFoodTypeDryFood": "Thức ăn khô",
+  "today": "Hôm nay",
+  "yesterday": "Hôm qua"
 }

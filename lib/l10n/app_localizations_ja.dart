@@ -346,7 +346,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get catNotFound => '猫が見つかりません';
 
   @override
-  String get help => 'Help';
+  String get help => 'ヘルプ';
 
   @override
   String get changeThemeColor => 'テーマカラーを変更';
@@ -504,7 +504,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get foodTypes => 'フードタイプ';
 
   @override
-  String get managingFoodTypes => 'Managing Food Types';
+  String get managingFoodTypes => 'フードタイプの管理';
 
   @override
   String get managingFoodTypesDescription =>
@@ -556,4 +556,52 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get addAndManageFoodTypesForFeedingRecords => '給餌記録のフードタイプを追加および管理';
+
+  @override
+  String get defaultGroupIndoorPets => '室内ペット';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => '室内にいるペット';
+
+  @override
+  String get defaultGroupOutdoorPets => '屋外ペット';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => '外に出るペット';
+
+  @override
+  String get defaultGroupYoungPets => '子ペット';
+
+  @override
+  String get defaultGroupYoungPetsDescription => '1歳未満の子ペット';
+
+  @override
+  String get defaultPetWhiskersName => 'ウィスカーズ';
+
+  @override
+  String get defaultPetWhiskersDescription => '探索が大好きな遊び好きなオレンジのトラ猫';
+
+  @override
+  String get defaultPetLunaName => 'ルナ';
+
+  @override
+  String get defaultPetLunaDescription => '緑の目を持つ優雅な黒猫';
+
+  @override
+  String get defaultPetMaxName => 'マックス';
+
+  @override
+  String get defaultPetMaxDescription => 'フレンドリーなゴールデンレトリバー';
+
+  @override
+  String get defaultFoodTypeWetFood => 'ウェットフード';
+
+  @override
+  String get defaultFoodTypeDryFood => 'ドライフード';
+
+  @override
+  String get today => '今日';
+
+  @override
+  String get yesterday => '昨日';
 }

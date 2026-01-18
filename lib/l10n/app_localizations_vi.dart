@@ -349,7 +349,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get catNotFound => 'Không tìm thấy mèo';
 
   @override
-  String get help => 'Help';
+  String get help => 'Trợ giúp';
 
   @override
   String get changeThemeColor => 'Thay đổi màu chủ đề';
@@ -510,7 +510,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get foodTypes => 'Loại Thức Ăn';
 
   @override
-  String get managingFoodTypes => 'Managing Food Types';
+  String get managingFoodTypes => 'Quản Lý Loại Thức Ăn';
 
   @override
   String get managingFoodTypesDescription =>
@@ -563,4 +563,54 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       'Thêm và quản lý loại thức ăn cho hồ sơ cho ăn';
+
+  @override
+  String get defaultGroupIndoorPets => 'Thú Cưng Trong Nhà';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => 'Thú cưng ở trong nhà';
+
+  @override
+  String get defaultGroupOutdoorPets => 'Thú Cưng Ngoài Trời';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => 'Thú cưng ra ngoài';
+
+  @override
+  String get defaultGroupYoungPets => 'Thú Cưng Non';
+
+  @override
+  String get defaultGroupYoungPetsDescription => 'Thú cưng non dưới 1 tuổi';
+
+  @override
+  String get defaultPetWhiskersName => 'Râu';
+
+  @override
+  String get defaultPetWhiskersDescription =>
+      'Một chú mèo tabby cam vui tươi thích khám phá';
+
+  @override
+  String get defaultPetLunaName => 'Luna';
+
+  @override
+  String get defaultPetLunaDescription =>
+      'Một chú mèo đen thanh lịch với đôi mắt xanh lá cây';
+
+  @override
+  String get defaultPetMaxName => 'Max';
+
+  @override
+  String get defaultPetMaxDescription => 'Một chú golden retriever thân thiện';
+
+  @override
+  String get defaultFoodTypeWetFood => 'Thức ăn ướt';
+
+  @override
+  String get defaultFoodTypeDryFood => 'Thức ăn khô';
+
+  @override
+  String get today => 'Hôm nay';
+
+  @override
+  String get yesterday => 'Hôm qua';
 }

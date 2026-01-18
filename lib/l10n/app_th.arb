@@ -66,6 +66,10 @@
   "addRecord": "เพิ่มบันทึก",
   "noMedicalRecordsYet": "ยังไม่มีบันทึกทางการแพทย์",
   "catNotFound": "ไม่พบแมว",
+  "help": "ช่วยเหลือ",
+  "@help": {
+    "description": "Help button tooltip"
+  },
   "info": "ข้อมูล",
   "medical": "ทางการแพทย์",
   "weight": "น้ำหนัก",
@@ -151,6 +155,10 @@
   "importingData": "นำเข้าข้อมูล",
   "importingDataDescription": "นำเข้าข้อมูลที่ส่งออกไว้ก่อนหน้านี้เพื่อกู้คืนสัตว์เลี้ยงและบันทึกของคุณ",
   "foodTypes": "ประเภทอาหาร",
+  "managingFoodTypes": "จัดการประเภทอาหาร",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "ไปที่เมนู (สามจุด) ที่มุมขวาบนและเลือก \"จัดการประเภทอาหาร\" เพื่อเพิ่ม แก้ไข หรือลบประเภทอาหาร",
   "usingFoodTypes": "ใช้ประเภทอาหาร",
   "usingFoodTypesDescription": "เมื่อเพิ่มบันทึกการให้อาหาร ให้เลือกจากประเภทอาหารที่บันทึกไว้ของคุณ สิ่งนี้ช่วยรักษาความสอดคล้องในการติดตาม",
@@ -165,5 +173,21 @@
   "noFoodTypesYet": "ยังไม่มีประเภทอาหาร",
   "foodTypeName": "ชื่อประเภทอาหาร",
   "addNewFoodType": "เพิ่มประเภทอาหารใหม่",
-  "addAndManageFoodTypesForFeedingRecords": "เพิ่มและจัดการประเภทอาหารสำหรับบันทึกการให้อาหาร"
+  "addAndManageFoodTypesForFeedingRecords": "เพิ่มและจัดการประเภทอาหารสำหรับบันทึกการให้อาหาร",
+  "defaultGroupIndoorPets": "สัตว์เลี้ยงในร่ม",
+  "defaultGroupIndoorPetsDescription": "สัตว์เลี้ยงที่อยู่ในร่ม",
+  "defaultGroupOutdoorPets": "สัตว์เลี้ยงกลางแจ้ง",
+  "defaultGroupOutdoorPetsDescription": "สัตว์เลี้ยงที่ออกไปข้างนอก",
+  "defaultGroupYoungPets": "สัตว์เลี้ยงอายุน้อย",
+  "defaultGroupYoungPetsDescription": "สัตว์เลี้ยงอายุน้อยต่ำกว่า 1 ปี",
+  "defaultPetWhiskersName": "วิสเกอร์ส",
+  "defaultPetWhiskersDescription": "แมวส้มลายที่ชอบเล่นและชอบสำรวจ",
+  "defaultPetLunaName": "ลูน่า",
+  "defaultPetLunaDescription": "แมวดำสง่างามที่มีดวงตาสีเขียว",
+  "defaultPetMaxName": "แม็กซ์",
+  "defaultPetMaxDescription": "โกลเดน รีทรีฟเวอร์ที่เป็นมิตร",
+  "defaultFoodTypeWetFood": "อาหารเปียก",
+  "defaultFoodTypeDryFood": "อาหารแห้ง",
+  "today": "วันนี้",
+  "yesterday": "เมื่อวาน"
 }

@@ -66,6 +66,10 @@
   "addRecord": "記録を追加",
   "noMedicalRecordsYet": "まだ医療記録がありません",
   "catNotFound": "猫が見つかりません",
+  "help": "ヘルプ",
+  "@help": {
+    "description": "Help button tooltip"
+  },
   "info": "情報",
   "medical": "医療",
   "weight": "体重",
@@ -151,6 +155,10 @@
   "importingData": "データをインポート",
   "importingDataDescription": "以前にエクスポートしたデータをインポートして、ペットと記録を復元します。",
   "foodTypes": "フードタイプ",
+  "managingFoodTypes": "フードタイプの管理",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "右上隅のメニュー（三点）に移動し、「フードタイプを管理」を選択して、フードタイプを追加、編集、または削除します。",
   "usingFoodTypes": "フードタイプを使用",
   "usingFoodTypesDescription": "給餌記録を追加する際に、保存したフードタイプから選択します。これにより、追跡の一貫性が保たれます。",
@@ -165,5 +173,21 @@
   "noFoodTypesYet": "フードタイプはまだありません",
   "foodTypeName": "フードタイプ名",
   "addNewFoodType": "新しいフードタイプを追加",
-  "addAndManageFoodTypesForFeedingRecords": "給餌記録のフードタイプを追加および管理"
+  "addAndManageFoodTypesForFeedingRecords": "給餌記録のフードタイプを追加および管理",
+  "defaultGroupIndoorPets": "室内ペット",
+  "defaultGroupIndoorPetsDescription": "室内にいるペット",
+  "defaultGroupOutdoorPets": "屋外ペット",
+  "defaultGroupOutdoorPetsDescription": "外に出るペット",
+  "defaultGroupYoungPets": "子ペット",
+  "defaultGroupYoungPetsDescription": "1歳未満の子ペット",
+  "defaultPetWhiskersName": "ウィスカーズ",
+  "defaultPetWhiskersDescription": "探索が大好きな遊び好きなオレンジのトラ猫",
+  "defaultPetLunaName": "ルナ",
+  "defaultPetLunaDescription": "緑の目を持つ優雅な黒猫",
+  "defaultPetMaxName": "マックス",
+  "defaultPetMaxDescription": "フレンドリーなゴールデンレトリバー",
+  "defaultFoodTypeWetFood": "ウェットフード",
+  "defaultFoodTypeDryFood": "ドライフード",
+  "today": "今日",
+  "yesterday": "昨日"
 }

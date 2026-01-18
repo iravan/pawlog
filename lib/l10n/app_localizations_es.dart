@@ -264,7 +264,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get pleaseEnterAValidAmount =>
-      'Por favor ingresa una cantidad válida (0.5-1000)';
+      'Por favor ingresa una cantidad válida (0,5-1000)';
 
   @override
   String get date => 'Fecha';
@@ -350,7 +350,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get catNotFound => 'Gato no encontrado';
 
   @override
-  String get help => 'Help';
+  String get help => 'Ayuda';
 
   @override
   String get changeThemeColor => 'Cambiar color del tema';
@@ -489,7 +489,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get tagsDescription =>
-      'Agrega etiquetas a tus mascotas para filtrar fácilmente. Las etiquetas te ayudan a organizar y encontrar mascotas rápidamente usando la barra de filtro en la parte superior.';
+      'Agrega etiquetas a las mascotas para filtrar fácilmente. Toca \"Agregar\" en la sección de Etiquetas para crear etiquetas personalizadas.';
 
   @override
   String get dataManagement => 'Gestión de Datos';
@@ -565,4 +565,57 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       'Agregar y gestionar tipos de comida para registros de alimentación';
+
+  @override
+  String get defaultGroupIndoorPets => 'Mascotas de Interior';
+
+  @override
+  String get defaultGroupIndoorPetsDescription =>
+      'Mascotas que permanecen en el interior';
+
+  @override
+  String get defaultGroupOutdoorPets => 'Mascotas de Exterior';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription =>
+      'Mascotas que salen al exterior';
+
+  @override
+  String get defaultGroupYoungPets => 'Mascotas Jóvenes';
+
+  @override
+  String get defaultGroupYoungPetsDescription =>
+      'Mascotas jóvenes menores de 1 año';
+
+  @override
+  String get defaultPetWhiskersName => 'Bigotes';
+
+  @override
+  String get defaultPetWhiskersDescription =>
+      'Un gato atigrado naranja juguetón al que le encanta explorar';
+
+  @override
+  String get defaultPetLunaName => 'Luna';
+
+  @override
+  String get defaultPetLunaDescription =>
+      'Una elegante gata negra con ojos verdes';
+
+  @override
+  String get defaultPetMaxName => 'Max';
+
+  @override
+  String get defaultPetMaxDescription => 'Un golden retriever amigable';
+
+  @override
+  String get defaultFoodTypeWetFood => 'Comida húmeda';
+
+  @override
+  String get defaultFoodTypeDryFood => 'Comida seca';
+
+  @override
+  String get today => 'Hoy';
+
+  @override
+  String get yesterday => 'Ayer';
 }

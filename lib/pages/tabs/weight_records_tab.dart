@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart' as intl;
 import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/weight_record.dart';
@@ -16,7 +16,7 @@ class WeightRecordsTab extends StatelessWidget {
     final Map<String, List<WeightRecord>> grouped = {};
 
     for (var record in records) {
-      final dayKey = DateFormat('yyyy-MM-dd').format(record.date);
+      final dayKey = intl.DateFormat('yyyy-MM-dd').format(record.date);
       if (!grouped.containsKey(dayKey)) {
         grouped[dayKey] = [];
       }
@@ -115,16 +115,21 @@ class WeightRecordsTab extends StatelessWidget {
               final today = DateTime.now();
               final yesterday = today.subtract(const Duration(days: 1));
 
+              final l10n = AppLocalizations.of(context)!;
+              final locale = Localizations.localeOf(context);
               if (dayDate.year == today.year &&
                   dayDate.month == today.month &&
                   dayDate.day == today.day) {
-                dayHeader = 'Today';
+                dayHeader = l10n.today;
               } else if (dayDate.year == yesterday.year &&
                   dayDate.month == yesterday.month &&
                   dayDate.day == yesterday.day) {
-                dayHeader = 'Yesterday';
+                dayHeader = l10n.yesterday;
               } else {
-                dayHeader = DateFormat('EEEE, MMM dd, yyyy').format(dayDate);
+                dayHeader = intl.Intl.withLocale(
+                  locale.toString(),
+                  () => intl.DateFormat.yMMMMEEEEd().format(dayDate),
+                );
               }
 
               return Column(

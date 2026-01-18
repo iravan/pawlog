@@ -66,6 +66,10 @@
   "addRecord": "Adicionar Registro",
   "noMedicalRecordsYet": "Ainda não há registros médicos",
   "catNotFound": "Gato não encontrado",
+  "help": "Ajuda",
+  "@help": {
+    "description": "Help button tooltip"
+  },
   "info": "Info",
   "medical": "Médico",
   "weight": "Peso",
@@ -151,6 +155,10 @@
   "importingData": "Importar Dados",
   "importingDataDescription": "Importe dados previamente exportados para restaurar seus animais e registros.",
   "foodTypes": "Tipos de Comida",
+  "managingFoodTypes": "Gerenciar Tipos de Comida",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "Vá ao menu (três pontos) no canto superior direito e selecione \"Gerenciar Tipos de Comida\" para adicionar, editar ou remover tipos de comida.",
   "usingFoodTypes": "Usar Tipos de Comida",
   "usingFoodTypesDescription": "Ao adicionar um registro de alimentação, selecione dos seus tipos de comida salvos. Isso ajuda a manter a consistência no acompanhamento.",
@@ -165,5 +173,21 @@
   "noFoodTypesYet": "Ainda não há tipos de comida",
   "foodTypeName": "Nome do Tipo de Comida",
   "addNewFoodType": "Adicionar Novo Tipo de Comida",
-  "addAndManageFoodTypesForFeedingRecords": "Adicionar e gerenciar tipos de comida para registros de alimentação"
+  "addAndManageFoodTypesForFeedingRecords": "Adicionar e gerenciar tipos de comida para registros de alimentação",
+  "defaultGroupIndoorPets": "Animais de Interior",
+  "defaultGroupIndoorPetsDescription": "Animais que ficam dentro de casa",
+  "defaultGroupOutdoorPets": "Animais de Exterior",
+  "defaultGroupOutdoorPetsDescription": "Animais que saem",
+  "defaultGroupYoungPets": "Animais Jovens",
+  "defaultGroupYoungPetsDescription": "Animais jovens com menos de 1 ano",
+  "defaultPetWhiskersName": "Bigodes",
+  "defaultPetWhiskersDescription": "Um gato tigrado laranja brincalhão que adora explorar",
+  "defaultPetLunaName": "Luna",
+  "defaultPetLunaDescription": "Uma gata preta elegante com olhos verdes",
+  "defaultPetMaxName": "Max",
+  "defaultPetMaxDescription": "Um golden retriever amigável",
+  "defaultFoodTypeWetFood": "Comida úmida",
+  "defaultFoodTypeDryFood": "Comida seca",
+  "today": "Hoje",
+  "yesterday": "Ontem"
 }

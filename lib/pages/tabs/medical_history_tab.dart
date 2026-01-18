@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart' as intl;
 import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/medical_record.dart';
@@ -127,7 +127,10 @@ class MedicalHistoryTab extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 4.0),
                         child: Text(
-                          DateFormat('MMM dd, yyyy').format(record.date),
+                          intl.Intl.withLocale(
+                            Localizations.localeOf(context).toString(),
+                            () => intl.DateFormat.yMMMd().format(record.date),
+                          ),
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.grey.shade600,

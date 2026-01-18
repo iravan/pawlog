@@ -1128,6 +1128,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add and manage food types for feeding records'**
   String get addAndManageFoodTypesForFeedingRecords;
+
+  /// Default group name for indoor pets
+  ///
+  /// In en, this message translates to:
+  /// **'Indoor Pets'**
+  String get defaultGroupIndoorPets;
+
+  /// Default group description for indoor pets
+  ///
+  /// In en, this message translates to:
+  /// **'Pets that stay indoors'**
+  String get defaultGroupIndoorPetsDescription;
+
+  /// Default group name for outdoor pets
+  ///
+  /// In en, this message translates to:
+  /// **'Outdoor Pets'**
+  String get defaultGroupOutdoorPets;
+
+  /// Default group description for outdoor pets
+  ///
+  /// In en, this message translates to:
+  /// **'Pets that go outside'**
+  String get defaultGroupOutdoorPetsDescription;
+
+  /// Default group name for young pets
+  ///
+  /// In en, this message translates to:
+  /// **'Young Pets'**
+  String get defaultGroupYoungPets;
+
+  /// Default group description for young pets
+  ///
+  /// In en, this message translates to:
+  /// **'Young pets under 1 year'**
+  String get defaultGroupYoungPetsDescription;
+
+  /// Default pet name - Whiskers
+  ///
+  /// In en, this message translates to:
+  /// **'Whiskers'**
+  String get defaultPetWhiskersName;
+
+  /// Default pet description - Whiskers
+  ///
+  /// In en, this message translates to:
+  /// **'A playful orange tabby who loves to explore'**
+  String get defaultPetWhiskersDescription;
+
+  /// Default pet name - Luna
+  ///
+  /// In en, this message translates to:
+  /// **'Luna'**
+  String get defaultPetLunaName;
+
+  /// Default pet description - Luna
+  ///
+  /// In en, this message translates to:
+  /// **'A graceful black cat with green eyes'**
+  String get defaultPetLunaDescription;
+
+  /// Default pet name - Max
+  ///
+  /// In en, this message translates to:
+  /// **'Max'**
+  String get defaultPetMaxName;
+
+  /// Default pet description - Max
+  ///
+  /// In en, this message translates to:
+  /// **'A friendly golden retriever'**
+  String get defaultPetMaxDescription;
+
+  /// Default food type - wet food
+  ///
+  /// In en, this message translates to:
+  /// **'Wet food'**
+  String get defaultFoodTypeWetFood;
+
+  /// Default food type - dry food
+  ///
+  /// In en, this message translates to:
+  /// **'Dry Food'**
+  String get defaultFoodTypeDryFood;
+
+  /// Label for today's date
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get today;
+
+  /// Label for yesterday's date
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get yesterday;
 }
 
 class _AppLocalizationsDelegate

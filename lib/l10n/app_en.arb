@@ -739,5 +739,69 @@
   "addAndManageFoodTypesForFeedingRecords": "Add and manage food types for feeding records",
   "@addAndManageFoodTypesForFeedingRecords": {
     "description": "Subtitle for food types dialog"
+  },
+  "defaultGroupIndoorPets": "Indoor Pets",
+  "@defaultGroupIndoorPets": {
+    "description": "Default group name for indoor pets"
+  },
+  "defaultGroupIndoorPetsDescription": "Pets that stay indoors",
+  "@defaultGroupIndoorPetsDescription": {
+    "description": "Default group description for indoor pets"
+  },
+  "defaultGroupOutdoorPets": "Outdoor Pets",
+  "@defaultGroupOutdoorPets": {
+    "description": "Default group name for outdoor pets"
+  },
+  "defaultGroupOutdoorPetsDescription": "Pets that go outside",
+  "@defaultGroupOutdoorPetsDescription": {
+    "description": "Default group description for outdoor pets"
+  },
+  "defaultGroupYoungPets": "Young Pets",
+  "@defaultGroupYoungPets": {
+    "description": "Default group name for young pets"
+  },
+  "defaultGroupYoungPetsDescription": "Young pets under 1 year",
+  "@defaultGroupYoungPetsDescription": {
+    "description": "Default group description for young pets"
+  },
+  "defaultPetWhiskersName": "Whiskers",
+  "@defaultPetWhiskersName": {
+    "description": "Default pet name - Whiskers"
+  },
+  "defaultPetWhiskersDescription": "A playful orange tabby who loves to explore",
+  "@defaultPetWhiskersDescription": {
+    "description": "Default pet description - Whiskers"
+  },
+  "defaultPetLunaName": "Luna",
+  "@defaultPetLunaName": {
+    "description": "Default pet name - Luna"
+  },
+  "defaultPetLunaDescription": "A graceful black cat with green eyes",
+  "@defaultPetLunaDescription": {
+    "description": "Default pet description - Luna"
+  },
+  "defaultPetMaxName": "Max",
+  "@defaultPetMaxName": {
+    "description": "Default pet name - Max"
+  },
+  "defaultPetMaxDescription": "A friendly golden retriever",
+  "@defaultPetMaxDescription": {
+    "description": "Default pet description - Max"
+  },
+  "defaultFoodTypeWetFood": "Wet food",
+  "@defaultFoodTypeWetFood": {
+    "description": "Default food type - wet food"
+  },
+  "defaultFoodTypeDryFood": "Dry Food",
+  "@defaultFoodTypeDryFood": {
+    "description": "Default food type - dry food"
+  },
+  "today": "Today",
+  "@today": {
+    "description": "Label for today's date"
+  },
+  "yesterday": "Yesterday",
+  "@yesterday": {
+    "description": "Label for yesterday's date"
   }
 }

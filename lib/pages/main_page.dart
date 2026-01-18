@@ -29,6 +29,17 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     _updateExpandedGroups();
+    _initializeProviderWithLocalization();
+  }
+
+  void _initializeProviderWithLocalization() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final catProvider = Provider.of<CatProvider>(context, listen: false);
+      final l10n = AppLocalizations.of(context);
+      if (l10n != null) {
+        catProvider.initialize(l10n);
+      }
+    });
   }
 
   void _updateExpandedGroups() {

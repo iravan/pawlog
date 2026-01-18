@@ -348,7 +348,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get catNotFound => 'ไม่พบแมว';
 
   @override
-  String get help => 'Help';
+  String get help => 'ช่วยเหลือ';
 
   @override
   String get changeThemeColor => 'เปลี่ยนสีธีม';
@@ -509,7 +509,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get foodTypes => 'ประเภทอาหาร';
 
   @override
-  String get managingFoodTypes => 'Managing Food Types';
+  String get managingFoodTypes => 'จัดการประเภทอาหาร';
 
   @override
   String get managingFoodTypesDescription =>
@@ -562,4 +562,53 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
       'เพิ่มและจัดการประเภทอาหารสำหรับบันทึกการให้อาหาร';
+
+  @override
+  String get defaultGroupIndoorPets => 'สัตว์เลี้ยงในร่ม';
+
+  @override
+  String get defaultGroupIndoorPetsDescription => 'สัตว์เลี้ยงที่อยู่ในร่ม';
+
+  @override
+  String get defaultGroupOutdoorPets => 'สัตว์เลี้ยงกลางแจ้ง';
+
+  @override
+  String get defaultGroupOutdoorPetsDescription => 'สัตว์เลี้ยงที่ออกไปข้างนอก';
+
+  @override
+  String get defaultGroupYoungPets => 'สัตว์เลี้ยงอายุน้อย';
+
+  @override
+  String get defaultGroupYoungPetsDescription =>
+      'สัตว์เลี้ยงอายุน้อยต่ำกว่า 1 ปี';
+
+  @override
+  String get defaultPetWhiskersName => 'วิสเกอร์ส';
+
+  @override
+  String get defaultPetWhiskersDescription => 'แมวส้มลายที่ชอบเล่นและชอบสำรวจ';
+
+  @override
+  String get defaultPetLunaName => 'ลูน่า';
+
+  @override
+  String get defaultPetLunaDescription => 'แมวดำสง่างามที่มีดวงตาสีเขียว';
+
+  @override
+  String get defaultPetMaxName => 'แม็กซ์';
+
+  @override
+  String get defaultPetMaxDescription => 'โกลเดน รีทรีฟเวอร์ที่เป็นมิตร';
+
+  @override
+  String get defaultFoodTypeWetFood => 'อาหารเปียก';
+
+  @override
+  String get defaultFoodTypeDryFood => 'อาหารแห้ง';
+
+  @override
+  String get today => 'วันนี้';
+
+  @override
+  String get yesterday => 'เมื่อวาน';
 }

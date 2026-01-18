@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart' as intl;
 import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/medical_record.dart';
@@ -247,7 +247,10 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
                               ),
                               const SizedBox(width: 12),
                               Text(
-                                DateFormat('MMM dd, yyyy').format(_selectedDate),
+                                intl.Intl.withLocale(
+                                  Localizations.localeOf(context).toString(),
+                                  () => intl.DateFormat.yMMMd().format(_selectedDate),
+                                ),
                                 style: const TextStyle(
                                   fontSize: 16,
                                   color: Colors.black87,
