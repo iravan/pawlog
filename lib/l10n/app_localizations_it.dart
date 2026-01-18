@@ -224,9 +224,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get noMedicalRecordsYet => 'Nessun registro medico ancora';
 
   @override
-  String get catNotFound => 'Gatto non trovato';
-
-  @override
   String get info => 'Info';
 
   @override
@@ -325,6 +322,44 @@ class AppLocalizationsIt extends AppLocalizations {
   String get pleaseEnterATitle => 'Inserisci un titolo';
 
   @override
+  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
+    return 'Sei sicuro di voler eliminare \"$groupName\"?\n\nQuesto rimuoverà $count animale(i) da questo gruppo.';
+  }
+
+  @override
+  String get editPetInformation => 'Modifica Informazioni Animale';
+
+  @override
+  String get updateYourPetsDetails => 'Aggiorna i dettagli del tuo animale';
+
+  @override
+  String get groupOptional => 'Gruppo (opzionale)';
+
+  @override
+  String get selectAGroup => 'Seleziona un gruppo';
+
+  @override
+  String get noGroup => 'Nessun Gruppo';
+
+  @override
+  String get description => 'Descrizione';
+
+  @override
+  String get group => 'Gruppo';
+
+  @override
+  String get catNotFound => 'Gatto non trovato';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get changeThemeColor => 'Cambia colore tema';
+
+  @override
+  String get themeColor => 'Colore Tema';
+
+  @override
   String foodTypeAdded(String foodType) {
     return '$foodType aggiunto';
   }
@@ -351,219 +386,184 @@ class AppLocalizationsIt extends AppLocalizations {
   String get saveToAllCats => 'Salva per Tutti i Gatti';
 
   @override
+  String addedToCats(int successCount, int failedCount) {
+    return 'Aggiunto a $successCount gatto(i). $failedCount gatto(i) hanno già 5 registri per questo giorno.';
+  }
+
+  @override
   String addedToAllCats(int count) {
-    return 'Aggiunto a tutti i $count gatto(i)';
+    return 'Aggiunto a tutti i $count gatto(i) con successo';
   }
 
   @override
-  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
-    return 'Sei sicuro di voler eliminare \"$groupName\"?\n\nQuesto rimuoverà $count animale(i) da questo gruppo.';
-  }
-
-  @override
-  String get editPetInformation => 'Edit Pet Information';
-
-  @override
-  String get updateYourPetsDetails => 'Update your pet\'s details';
-
-  @override
-  String get groupOptional => 'Group (optional)';
-
-  @override
-  String get selectAGroup => 'Select a group';
-
-  @override
-  String get noGroup => 'No Group';
-
-  @override
-  String get description => 'Description';
-
-  @override
-  String get group => 'Group';
-
-  @override
-  String get help => 'Help';
-
-  @override
-  String get changeThemeColor => 'Change theme color';
-
-  @override
-  String get themeColor => 'Theme Color';
-
-  @override
-  String addedToCats(int successCount, int failedCount, Object count) {
-    return 'Aggiunto a $count gatto(i). $failedCount gatto(i) hanno già 5 registri per questo giorno.';
-  }
-
-  @override
-  String get groupFeeding => 'Group Feeding';
+  String get groupFeeding => 'Alimentazione di Gruppo';
 
   @override
   String get recordFeedingForAllPetsInGroup =>
-      'Record feeding for all pets in this group';
+      'Registra l\'alimentazione per tutti gli animali di questo gruppo';
 
   @override
-  String get gettingStarted => 'Getting Started';
+  String get gettingStarted => 'Iniziare';
 
   @override
-  String get creatingYourFirstPet => 'Creating Your First Pet';
+  String get creatingYourFirstPet => 'Creare il Tuo Primo Animale';
 
   @override
   String get creatingYourFirstPetDescription =>
-      'Tap the \"New Group\" button at the bottom to create a group, then tap \"Add Pet\" to add your first pet to the group.';
+      'Tocca il pulsante \"Nuovo Gruppo\" in basso per creare un gruppo, poi tocca \"Aggiungi Animale\" per aggiungere il tuo primo animale al gruppo.';
 
   @override
-  String get addingPets => 'Adding Pets';
+  String get addingPets => 'Aggiungere Animali';
 
   @override
   String get addingPetsDescription =>
-      'You can add pets directly to a group or add them without a group. Pets can be moved between groups later.';
+      'Puoi aggiungere animali direttamente a un gruppo o aggiungerli senza gruppo. Gli animali possono essere spostati tra i gruppi in seguito.';
 
   @override
-  String get petTypes => 'Pet Types';
+  String get petTypes => 'Tipi di Animali';
 
   @override
   String get petTypesDescription =>
-      'Choose between Cat or Dog when adding a pet. You can also select a custom icon for each pet.';
+      'Scegli tra Gatto o Cane quando aggiungi un animale. Puoi anche selezionare un\'icona personalizzata per ogni animale.';
 
   @override
-  String get managingPets => 'Managing Pets';
+  String get managingPets => 'Gestire gli Animali';
 
   @override
-  String get viewingPetDetails => 'Viewing Pet Details';
+  String get viewingPetDetails => 'Visualizzare Dettagli Animale';
 
   @override
   String get viewingPetDetailsDescription =>
-      'Tap on any pet in the list to view detailed information, including weight records, feeding history, and medical records.';
+      'Tocca qualsiasi animale nell\'elenco per visualizzare informazioni dettagliate, inclusi registri di peso, cronologia alimentazione e cartelle cliniche.';
 
   @override
-  String get editingPetInformation => 'Editing Pet Information';
+  String get editingPetInformation => 'Modificare Informazioni Animale';
 
   @override
   String get editingPetInformationDescription =>
-      'Tap the \"Edit\" button in the pet\'s info tab to update name, description, icon, or group assignment.';
+      'Tocca il pulsante \"Modifica\" nella scheda Info dell\'animale per aggiornare nome, descrizione, icona o assegnazione gruppo.';
 
   @override
-  String get deletingPets => 'Deleting Pets';
+  String get deletingPets => 'Eliminare Animali';
 
   @override
   String get deletingPetsDescription =>
-      'Use the \"Delete\" button in the pet\'s info tab to permanently remove a pet and all associated records.';
+      'Usa il pulsante \"Elimina\" nella scheda Info dell\'animale per rimuovere permanentemente un animale e tutti i registri associati.';
 
   @override
-  String get recordingData => 'Recording Data';
+  String get recordingData => 'Registrare Dati';
 
   @override
-  String get weightRecords => 'Weight Records';
+  String get weightRecords => 'Registri di Peso';
 
   @override
   String get weightRecordsDescription =>
-      'Track your pet\'s weight over time. Tap the + button in the Weight tab to add a new record.';
+      'Traccia il peso del tuo animale nel tempo. Tocca il pulsante + nella scheda Peso per aggiungere un nuovo registro.';
 
   @override
-  String get feedingRecords => 'Feeding Records';
+  String get feedingRecords => 'Registri di Alimentazione';
 
   @override
   String get feedingRecordsDescription =>
-      'Record feeding times, food types, and amounts. You can add up to 5 records per day per pet.';
+      'Registra orari di alimentazione, tipi di cibo e quantità. Puoi aggiungere fino a 5 registri al giorno per animale.';
 
   @override
-  String get medicalRecords => 'Medical Records';
+  String get medicalRecords => 'Cartelle Cliniche';
 
   @override
   String get medicalRecordsDescription =>
-      'Keep track of vet visits, medications, vaccinations, and other medical information.';
+      'Tieni traccia di visite veterinarie, farmaci, vaccinazioni e altre informazioni mediche.';
 
   @override
-  String get groupsAndOrganization => 'Groups & Organization';
+  String get groupsAndOrganization => 'Gruppi e Organizzazione';
 
   @override
-  String get creatingGroups => 'Creating Groups';
+  String get creatingGroups => 'Creare Gruppi';
 
   @override
   String get creatingGroupsDescription =>
-      'Create groups to organize your pets. Tap \"New Group\" to create a group, then add pets to it.';
+      'Crea gruppi per organizzare i tuoi animali. Tocca \"Nuovo Gruppo\" per creare un gruppo, poi aggiungi animali ad esso.';
 
   @override
   String get groupFeedingDescription =>
-      'Use the group feeding feature to record the same feeding for all pets in a group at once.';
+      'Usa la funzione di alimentazione di gruppo per registrare la stessa alimentazione per tutti gli animali di un gruppo in una volta.';
 
   @override
   String get tagsDescription =>
-      'Add tags to pets for easy filtering. Tap \"Add\" in the Tags section to create custom tags.';
+      'Aggiungi tag ai tuoi animali per filtrare facilmente. I tag ti aiutano a organizzare e trovare rapidamente gli animali usando la barra di filtro in alto.';
 
   @override
-  String get dataManagement => 'Data Management';
+  String get dataManagement => 'Gestione Dati';
 
   @override
-  String get exportingData => 'Exporting Data';
+  String get exportingData => 'Esportare Dati';
 
   @override
   String get exportingDataDescription =>
-      'Export your data to share or backup. Go to Settings and tap \"Export Data\".';
+      'Esporta i tuoi dati per condividere o fare backup. Vai a Impostazioni e tocca \"Esporta Dati\".';
 
   @override
-  String get importingData => 'Importing Data';
+  String get importingData => 'Importare Dati';
 
   @override
   String get importingDataDescription =>
-      'Import previously exported data to restore your pets and records.';
+      'Importa dati precedentemente esportati per ripristinare i tuoi animali e registri.';
 
   @override
-  String get foodTypes => 'Food Types';
+  String get foodTypes => 'Tipi di Cibo';
 
   @override
   String get managingFoodTypes => 'Managing Food Types';
 
   @override
   String get managingFoodTypesDescription =>
-      'Go to the menu (three dots) in the top-right corner and select \"Manage Food Types\" to add, edit, or remove food types.';
+      'Vai al menu (tre punti) nell\'angolo in alto a destra e seleziona \"Gestisci Tipi di Cibo\" per aggiungere, modificare o rimuovere tipi di cibo.';
 
   @override
-  String get usingFoodTypes => 'Using Food Types';
+  String get usingFoodTypes => 'Usare Tipi di Cibo';
 
   @override
   String get usingFoodTypesDescription =>
-      'When adding a feeding record, select from your saved food types. This helps maintain consistency in tracking.';
+      'Quando aggiungi un registro di alimentazione, seleziona dai tuoi tipi di cibo salvati. Questo aiuta a mantenere la coerenza nel tracciamento.';
 
   @override
-  String get localStorage => 'Local Storage';
+  String get localStorage => 'Archiviazione Locale';
 
   @override
   String get localStorageDescription =>
-      'All your data is stored locally on your device. Your pet information stays private and is accessible offline.';
+      'Tutti i tuoi dati sono archiviati localmente sul tuo dispositivo. Le informazioni sul tuo animale rimangono private e sono accessibili offline.';
 
   @override
-  String get customization => 'Customization';
+  String get customization => 'Personalizzazione';
 
   @override
-  String get themeColors => 'Theme Colors';
+  String get themeColors => 'Colori Tema';
 
   @override
   String get themeColorsDescription =>
-      'Change the app\'s theme color by tapping the palette icon in the top-right corner. Choose from a variety of colors to personalize your experience.';
+      'Cambia il colore del tema dell\'app toccando l\'icona della tavolozza nell\'angolo in alto a destra. Scegli tra una varietà di colori per personalizzare la tua esperienza.';
 
   @override
   String thisWillAddAFeedingRecordToCats(int count) {
-    return 'This will add a feeding record to $count cat(s):';
+    return 'Questo aggiungerà un registro di alimentazione a $count gatto(i):';
   }
 
   @override
-  String get type => 'type';
+  String get type => 'tipo';
 
   @override
-  String get types => 'types';
+  String get types => 'tipi';
 
   @override
-  String get noFoodTypesYet => 'No food types yet';
+  String get noFoodTypesYet => 'Nessun tipo di cibo ancora';
 
   @override
-  String get foodTypeName => 'Food Type Name';
+  String get foodTypeName => 'Nome Tipo di Cibo';
 
   @override
-  String get addNewFoodType => 'Add New Food Type';
+  String get addNewFoodType => 'Aggiungi Nuovo Tipo di Cibo';
 
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
-      'Add and manage food types for feeding records';
+      'Aggiungi e gestisci tipi di cibo per registri di alimentazione';
 }

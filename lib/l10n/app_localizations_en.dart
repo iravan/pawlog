@@ -221,9 +221,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noMedicalRecordsYet => 'No medical records yet';
 
   @override
-  String get catNotFound => 'Cat Not Found';
-
-  @override
   String get info => 'Info';
 
   @override
@@ -321,36 +318,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseEnterATitle => 'Please enter a title';
 
   @override
-  String foodTypeAdded(String foodType) {
-    return '$foodType added';
-  }
-
-  @override
-  String get deleteFoodType => 'Delete Food Type';
-
-  @override
-  String deleteFoodTypeConfirm(String foodType) {
-    return 'Are you sure you want to delete \"$foodType\"?\n\nThis will remove it from all feeding records.';
-  }
-
-  @override
-  String get editFoodType => 'Edit Food Type';
-
-  @override
-  String get enterFoodTypeName => 'Enter food type name';
-
-  @override
-  String get pleaseEnterAFoodTypeName => 'Please enter a food type name';
-
-  @override
-  String get saveToAllCats => 'Save to All Cats';
-
-  @override
-  String addedToAllCats(int count) {
-    return 'Added to all $count cat(s) successfully.';
-  }
-
-  @override
   String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
     return 'Are you sure you want to delete \"$groupName\"?\n\nThis will remove $count pet(s) from this group.';
   }
@@ -377,6 +344,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get group => 'Group';
 
   @override
+  String get catNotFound => 'Cat Not Found';
+
+  @override
   String get help => 'Help';
 
   @override
@@ -386,8 +356,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String get themeColor => 'Theme Color';
 
   @override
-  String addedToCats(int successCount, int failedCount, Object count) {
+  String foodTypeAdded(String foodType) {
+    return '$foodType added';
+  }
+
+  @override
+  String get deleteFoodType => 'Delete Food Type';
+
+  @override
+  String deleteFoodTypeConfirm(String foodType) {
+    return 'Are you sure you want to delete \"$foodType\"?\n\nThis will remove it from all feeding records.';
+  }
+
+  @override
+  String get editFoodType => 'Edit Food Type';
+
+  @override
+  String get enterFoodTypeName => 'Enter food type name';
+
+  @override
+  String get pleaseEnterAFoodTypeName => 'Please enter a food type name';
+
+  @override
+  String get saveToAllCats => 'Save to All Cats';
+
+  @override
+  String addedToCats(int successCount, int failedCount) {
     return 'Added to $successCount cat(s). $failedCount cat(s) already have 5 records for this day.';
+  }
+
+  @override
+  String addedToAllCats(int count) {
+    return 'Added to all $count cat(s) successfully.';
   }
 
   @override

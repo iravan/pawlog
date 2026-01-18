@@ -671,6 +671,10 @@
   "@foodTypes": {
     "description": "Help section title"
   },
+  "managingFoodTypes": "Managing Food Types",
+  "@managingFoodTypes": {
+    "description": "Help item title"
+  },
   "managingFoodTypesDescription": "Go to the menu (three dots) in the top-right corner and select \"Manage Food Types\" to add, edit, or remove food types.",
   "@managingFoodTypesDescription": {
     "description": "Help item description"

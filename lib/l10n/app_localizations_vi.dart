@@ -223,9 +223,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get noMedicalRecordsYet => 'Chưa có bản ghi y tế';
 
   @override
-  String get catNotFound => 'Không tìm thấy mèo';
-
-  @override
   String get info => 'Thông Tin';
 
   @override
@@ -323,6 +320,44 @@ class AppLocalizationsVi extends AppLocalizations {
   String get pleaseEnterATitle => 'Vui lòng nhập tiêu đề';
 
   @override
+  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
+    return 'Bạn có chắc chắn muốn xóa \"$groupName\"?\n\nĐiều này sẽ xóa $count con thú cưng khỏi nhóm này.';
+  }
+
+  @override
+  String get editPetInformation => 'Chỉnh Sửa Thông Tin Thú Cưng';
+
+  @override
+  String get updateYourPetsDetails => 'Cập nhật chi tiết thú cưng của bạn';
+
+  @override
+  String get groupOptional => 'Nhóm (tùy chọn)';
+
+  @override
+  String get selectAGroup => 'Chọn một nhóm';
+
+  @override
+  String get noGroup => 'Không Có Nhóm';
+
+  @override
+  String get description => 'Mô Tả';
+
+  @override
+  String get group => 'Nhóm';
+
+  @override
+  String get catNotFound => 'Không tìm thấy mèo';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get changeThemeColor => 'Thay đổi màu chủ đề';
+
+  @override
+  String get themeColor => 'Màu Chủ Đề';
+
+  @override
   String foodTypeAdded(String foodType) {
     return '$foodType đã được thêm';
   }
@@ -348,219 +383,184 @@ class AppLocalizationsVi extends AppLocalizations {
   String get saveToAllCats => 'Lưu Cho Tất Cả Mèo';
 
   @override
+  String addedToCats(int successCount, int failedCount) {
+    return 'Đã thêm vào $successCount con mèo. $failedCount con mèo đã có 5 bản ghi cho ngày này.';
+  }
+
+  @override
   String addedToAllCats(int count) {
-    return 'Đã thêm vào tất cả $count con mèo';
+    return 'Đã thêm vào tất cả $count con mèo thành công';
   }
 
   @override
-  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
-    return 'Bạn có chắc chắn muốn xóa \"$groupName\"?\n\nĐiều này sẽ xóa $count con thú cưng khỏi nhóm này.';
-  }
-
-  @override
-  String get editPetInformation => 'Edit Pet Information';
-
-  @override
-  String get updateYourPetsDetails => 'Update your pet\'s details';
-
-  @override
-  String get groupOptional => 'Group (optional)';
-
-  @override
-  String get selectAGroup => 'Select a group';
-
-  @override
-  String get noGroup => 'No Group';
-
-  @override
-  String get description => 'Description';
-
-  @override
-  String get group => 'Group';
-
-  @override
-  String get help => 'Help';
-
-  @override
-  String get changeThemeColor => 'Change theme color';
-
-  @override
-  String get themeColor => 'Theme Color';
-
-  @override
-  String addedToCats(int successCount, int failedCount, Object count) {
-    return 'Đã thêm vào $count con mèo. $failedCount con mèo đã có 5 bản ghi cho ngày này.';
-  }
-
-  @override
-  String get groupFeeding => 'Group Feeding';
+  String get groupFeeding => 'Cho Ăn Nhóm';
 
   @override
   String get recordFeedingForAllPetsInGroup =>
-      'Record feeding for all pets in this group';
+      'Ghi lại việc cho ăn cho tất cả thú cưng trong nhóm này';
 
   @override
-  String get gettingStarted => 'Getting Started';
+  String get gettingStarted => 'Bắt Đầu';
 
   @override
-  String get creatingYourFirstPet => 'Creating Your First Pet';
+  String get creatingYourFirstPet => 'Tạo Thú Cưng Đầu Tiên Của Bạn';
 
   @override
   String get creatingYourFirstPetDescription =>
-      'Tap the \"New Group\" button at the bottom to create a group, then tap \"Add Pet\" to add your first pet to the group.';
+      'Nhấn nút \"Nhóm Mới\" ở dưới cùng để tạo nhóm, sau đó nhấn \"Thêm Thú Cưng\" để thêm thú cưng đầu tiên của bạn vào nhóm.';
 
   @override
-  String get addingPets => 'Adding Pets';
+  String get addingPets => 'Thêm Thú Cưng';
 
   @override
   String get addingPetsDescription =>
-      'You can add pets directly to a group or add them without a group. Pets can be moved between groups later.';
+      'Bạn có thể thêm thú cưng trực tiếp vào nhóm hoặc thêm chúng mà không có nhóm. Thú cưng có thể được di chuyển giữa các nhóm sau này.';
 
   @override
-  String get petTypes => 'Pet Types';
+  String get petTypes => 'Loại Thú Cưng';
 
   @override
   String get petTypesDescription =>
-      'Choose between Cat or Dog when adding a pet. You can also select a custom icon for each pet.';
+      'Chọn giữa Mèo hoặc Chó khi thêm thú cưng. Bạn cũng có thể chọn biểu tượng tùy chỉnh cho mỗi thú cưng.';
 
   @override
-  String get managingPets => 'Managing Pets';
+  String get managingPets => 'Quản Lý Thú Cưng';
 
   @override
-  String get viewingPetDetails => 'Viewing Pet Details';
+  String get viewingPetDetails => 'Xem Chi Tiết Thú Cưng';
 
   @override
   String get viewingPetDetailsDescription =>
-      'Tap on any pet in the list to view detailed information, including weight records, feeding history, and medical records.';
+      'Nhấn vào bất kỳ thú cưng nào trong danh sách để xem thông tin chi tiết, bao gồm hồ sơ cân nặng, lịch sử cho ăn và hồ sơ y tế.';
 
   @override
-  String get editingPetInformation => 'Editing Pet Information';
+  String get editingPetInformation => 'Chỉnh Sửa Thông Tin Thú Cưng';
 
   @override
   String get editingPetInformationDescription =>
-      'Tap the \"Edit\" button in the pet\'s info tab to update name, description, icon, or group assignment.';
+      'Nhấn nút \"Chỉnh Sửa\" trong tab thông tin thú cưng để cập nhật tên, mô tả, biểu tượng hoặc phân công nhóm.';
 
   @override
-  String get deletingPets => 'Deleting Pets';
+  String get deletingPets => 'Xóa Thú Cưng';
 
   @override
   String get deletingPetsDescription =>
-      'Use the \"Delete\" button in the pet\'s info tab to permanently remove a pet and all associated records.';
+      'Sử dụng nút \"Xóa\" trong tab thông tin thú cưng để xóa vĩnh viễn thú cưng và tất cả các hồ sơ liên quan.';
 
   @override
-  String get recordingData => 'Recording Data';
+  String get recordingData => 'Ghi Dữ Liệu';
 
   @override
-  String get weightRecords => 'Weight Records';
+  String get weightRecords => 'Hồ Sơ Cân Nặng';
 
   @override
   String get weightRecordsDescription =>
-      'Track your pet\'s weight over time. Tap the + button in the Weight tab to add a new record.';
+      'Theo dõi cân nặng thú cưng của bạn theo thời gian. Nhấn nút + trong tab Cân Nặng để thêm hồ sơ mới.';
 
   @override
-  String get feedingRecords => 'Feeding Records';
+  String get feedingRecords => 'Hồ Sơ Cho Ăn';
 
   @override
   String get feedingRecordsDescription =>
-      'Record feeding times, food types, and amounts. You can add up to 5 records per day per pet.';
+      'Ghi lại thời gian cho ăn, loại thức ăn và số lượng. Bạn có thể thêm tối đa 5 hồ sơ mỗi ngày cho mỗi thú cưng.';
 
   @override
-  String get medicalRecords => 'Medical Records';
+  String get medicalRecords => 'Hồ Sơ Y Tế';
 
   @override
   String get medicalRecordsDescription =>
-      'Keep track of vet visits, medications, vaccinations, and other medical information.';
+      'Theo dõi các lần khám thú y, thuốc, tiêm chủng và thông tin y tế khác.';
 
   @override
-  String get groupsAndOrganization => 'Groups & Organization';
+  String get groupsAndOrganization => 'Nhóm và Tổ Chức';
 
   @override
-  String get creatingGroups => 'Creating Groups';
+  String get creatingGroups => 'Tạo Nhóm';
 
   @override
   String get creatingGroupsDescription =>
-      'Create groups to organize your pets. Tap \"New Group\" to create a group, then add pets to it.';
+      'Tạo nhóm để tổ chức thú cưng của bạn. Nhấn \"Nhóm Mới\" để tạo nhóm, sau đó thêm thú cưng vào đó.';
 
   @override
   String get groupFeedingDescription =>
-      'Use the group feeding feature to record the same feeding for all pets in a group at once.';
+      'Sử dụng tính năng cho ăn nhóm để ghi lại việc cho ăn giống nhau cho tất cả thú cưng trong nhóm cùng một lúc.';
 
   @override
   String get tagsDescription =>
-      'Add tags to pets for easy filtering. Tap \"Add\" in the Tags section to create custom tags.';
+      'Thêm thẻ cho thú cưng của bạn để lọc dễ dàng. Thẻ giúp bạn tổ chức và tìm thú cưng nhanh chóng bằng cách sử dụng thanh lọc ở trên cùng.';
 
   @override
-  String get dataManagement => 'Data Management';
+  String get dataManagement => 'Quản Lý Dữ Liệu';
 
   @override
-  String get exportingData => 'Exporting Data';
+  String get exportingData => 'Xuất Dữ Liệu';
 
   @override
   String get exportingDataDescription =>
-      'Export your data to share or backup. Go to Settings and tap \"Export Data\".';
+      'Xuất dữ liệu của bạn để chia sẻ hoặc sao lưu. Đi tới Cài Đặt và nhấn \"Xuất Dữ Liệu\".';
 
   @override
-  String get importingData => 'Importing Data';
+  String get importingData => 'Nhập Dữ Liệu';
 
   @override
   String get importingDataDescription =>
-      'Import previously exported data to restore your pets and records.';
+      'Nhập dữ liệu đã xuất trước đó để khôi phục thú cưng và hồ sơ của bạn.';
 
   @override
-  String get foodTypes => 'Food Types';
+  String get foodTypes => 'Loại Thức Ăn';
 
   @override
   String get managingFoodTypes => 'Managing Food Types';
 
   @override
   String get managingFoodTypesDescription =>
-      'Go to the menu (three dots) in the top-right corner and select \"Manage Food Types\" to add, edit, or remove food types.';
+      'Đi tới menu (ba chấm) ở góc trên bên phải và chọn \"Quản Lý Loại Thức Ăn\" để thêm, chỉnh sửa hoặc xóa loại thức ăn.';
 
   @override
-  String get usingFoodTypes => 'Using Food Types';
+  String get usingFoodTypes => 'Sử Dụng Loại Thức Ăn';
 
   @override
   String get usingFoodTypesDescription =>
-      'When adding a feeding record, select from your saved food types. This helps maintain consistency in tracking.';
+      'Khi thêm hồ sơ cho ăn, hãy chọn từ các loại thức ăn đã lưu của bạn. Điều này giúp duy trì tính nhất quán trong việc theo dõi.';
 
   @override
-  String get localStorage => 'Local Storage';
+  String get localStorage => 'Lưu Trữ Cục Bộ';
 
   @override
   String get localStorageDescription =>
-      'All your data is stored locally on your device. Your pet information stays private and is accessible offline.';
+      'Tất cả dữ liệu của bạn được lưu trữ cục bộ trên thiết bị của bạn. Thông tin thú cưng của bạn vẫn riêng tư và có thể truy cập ngoại tuyến.';
 
   @override
-  String get customization => 'Customization';
+  String get customization => 'Tùy Chỉnh';
 
   @override
-  String get themeColors => 'Theme Colors';
+  String get themeColors => 'Màu Chủ Đề';
 
   @override
   String get themeColorsDescription =>
-      'Change the app\'s theme color by tapping the palette icon in the top-right corner. Choose from a variety of colors to personalize your experience.';
+      'Thay đổi màu chủ đề của ứng dụng bằng cách nhấn biểu tượng bảng màu ở góc trên bên phải. Chọn từ nhiều màu để cá nhân hóa trải nghiệm của bạn.';
 
   @override
   String thisWillAddAFeedingRecordToCats(int count) {
-    return 'This will add a feeding record to $count cat(s):';
+    return 'Điều này sẽ thêm hồ sơ cho ăn vào $count con mèo:';
   }
 
   @override
-  String get type => 'type';
+  String get type => 'loại';
 
   @override
-  String get types => 'types';
+  String get types => 'loại';
 
   @override
-  String get noFoodTypesYet => 'No food types yet';
+  String get noFoodTypesYet => 'Chưa có loại thức ăn';
 
   @override
-  String get foodTypeName => 'Food Type Name';
+  String get foodTypeName => 'Tên Loại Thức Ăn';
 
   @override
-  String get addNewFoodType => 'Add New Food Type';
+  String get addNewFoodType => 'Thêm Loại Thức Ăn Mới';
 
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
-      'Add and manage food types for feeding records';
+      'Thêm và quản lý loại thức ăn cho hồ sơ cho ăn';
 }

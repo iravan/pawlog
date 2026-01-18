@@ -91,8 +91,7 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  // Note: count parameter is unused but required by generated code until regeneration
-                  l10n.addedToCats(successCount, failedCount, 0),
+                  l10n.addedToCats(successCount, failedCount),
                 ),
                 backgroundColor: Colors.orange,
               ),

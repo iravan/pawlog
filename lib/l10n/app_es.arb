@@ -151,6 +151,7 @@
   "importingData": "Importar Datos",
   "importingDataDescription": "Importa datos previamente exportados para restaurar tus mascotas y registros.",
   "foodTypes": "Tipos de Comida",
+  "managingFoodTypes": "Gestionar Tipos de Comida",
   "managingFoodTypesDescription": "Ve al menú (tres puntos) en la esquina superior derecha y selecciona \"Gestionar Tipos de Comida\" para agregar, editar o eliminar tipos de comida.",
   "usingFoodTypes": "Usar Tipos de Comida",
   "usingFoodTypesDescription": "Al agregar un registro de alimentación, selecciona de tus tipos de comida guardados. Esto ayuda a mantener la consistencia en el seguimiento.",

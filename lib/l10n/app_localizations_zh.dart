@@ -221,9 +221,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noMedicalRecordsYet => '還沒有醫療記錄';
 
   @override
-  String get catNotFound => '未找到貓';
-
-  @override
   String get info => '信息';
 
   @override
@@ -320,6 +317,44 @@ class AppLocalizationsZh extends AppLocalizations {
   String get pleaseEnterATitle => '請輸入標題';
 
   @override
+  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
+    return '您確定要刪除 \"$groupName\" 嗎？\n\n這將從此組中移除 $count 隻寵物。';
+  }
+
+  @override
+  String get editPetInformation => '編輯寵物信息';
+
+  @override
+  String get updateYourPetsDetails => '更新您的寵物詳情';
+
+  @override
+  String get groupOptional => '組（可選）';
+
+  @override
+  String get selectAGroup => '選擇一個組';
+
+  @override
+  String get noGroup => '無組';
+
+  @override
+  String get description => '描述';
+
+  @override
+  String get group => '組';
+
+  @override
+  String get catNotFound => '未找到貓';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get changeThemeColor => '更改主題顏色';
+
+  @override
+  String get themeColor => '主題顏色';
+
+  @override
   String foodTypeAdded(String foodType) {
     return '$foodType 已添加';
   }
@@ -345,221 +380,170 @@ class AppLocalizationsZh extends AppLocalizations {
   String get saveToAllCats => '保存到所有貓';
 
   @override
+  String addedToCats(int successCount, int failedCount) {
+    return '已添加到 $successCount 隻貓。$failedCount 隻貓今天已有 5 條記錄。';
+  }
+
+  @override
   String addedToAllCats(int count) {
-    return '已添加到所有 $count 隻貓';
+    return '已成功添加到所有 $count 隻貓';
   }
 
   @override
-  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
-    return '您確定要刪除 \"$groupName\" 嗎？\n\n這將從此組中移除 $count 隻寵物。';
-  }
+  String get groupFeeding => '組餵食';
 
   @override
-  String get editPetInformation => 'Edit Pet Information';
+  String get recordFeedingForAllPetsInGroup => '記錄此組中所有寵物的餵食';
 
   @override
-  String get updateYourPetsDetails => 'Update your pet\'s details';
+  String get gettingStarted => '開始使用';
 
   @override
-  String get groupOptional => 'Group (optional)';
-
-  @override
-  String get selectAGroup => 'Select a group';
-
-  @override
-  String get noGroup => 'No Group';
-
-  @override
-  String get description => 'Description';
-
-  @override
-  String get group => 'Group';
-
-  @override
-  String get help => 'Help';
-
-  @override
-  String get changeThemeColor => 'Change theme color';
-
-  @override
-  String get themeColor => 'Theme Color';
-
-  @override
-  String addedToCats(int successCount, int failedCount, Object count) {
-    return '已添加到 $count 隻貓。$failedCount 隻貓今天已有 5 條記錄。';
-  }
-
-  @override
-  String get groupFeeding => 'Group Feeding';
-
-  @override
-  String get recordFeedingForAllPetsInGroup =>
-      'Record feeding for all pets in this group';
-
-  @override
-  String get gettingStarted => 'Getting Started';
-
-  @override
-  String get creatingYourFirstPet => 'Creating Your First Pet';
+  String get creatingYourFirstPet => '創建您的第一隻寵物';
 
   @override
   String get creatingYourFirstPetDescription =>
-      'Tap the \"New Group\" button at the bottom to create a group, then tap \"Add Pet\" to add your first pet to the group.';
+      '點擊底部的「新建組」按鈕創建組，然後點擊「添加寵物」將您的第一隻寵物添加到組中。';
 
   @override
-  String get addingPets => 'Adding Pets';
+  String get addingPets => '添加寵物';
 
   @override
-  String get addingPetsDescription =>
-      'You can add pets directly to a group or add them without a group. Pets can be moved between groups later.';
+  String get addingPetsDescription => '您可以直接將寵物添加到組中，也可以不添加組。寵物可以在稍後在組之間移動。';
 
   @override
-  String get petTypes => 'Pet Types';
+  String get petTypes => '寵物類型';
 
   @override
-  String get petTypesDescription =>
-      'Choose between Cat or Dog when adding a pet. You can also select a custom icon for each pet.';
+  String get petTypesDescription => '添加寵物時選擇貓或狗。您還可以為每隻寵物選擇自定義圖標。';
 
   @override
-  String get managingPets => 'Managing Pets';
+  String get managingPets => '管理寵物';
 
   @override
-  String get viewingPetDetails => 'Viewing Pet Details';
+  String get viewingPetDetails => '查看寵物詳情';
 
   @override
   String get viewingPetDetailsDescription =>
-      'Tap on any pet in the list to view detailed information, including weight records, feeding history, and medical records.';
+      '點擊列表中的任何寵物以查看詳細信息，包括體重記錄、餵食歷史和醫療記錄。';
 
   @override
-  String get editingPetInformation => 'Editing Pet Information';
+  String get editingPetInformation => '編輯寵物信息';
 
   @override
   String get editingPetInformationDescription =>
-      'Tap the \"Edit\" button in the pet\'s info tab to update name, description, icon, or group assignment.';
+      '點擊寵物信息標籤中的「編輯」按鈕以更新名稱、描述、圖標或組分配。';
 
   @override
-  String get deletingPets => 'Deleting Pets';
+  String get deletingPets => '刪除寵物';
 
   @override
-  String get deletingPetsDescription =>
-      'Use the \"Delete\" button in the pet\'s info tab to permanently remove a pet and all associated records.';
+  String get deletingPetsDescription => '使用寵物信息標籤中的「刪除」按鈕永久刪除寵物和所有相關記錄。';
 
   @override
-  String get recordingData => 'Recording Data';
+  String get recordingData => '記錄數據';
 
   @override
-  String get weightRecords => 'Weight Records';
+  String get weightRecords => '體重記錄';
 
   @override
-  String get weightRecordsDescription =>
-      'Track your pet\'s weight over time. Tap the + button in the Weight tab to add a new record.';
+  String get weightRecordsDescription => '隨時間追蹤您的寵物體重。點擊體重標籤中的 + 按鈕添加新記錄。';
 
   @override
-  String get feedingRecords => 'Feeding Records';
+  String get feedingRecords => '餵食記錄';
 
   @override
-  String get feedingRecordsDescription =>
-      'Record feeding times, food types, and amounts. You can add up to 5 records per day per pet.';
+  String get feedingRecordsDescription => '記錄餵食時間、食物類型和數量。每隻寵物每天最多可添加 5 條記錄。';
 
   @override
-  String get medicalRecords => 'Medical Records';
+  String get medicalRecords => '醫療記錄';
 
   @override
-  String get medicalRecordsDescription =>
-      'Keep track of vet visits, medications, vaccinations, and other medical information.';
+  String get medicalRecordsDescription => '追蹤獸醫訪問、藥物、疫苗接種和其他醫療信息。';
 
   @override
-  String get groupsAndOrganization => 'Groups & Organization';
+  String get groupsAndOrganization => '組和組織';
 
   @override
-  String get creatingGroups => 'Creating Groups';
+  String get creatingGroups => '創建組';
 
   @override
-  String get creatingGroupsDescription =>
-      'Create groups to organize your pets. Tap \"New Group\" to create a group, then add pets to it.';
+  String get creatingGroupsDescription => '創建組以組織您的寵物。點擊「新建組」創建組，然後向其中添加寵物。';
 
   @override
-  String get groupFeedingDescription =>
-      'Use the group feeding feature to record the same feeding for all pets in a group at once.';
+  String get groupFeedingDescription => '使用組餵食功能一次記錄組中所有寵物的相同餵食。';
 
   @override
-  String get tagsDescription =>
-      'Add tags to pets for easy filtering. Tap \"Add\" in the Tags section to create custom tags.';
+  String get tagsDescription => '為您的寵物添加標籤以便輕鬆過濾。標籤幫助您使用頂部的過濾欄快速組織和查找寵物。';
 
   @override
-  String get dataManagement => 'Data Management';
+  String get dataManagement => '數據管理';
 
   @override
-  String get exportingData => 'Exporting Data';
+  String get exportingData => '導出數據';
 
   @override
-  String get exportingDataDescription =>
-      'Export your data to share or backup. Go to Settings and tap \"Export Data\".';
+  String get exportingDataDescription => '導出您的數據以共享或備份。轉到設置並點擊「導出數據」。';
 
   @override
-  String get importingData => 'Importing Data';
+  String get importingData => '導入數據';
 
   @override
-  String get importingDataDescription =>
-      'Import previously exported data to restore your pets and records.';
+  String get importingDataDescription => '導入先前導出的數據以恢復您的寵物和記錄。';
 
   @override
-  String get foodTypes => 'Food Types';
+  String get foodTypes => '食物類型';
 
   @override
   String get managingFoodTypes => 'Managing Food Types';
 
   @override
   String get managingFoodTypesDescription =>
-      'Go to the menu (three dots) in the top-right corner and select \"Manage Food Types\" to add, edit, or remove food types.';
+      '轉到右上角的菜單（三點）並選擇「管理食物類型」以添加、編輯或刪除食物類型。';
 
   @override
-  String get usingFoodTypes => 'Using Food Types';
+  String get usingFoodTypes => '使用食物類型';
 
   @override
-  String get usingFoodTypesDescription =>
-      'When adding a feeding record, select from your saved food types. This helps maintain consistency in tracking.';
+  String get usingFoodTypesDescription => '添加餵食記錄時，從您保存的食物類型中選擇。這有助於保持追蹤的一致性。';
 
   @override
-  String get localStorage => 'Local Storage';
+  String get localStorage => '本地存儲';
 
   @override
-  String get localStorageDescription =>
-      'All your data is stored locally on your device. Your pet information stays private and is accessible offline.';
+  String get localStorageDescription => '您的所有數據都存儲在設備本地。您的寵物信息保持私密，可離線訪問。';
 
   @override
-  String get customization => 'Customization';
+  String get customization => '自定義';
 
   @override
-  String get themeColors => 'Theme Colors';
+  String get themeColors => '主題顏色';
 
   @override
-  String get themeColorsDescription =>
-      'Change the app\'s theme color by tapping the palette icon in the top-right corner. Choose from a variety of colors to personalize your experience.';
+  String get themeColorsDescription => '點擊右上角的調色板圖標更改應用的主題顏色。從多種顏色中選擇以個性化您的體驗。';
 
   @override
   String thisWillAddAFeedingRecordToCats(int count) {
-    return 'This will add a feeding record to $count cat(s):';
+    return '這將向 $count 隻貓添加餵食記錄：';
   }
 
   @override
-  String get type => 'type';
+  String get type => '類型';
 
   @override
-  String get types => 'types';
+  String get types => '類型';
 
   @override
-  String get noFoodTypesYet => 'No food types yet';
+  String get noFoodTypesYet => '尚無食物類型';
 
   @override
-  String get foodTypeName => 'Food Type Name';
+  String get foodTypeName => '食物類型名稱';
 
   @override
-  String get addNewFoodType => 'Add New Food Type';
+  String get addNewFoodType => '添加新食物類型';
 
   @override
-  String get addAndManageFoodTypesForFeedingRecords =>
-      'Add and manage food types for feeding records';
+  String get addAndManageFoodTypesForFeedingRecords => '添加和管理餵食記錄的食物類型';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -779,9 +763,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get noMedicalRecordsYet => '还没有医疗记录';
 
   @override
-  String get catNotFound => '未找到猫';
-
-  @override
   String get info => '信息';
 
   @override
@@ -878,6 +859,41 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get pleaseEnterATitle => '请输入标题';
 
   @override
+  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
+    return '您确定要删除 \"$groupName\" 吗？\n\n这将从此组中移除 $count 只宠物。';
+  }
+
+  @override
+  String get editPetInformation => '编辑宠物信息';
+
+  @override
+  String get updateYourPetsDetails => '更新您的宠物详情';
+
+  @override
+  String get groupOptional => '组（可选）';
+
+  @override
+  String get selectAGroup => '选择一个组';
+
+  @override
+  String get noGroup => '无组';
+
+  @override
+  String get description => '描述';
+
+  @override
+  String get group => '组';
+
+  @override
+  String get catNotFound => '未找到猫';
+
+  @override
+  String get changeThemeColor => '更改主题颜色';
+
+  @override
+  String get themeColor => '主题颜色';
+
+  @override
   String foodTypeAdded(String foodType) {
     return '$foodType 已添加';
   }
@@ -903,19 +919,167 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get saveToAllCats => '保存到所有猫';
 
   @override
+  String addedToCats(int successCount, int failedCount) {
+    return '已添加到 $successCount 只猫。$failedCount 只猫今天已有 5 条记录。';
+  }
+
+  @override
   String addedToAllCats(int count) {
-    return '已添加到所有 $count 只猫';
+    return '已成功添加到所有 $count 只猫';
   }
 
   @override
-  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
-    return '您确定要删除 \"$groupName\" 吗？\n\n这将从此组中移除 $count 只宠物。';
+  String get groupFeeding => '组喂食';
+
+  @override
+  String get recordFeedingForAllPetsInGroup => '记录此组中所有宠物的喂食';
+
+  @override
+  String get gettingStarted => '开始使用';
+
+  @override
+  String get creatingYourFirstPet => '创建您的第一只宠物';
+
+  @override
+  String get creatingYourFirstPetDescription =>
+      '点击底部的「新建组」按钮创建组，然后点击「添加宠物」将您的第一只宠物添加到组中。';
+
+  @override
+  String get addingPets => '添加宠物';
+
+  @override
+  String get addingPetsDescription => '您可以直接将宠物添加到组中，也可以不添加组。宠物可以在稍后在组之间移动。';
+
+  @override
+  String get petTypes => '宠物类型';
+
+  @override
+  String get petTypesDescription => '添加宠物时选择猫或狗。您还可以为每只宠物选择自定义图标。';
+
+  @override
+  String get managingPets => '管理宠物';
+
+  @override
+  String get viewingPetDetails => '查看宠物详情';
+
+  @override
+  String get viewingPetDetailsDescription =>
+      '点击列表中的任何宠物以查看详细信息，包括体重记录、喂食历史和医疗记录。';
+
+  @override
+  String get editingPetInformation => '编辑宠物信息';
+
+  @override
+  String get editingPetInformationDescription =>
+      '点击宠物信息标签中的「编辑」按钮以更新名称、描述、图标或组分配。';
+
+  @override
+  String get deletingPets => '删除宠物';
+
+  @override
+  String get deletingPetsDescription => '使用宠物信息标签中的「删除」按钮永久删除宠物和所有相关记录。';
+
+  @override
+  String get recordingData => '记录数据';
+
+  @override
+  String get weightRecords => '体重记录';
+
+  @override
+  String get weightRecordsDescription => '随时间追踪您的宠物体重。点击体重标签中的 + 按钮添加新记录。';
+
+  @override
+  String get feedingRecords => '喂食记录';
+
+  @override
+  String get feedingRecordsDescription => '记录喂食时间、食物类型和数量。每只宠物每天最多可添加 5 条记录。';
+
+  @override
+  String get medicalRecords => '医疗记录';
+
+  @override
+  String get medicalRecordsDescription => '追踪兽医访问、药物、疫苗接种和其他医疗信息。';
+
+  @override
+  String get groupsAndOrganization => '组和组织';
+
+  @override
+  String get creatingGroups => '创建组';
+
+  @override
+  String get creatingGroupsDescription => '创建组以组织您的宠物。点击「新建组」创建组，然后向其中添加宠物。';
+
+  @override
+  String get groupFeedingDescription => '使用组喂食功能一次记录组中所有宠物的相同喂食。';
+
+  @override
+  String get tagsDescription => '为您的宠物添加标签以便轻松过滤。标签帮助您使用顶部的过滤栏快速组织和查找宠物。';
+
+  @override
+  String get dataManagement => '数据管理';
+
+  @override
+  String get exportingData => '导出数据';
+
+  @override
+  String get exportingDataDescription => '导出您的数据以共享或备份。转到设置并点击「导出数据」。';
+
+  @override
+  String get importingData => '导入数据';
+
+  @override
+  String get importingDataDescription => '导入先前导出的数据以恢复您的宠物和记录。';
+
+  @override
+  String get foodTypes => '食物类型';
+
+  @override
+  String get managingFoodTypesDescription =>
+      '转到右上角的菜单（三点）并选择「管理食物类型」以添加、编辑或删除食物类型。';
+
+  @override
+  String get usingFoodTypes => '使用食物类型';
+
+  @override
+  String get usingFoodTypesDescription => '添加喂食记录时，从您保存的食物类型中选择。这有助于保持追踪的一致性。';
+
+  @override
+  String get localStorage => '本地存储';
+
+  @override
+  String get localStorageDescription => '您的所有数据都存储在设备本地。您的宠物信息保持私密，可离线访问。';
+
+  @override
+  String get customization => '自定义';
+
+  @override
+  String get themeColors => '主题颜色';
+
+  @override
+  String get themeColorsDescription => '点击右上角的调色板图标更改应用的主题颜色。从多种颜色中选择以个性化您的体验。';
+
+  @override
+  String thisWillAddAFeedingRecordToCats(int count) {
+    return '这将向 $count 只猫添加喂食记录：';
   }
 
   @override
-  String addedToCats(int successCount, int failedCount, Object count) {
-    return '已添加到 $count 只猫。$failedCount 只猫今天已有 5 条记录。';
-  }
+  String get type => '类型';
+
+  @override
+  String get types => '类型';
+
+  @override
+  String get noFoodTypesYet => '尚无食物类型';
+
+  @override
+  String get foodTypeName => '食物类型名称';
+
+  @override
+  String get addNewFoodType => '添加新食物类型';
+
+  @override
+  String get addAndManageFoodTypesForFeedingRecords => '添加和管理喂食记录的食物类型';
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).
@@ -1135,9 +1299,6 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get noMedicalRecordsYet => '還沒有醫療記錄';
 
   @override
-  String get catNotFound => '未找到貓';
-
-  @override
   String get info => '信息';
 
   @override
@@ -1234,6 +1395,41 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get pleaseEnterATitle => '請輸入標題';
 
   @override
+  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
+    return '您確定要刪除 \"$groupName\" 嗎？\n\n這將從此組中移除 $count 隻寵物。';
+  }
+
+  @override
+  String get editPetInformation => '編輯寵物信息';
+
+  @override
+  String get updateYourPetsDetails => '更新您的寵物詳情';
+
+  @override
+  String get groupOptional => '組（可選）';
+
+  @override
+  String get selectAGroup => '選擇一個組';
+
+  @override
+  String get noGroup => '無組';
+
+  @override
+  String get description => '描述';
+
+  @override
+  String get group => '組';
+
+  @override
+  String get catNotFound => '未找到貓';
+
+  @override
+  String get changeThemeColor => '更改主題顏色';
+
+  @override
+  String get themeColor => '主題顏色';
+
+  @override
   String foodTypeAdded(String foodType) {
     return '$foodType 已添加';
   }
@@ -1259,19 +1455,167 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get saveToAllCats => '保存到所有貓';
 
   @override
+  String addedToCats(int successCount, int failedCount) {
+    return '已添加到 $successCount 隻貓。$failedCount 隻貓今天已有 5 條記錄。';
+  }
+
+  @override
   String addedToAllCats(int count) {
-    return '已添加到所有 $count 隻貓';
+    return '已成功添加到所有 $count 隻貓';
   }
 
   @override
-  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
-    return '您確定要刪除 \"$groupName\" 嗎？\n\n這將從此組中移除 $count 隻寵物。';
+  String get groupFeeding => '組餵食';
+
+  @override
+  String get recordFeedingForAllPetsInGroup => '記錄此組中所有寵物的餵食';
+
+  @override
+  String get gettingStarted => '開始使用';
+
+  @override
+  String get creatingYourFirstPet => '創建您的第一隻寵物';
+
+  @override
+  String get creatingYourFirstPetDescription =>
+      '點擊底部的「新建組」按鈕創建組，然後點擊「添加寵物」將您的第一隻寵物添加到組中。';
+
+  @override
+  String get addingPets => '添加寵物';
+
+  @override
+  String get addingPetsDescription => '您可以直接將寵物添加到組中，也可以不添加組。寵物可以在稍後在組之間移動。';
+
+  @override
+  String get petTypes => '寵物類型';
+
+  @override
+  String get petTypesDescription => '添加寵物時選擇貓或狗。您還可以為每隻寵物選擇自定義圖標。';
+
+  @override
+  String get managingPets => '管理寵物';
+
+  @override
+  String get viewingPetDetails => '查看寵物詳情';
+
+  @override
+  String get viewingPetDetailsDescription =>
+      '點擊列表中的任何寵物以查看詳細信息，包括體重記錄、餵食歷史和醫療記錄。';
+
+  @override
+  String get editingPetInformation => '編輯寵物信息';
+
+  @override
+  String get editingPetInformationDescription =>
+      '點擊寵物信息標籤中的「編輯」按鈕以更新名稱、描述、圖標或組分配。';
+
+  @override
+  String get deletingPets => '刪除寵物';
+
+  @override
+  String get deletingPetsDescription => '使用寵物信息標籤中的「刪除」按鈕永久刪除寵物和所有相關記錄。';
+
+  @override
+  String get recordingData => '記錄數據';
+
+  @override
+  String get weightRecords => '體重記錄';
+
+  @override
+  String get weightRecordsDescription => '隨時間追蹤您的寵物體重。點擊體重標籤中的 + 按鈕添加新記錄。';
+
+  @override
+  String get feedingRecords => '餵食記錄';
+
+  @override
+  String get feedingRecordsDescription => '記錄餵食時間、食物類型和數量。每隻寵物每天最多可添加 5 條記錄。';
+
+  @override
+  String get medicalRecords => '醫療記錄';
+
+  @override
+  String get medicalRecordsDescription => '追蹤獸醫訪問、藥物、疫苗接種和其他醫療信息。';
+
+  @override
+  String get groupsAndOrganization => '組和組織';
+
+  @override
+  String get creatingGroups => '創建組';
+
+  @override
+  String get creatingGroupsDescription => '創建組以組織您的寵物。點擊「新建組」創建組，然後向其中添加寵物。';
+
+  @override
+  String get groupFeedingDescription => '使用組餵食功能一次記錄組中所有寵物的相同餵食。';
+
+  @override
+  String get tagsDescription => '為您的寵物添加標籤以便輕鬆過濾。標籤幫助您使用頂部的過濾欄快速組織和查找寵物。';
+
+  @override
+  String get dataManagement => '數據管理';
+
+  @override
+  String get exportingData => '導出數據';
+
+  @override
+  String get exportingDataDescription => '導出您的數據以共享或備份。轉到設置並點擊「導出數據」。';
+
+  @override
+  String get importingData => '導入數據';
+
+  @override
+  String get importingDataDescription => '導入先前導出的數據以恢復您的寵物和記錄。';
+
+  @override
+  String get foodTypes => '食物類型';
+
+  @override
+  String get managingFoodTypesDescription =>
+      '轉到右上角的菜單（三點）並選擇「管理食物類型」以添加、編輯或刪除食物類型。';
+
+  @override
+  String get usingFoodTypes => '使用食物類型';
+
+  @override
+  String get usingFoodTypesDescription => '添加餵食記錄時，從您保存的食物類型中選擇。這有助於保持追蹤的一致性。';
+
+  @override
+  String get localStorage => '本地存儲';
+
+  @override
+  String get localStorageDescription => '您的所有數據都存儲在設備本地。您的寵物信息保持私密，可離線訪問。';
+
+  @override
+  String get customization => '自定義';
+
+  @override
+  String get themeColors => '主題顏色';
+
+  @override
+  String get themeColorsDescription => '點擊右上角的調色板圖標更改應用的主題顏色。從多種顏色中選擇以個性化您的體驗。';
+
+  @override
+  String thisWillAddAFeedingRecordToCats(int count) {
+    return '這將向 $count 隻貓添加餵食記錄：';
   }
 
   @override
-  String addedToCats(int successCount, int failedCount, Object count) {
-    return '已添加到 $count 隻貓。$failedCount 隻貓今天已有 5 條記錄。';
-  }
+  String get type => '類型';
+
+  @override
+  String get types => '類型';
+
+  @override
+  String get noFoodTypesYet => '尚無食物類型';
+
+  @override
+  String get foodTypeName => '食物類型名稱';
+
+  @override
+  String get addNewFoodType => '添加新食物類型';
+
+  @override
+  String get addAndManageFoodTypesForFeedingRecords => '添加和管理餵食記錄的食物類型';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -1491,9 +1835,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get noMedicalRecordsYet => '還沒有醫療記錄';
 
   @override
-  String get catNotFound => '找不到貓';
-
-  @override
   String get info => '資訊';
 
   @override
@@ -1590,6 +1931,41 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get pleaseEnterATitle => '請輸入標題';
 
   @override
+  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
+    return '您確定要刪除 \"$groupName\" 嗎？\n\n這將從此群組中移除 $count 隻寵物。';
+  }
+
+  @override
+  String get editPetInformation => '編輯寵物資訊';
+
+  @override
+  String get updateYourPetsDetails => '更新您的寵物詳情';
+
+  @override
+  String get groupOptional => '群組（選填）';
+
+  @override
+  String get selectAGroup => '選擇一個群組';
+
+  @override
+  String get noGroup => '無群組';
+
+  @override
+  String get description => '描述';
+
+  @override
+  String get group => '群組';
+
+  @override
+  String get catNotFound => '找不到貓';
+
+  @override
+  String get changeThemeColor => '更改主題顏色';
+
+  @override
+  String get themeColor => '主題顏色';
+
+  @override
   String foodTypeAdded(String foodType) {
     return '$foodType 已新增';
   }
@@ -1615,17 +1991,166 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get saveToAllCats => '儲存到所有貓';
 
   @override
+  String addedToCats(int successCount, int failedCount) {
+    return '已新增到 $successCount 隻貓。$failedCount 隻貓今天已有 5 筆記錄。';
+  }
+
+  @override
   String addedToAllCats(int count) {
-    return '已新增到所有 $count 隻貓';
+    return '已成功新增到所有 $count 隻貓';
   }
 
   @override
-  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
-    return '您確定要刪除 \"$groupName\" 嗎？\n\n這將從此群組中移除 $count 隻寵物。';
+  String get groupFeeding => '群組餵食';
+
+  @override
+  String get recordFeedingForAllPetsInGroup => '記錄此群組中所有寵物的餵食';
+
+  @override
+  String get gettingStarted => '開始使用';
+
+  @override
+  String get creatingYourFirstPet => '建立您的第一隻寵物';
+
+  @override
+  String get creatingYourFirstPetDescription =>
+      '點擊底部的「新建群組」按鈕建立群組，然後點擊「新增寵物」將您的第一隻寵物新增到群組中。';
+
+  @override
+  String get addingPets => '新增寵物';
+
+  @override
+  String get addingPetsDescription => '您可以直接將寵物新增到群組中，也可以不新增群組。寵物可以在稍後在群組之間移動。';
+
+  @override
+  String get petTypes => '寵物類型';
+
+  @override
+  String get petTypesDescription => '新增寵物時選擇貓或狗。您還可以為每隻寵物選擇自訂圖示。';
+
+  @override
+  String get managingPets => '管理寵物';
+
+  @override
+  String get viewingPetDetails => '查看寵物詳情';
+
+  @override
+  String get viewingPetDetailsDescription =>
+      '點擊清單中的任何寵物以查看詳細資訊，包括體重記錄、餵食歷史和醫療記錄。';
+
+  @override
+  String get editingPetInformation => '編輯寵物資訊';
+
+  @override
+  String get editingPetInformationDescription =>
+      '點擊寵物資訊標籤中的「編輯」按鈕以更新名稱、描述、圖示或群組分配。';
+
+  @override
+  String get deletingPets => '刪除寵物';
+
+  @override
+  String get deletingPetsDescription => '使用寵物資訊標籤中的「刪除」按鈕永久刪除寵物和所有相關記錄。';
+
+  @override
+  String get recordingData => '記錄資料';
+
+  @override
+  String get weightRecords => '體重記錄';
+
+  @override
+  String get weightRecordsDescription => '隨時間追蹤您的寵物體重。點擊體重標籤中的 + 按鈕新增記錄。';
+
+  @override
+  String get feedingRecords => '餵食記錄';
+
+  @override
+  String get feedingRecordsDescription => '記錄餵食時間、食物類型和數量。每隻寵物每天最多可新增 5 筆記錄。';
+
+  @override
+  String get medicalRecords => '醫療記錄';
+
+  @override
+  String get medicalRecordsDescription => '追蹤獸醫訪問、藥物、疫苗接種和其他醫療資訊。';
+
+  @override
+  String get groupsAndOrganization => '群組和組織';
+
+  @override
+  String get creatingGroups => '建立群組';
+
+  @override
+  String get creatingGroupsDescription => '建立群組以組織您的寵物。點擊「新建群組」建立群組，然後向其中新增寵物。';
+
+  @override
+  String get groupFeedingDescription => '使用群組餵食功能一次記錄群組中所有寵物的相同餵食。';
+
+  @override
+  String get tagsDescription => '為您的寵物新增標籤以便輕鬆過濾。標籤幫助您使用頂部的過濾欄快速組織和查找寵物。';
+
+  @override
+  String get dataManagement => '資料管理';
+
+  @override
+  String get exportingData => '匯出資料';
+
+  @override
+  String get exportingDataDescription => '匯出您的資料以共享或備份。前往設定並點擊「匯出資料」。';
+
+  @override
+  String get importingData => '匯入資料';
+
+  @override
+  String get importingDataDescription => '匯入先前匯出的資料以恢復您的寵物和記錄。';
+
+  @override
+  String get foodTypes => '食物類型';
+
+  @override
+  String get managingFoodTypesDescription =>
+      '前往右上角的選單（三點）並選擇「管理食物類型」以新增、編輯或刪除食物類型。';
+
+  @override
+  String get usingFoodTypes => '使用食物類型';
+
+  @override
+  String get usingFoodTypesDescription => '新增餵食記錄時，從您儲存的食物類型中選擇。這有助於保持追蹤的一致性。';
+
+  @override
+  String get localStorage => '本機儲存';
+
+  @override
+  String get localStorageDescription => '您的所有資料都儲存在裝置本機。您的寵物資訊保持私密，可離線存取。';
+
+  @override
+  String get customization => '自訂';
+
+  @override
+  String get themeColors => '主題顏色';
+
+  @override
+  String get themeColorsDescription =>
+      '點擊右上角的調色板圖示更改應用程式的主題顏色。從多種顏色中選擇以個人化您的體驗。';
+
+  @override
+  String thisWillAddAFeedingRecordToCats(int count) {
+    return '這將向 $count 隻貓新增餵食記錄：';
   }
 
   @override
-  String addedToCats(int successCount, int failedCount, Object count) {
-    return '已新增到 $count 隻貓。$failedCount 隻貓今天已有 5 筆記錄。';
-  }
+  String get type => '類型';
+
+  @override
+  String get types => '類型';
+
+  @override
+  String get noFoodTypesYet => '尚無食物類型';
+
+  @override
+  String get foodTypeName => '食物類型名稱';
+
+  @override
+  String get addNewFoodType => '新增新食物類型';
+
+  @override
+  String get addAndManageFoodTypesForFeedingRecords => '新增和管理餵食記錄的食物類型';
 }

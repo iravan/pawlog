@@ -259,7 +259,7 @@ abstract class AppLocalizations {
   /// **'Delete'**
   String get delete;
 
-  /// Dialog title for managing food types
+  /// Menu item for managing food types
   ///
   /// In en, this message translates to:
   /// **'Manage Food Types'**
@@ -421,7 +421,7 @@ abstract class AppLocalizations {
   /// **'Pet not found'**
   String get petNotFound;
 
-  /// Help item title
+  /// Tags section title
   ///
   /// In en, this message translates to:
   /// **'Tags'**
@@ -510,12 +510,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No medical records yet'**
   String get noMedicalRecordsYet;
-
-  /// App bar title when cat not found
-  ///
-  /// In en, this message translates to:
-  /// **'Cat Not Found'**
-  String get catNotFound;
 
   /// Info tab label
   ///
@@ -709,54 +703,6 @@ abstract class AppLocalizations {
   /// **'Please enter a title'**
   String get pleaseEnterATitle;
 
-  /// Snackbar message when food type is added
-  ///
-  /// In en, this message translates to:
-  /// **'{foodType} added'**
-  String foodTypeAdded(String foodType);
-
-  /// Dialog title for deleting food type
-  ///
-  /// In en, this message translates to:
-  /// **'Delete Food Type'**
-  String get deleteFoodType;
-
-  /// Confirmation message for deleting food type
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete \"{foodType}\"?\n\nThis will remove it from all feeding records.'**
-  String deleteFoodTypeConfirm(String foodType);
-
-  /// Dialog title for editing food type
-  ///
-  /// In en, this message translates to:
-  /// **'Edit Food Type'**
-  String get editFoodType;
-
-  /// Hint for food type input
-  ///
-  /// In en, this message translates to:
-  /// **'Enter food type name'**
-  String get enterFoodTypeName;
-
-  /// Validation message for food type name
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter a food type name'**
-  String get pleaseEnterAFoodTypeName;
-
-  /// Button label for group feeding
-  ///
-  /// In en, this message translates to:
-  /// **'Save to All Cats'**
-  String get saveToAllCats;
-
-  /// Message when group feeding is fully successful
-  ///
-  /// In en, this message translates to:
-  /// **'Added to all {count} cat(s) successfully.'**
-  String addedToAllCats(int count);
-
   /// Confirmation message for deleting group with pets (fixed)
   ///
   /// In en, this message translates to:
@@ -805,6 +751,12 @@ abstract class AppLocalizations {
   /// **'Group'**
   String get group;
 
+  /// App bar title when cat not found
+  ///
+  /// In en, this message translates to:
+  /// **'Cat Not Found'**
+  String get catNotFound;
+
   /// Help page title
   ///
   /// In en, this message translates to:
@@ -823,13 +775,61 @@ abstract class AppLocalizations {
   /// **'Theme Color'**
   String get themeColor;
 
+  /// Snackbar message when food type is added
+  ///
+  /// In en, this message translates to:
+  /// **'{foodType} added'**
+  String foodTypeAdded(String foodType);
+
+  /// Dialog title for deleting food type
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Food Type'**
+  String get deleteFoodType;
+
+  /// Confirmation message for deleting food type
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete \"{foodType}\"?\n\nThis will remove it from all feeding records.'**
+  String deleteFoodTypeConfirm(String foodType);
+
+  /// Dialog title for editing food type
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Food Type'**
+  String get editFoodType;
+
+  /// Hint for food type input
+  ///
+  /// In en, this message translates to:
+  /// **'Enter food type name'**
+  String get enterFoodTypeName;
+
+  /// Validation message for food type name
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a food type name'**
+  String get pleaseEnterAFoodTypeName;
+
+  /// Button label for group feeding
+  ///
+  /// In en, this message translates to:
+  /// **'Save to All Cats'**
+  String get saveToAllCats;
+
   /// Message when group feeding is partially successful
   ///
   /// In en, this message translates to:
   /// **'Added to {successCount} cat(s). {failedCount} cat(s) already have 5 records for this day.'**
-  String addedToCats(int successCount, int failedCount, Object count);
+  String addedToCats(int successCount, int failedCount);
 
-  /// Help item title
+  /// Message when group feeding is fully successful
+  ///
+  /// In en, this message translates to:
+  /// **'Added to all {count} cat(s) successfully.'**
+  String addedToAllCats(int count);
+
+  /// Dialog title for group feeding
   ///
   /// In en, this message translates to:
   /// **'Group Feeding'**

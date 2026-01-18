@@ -221,9 +221,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get noMedicalRecordsYet => '아직 의료 기록이 없습니다';
 
   @override
-  String get catNotFound => '고양이를 찾을 수 없습니다';
-
-  @override
   String get info => '정보';
 
   @override
@@ -320,6 +317,44 @@ class AppLocalizationsKo extends AppLocalizations {
   String get pleaseEnterATitle => '제목을 입력해주세요';
 
   @override
+  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
+    return '\"$groupName\"을(를) 삭제하시겠습니까?\n\n이 그룹에서 $count마리의 반려동물이 제거됩니다.';
+  }
+
+  @override
+  String get editPetInformation => '반려동물 정보 편집';
+
+  @override
+  String get updateYourPetsDetails => '반려동물 세부 정보 업데이트';
+
+  @override
+  String get groupOptional => '그룹 (선택사항)';
+
+  @override
+  String get selectAGroup => '그룹 선택';
+
+  @override
+  String get noGroup => '그룹 없음';
+
+  @override
+  String get description => '설명';
+
+  @override
+  String get group => '그룹';
+
+  @override
+  String get catNotFound => '고양이를 찾을 수 없습니다';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get changeThemeColor => '테마 색상 변경';
+
+  @override
+  String get themeColor => '테마 색상';
+
+  @override
   String foodTypeAdded(String foodType) {
     return '$foodType 추가됨';
   }
@@ -345,219 +380,181 @@ class AppLocalizationsKo extends AppLocalizations {
   String get saveToAllCats => '모든 고양이에 저장';
 
   @override
+  String addedToCats(int successCount, int failedCount) {
+    return '$successCount마리의 고양이에 추가되었습니다. $failedCount마리의 고양이는 이미 오늘 5개의 기록이 있습니다.';
+  }
+
+  @override
   String addedToAllCats(int count) {
-    return '모든 $count마리의 고양이에 추가되었습니다';
+    return '모든 $count마리의 고양이에 성공적으로 추가되었습니다';
   }
 
   @override
-  String deleteGroupConfirmWithPetsFixed(String groupName, int count) {
-    return '\"$groupName\"을(를) 삭제하시겠습니까?\n\n이 그룹에서 $count마리의 반려동물이 제거됩니다.';
-  }
+  String get groupFeeding => '그룹 급여';
 
   @override
-  String get editPetInformation => 'Edit Pet Information';
+  String get recordFeedingForAllPetsInGroup => '이 그룹의 모든 반려동물에게 급여 기록';
 
   @override
-  String get updateYourPetsDetails => 'Update your pet\'s details';
+  String get gettingStarted => '시작하기';
 
   @override
-  String get groupOptional => 'Group (optional)';
-
-  @override
-  String get selectAGroup => 'Select a group';
-
-  @override
-  String get noGroup => 'No Group';
-
-  @override
-  String get description => 'Description';
-
-  @override
-  String get group => 'Group';
-
-  @override
-  String get help => 'Help';
-
-  @override
-  String get changeThemeColor => 'Change theme color';
-
-  @override
-  String get themeColor => 'Theme Color';
-
-  @override
-  String addedToCats(int successCount, int failedCount, Object count) {
-    return '$count마리의 고양이에 추가되었습니다. $failedCount마리의 고양이는 이미 오늘 5개의 기록이 있습니다.';
-  }
-
-  @override
-  String get groupFeeding => 'Group Feeding';
-
-  @override
-  String get recordFeedingForAllPetsInGroup =>
-      'Record feeding for all pets in this group';
-
-  @override
-  String get gettingStarted => 'Getting Started';
-
-  @override
-  String get creatingYourFirstPet => 'Creating Your First Pet';
+  String get creatingYourFirstPet => '첫 반려동물 만들기';
 
   @override
   String get creatingYourFirstPetDescription =>
-      'Tap the \"New Group\" button at the bottom to create a group, then tap \"Add Pet\" to add your first pet to the group.';
+      '하단의 \"새 그룹\" 버튼을 탭하여 그룹을 만든 다음 \"반려동물 추가\"를 탭하여 첫 반려동물을 그룹에 추가합니다.';
 
   @override
-  String get addingPets => 'Adding Pets';
+  String get addingPets => '반려동물 추가';
 
   @override
   String get addingPetsDescription =>
-      'You can add pets directly to a group or add them without a group. Pets can be moved between groups later.';
+      '반려동물을 직접 그룹에 추가하거나 그룹 없이 추가할 수 있습니다. 반려동물은 나중에 그룹 간에 이동할 수 있습니다.';
 
   @override
-  String get petTypes => 'Pet Types';
+  String get petTypes => '반려동물 종류';
 
   @override
   String get petTypesDescription =>
-      'Choose between Cat or Dog when adding a pet. You can also select a custom icon for each pet.';
+      '반려동물을 추가할 때 고양이 또는 개를 선택합니다. 각 반려동물에 대한 사용자 정의 아이콘도 선택할 수 있습니다.';
 
   @override
-  String get managingPets => 'Managing Pets';
+  String get managingPets => '반려동물 관리';
 
   @override
-  String get viewingPetDetails => 'Viewing Pet Details';
+  String get viewingPetDetails => '반려동물 세부 정보 보기';
 
   @override
   String get viewingPetDetailsDescription =>
-      'Tap on any pet in the list to view detailed information, including weight records, feeding history, and medical records.';
+      '목록에서 반려동물을 탭하여 체중 기록, 급여 기록, 의료 기록을 포함한 자세한 정보를 봅니다.';
 
   @override
-  String get editingPetInformation => 'Editing Pet Information';
+  String get editingPetInformation => '반려동물 정보 편집';
 
   @override
   String get editingPetInformationDescription =>
-      'Tap the \"Edit\" button in the pet\'s info tab to update name, description, icon, or group assignment.';
+      '반려동물 정보 탭의 \"편집\" 버튼을 탭하여 이름, 설명, 아이콘 또는 그룹 할당을 업데이트합니다.';
 
   @override
-  String get deletingPets => 'Deleting Pets';
+  String get deletingPets => '반려동물 삭제';
 
   @override
   String get deletingPetsDescription =>
-      'Use the \"Delete\" button in the pet\'s info tab to permanently remove a pet and all associated records.';
+      '반려동물 정보 탭의 \"삭제\" 버튼을 사용하여 반려동물과 모든 관련 기록을 영구적으로 제거합니다.';
 
   @override
-  String get recordingData => 'Recording Data';
+  String get recordingData => '데이터 기록';
 
   @override
-  String get weightRecords => 'Weight Records';
+  String get weightRecords => '체중 기록';
 
   @override
   String get weightRecordsDescription =>
-      'Track your pet\'s weight over time. Tap the + button in the Weight tab to add a new record.';
+      '시간에 따라 반려동물의 체중을 추적합니다. 체중 탭의 + 버튼을 탭하여 새 기록을 추가합니다.';
 
   @override
-  String get feedingRecords => 'Feeding Records';
+  String get feedingRecords => '급여 기록';
 
   @override
   String get feedingRecordsDescription =>
-      'Record feeding times, food types, and amounts. You can add up to 5 records per day per pet.';
+      '급여 시간, 사료 종류 및 양을 기록합니다. 반려동물당 하루에 최대 5개의 기록을 추가할 수 있습니다.';
 
   @override
-  String get medicalRecords => 'Medical Records';
+  String get medicalRecords => '의료 기록';
 
   @override
-  String get medicalRecordsDescription =>
-      'Keep track of vet visits, medications, vaccinations, and other medical information.';
+  String get medicalRecordsDescription => '수의사 방문, 약물, 예방접종 및 기타 의료 정보를 추적합니다.';
 
   @override
-  String get groupsAndOrganization => 'Groups & Organization';
+  String get groupsAndOrganization => '그룹 및 구성';
 
   @override
-  String get creatingGroups => 'Creating Groups';
+  String get creatingGroups => '그룹 만들기';
 
   @override
   String get creatingGroupsDescription =>
-      'Create groups to organize your pets. Tap \"New Group\" to create a group, then add pets to it.';
+      '반려동물을 구성하기 위한 그룹을 만듭니다. \"새 그룹\"을 탭하여 그룹을 만든 다음 반려동물을 추가합니다.';
 
   @override
   String get groupFeedingDescription =>
-      'Use the group feeding feature to record the same feeding for all pets in a group at once.';
+      '그룹 급여 기능을 사용하여 그룹의 모든 반려동물에게 동일한 급여를 한 번에 기록합니다.';
 
   @override
   String get tagsDescription =>
-      'Add tags to pets for easy filtering. Tap \"Add\" in the Tags section to create custom tags.';
+      '반려동물에 태그를 추가하여 쉽게 필터링합니다. 태그는 상단의 필터 바를 사용하여 반려동물을 빠르게 구성하고 찾는 데 도움이 됩니다.';
 
   @override
-  String get dataManagement => 'Data Management';
+  String get dataManagement => '데이터 관리';
 
   @override
-  String get exportingData => 'Exporting Data';
+  String get exportingData => '데이터 내보내기';
 
   @override
   String get exportingDataDescription =>
-      'Export your data to share or backup. Go to Settings and tap \"Export Data\".';
+      '데이터를 내보내어 공유하거나 백업합니다. 설정으로 이동하여 \"데이터 내보내기\"를 탭합니다.';
 
   @override
-  String get importingData => 'Importing Data';
+  String get importingData => '데이터 가져오기';
 
   @override
-  String get importingDataDescription =>
-      'Import previously exported data to restore your pets and records.';
+  String get importingDataDescription => '이전에 내보낸 데이터를 가져와 반려동물과 기록을 복원합니다.';
 
   @override
-  String get foodTypes => 'Food Types';
+  String get foodTypes => '사료 종류';
 
   @override
   String get managingFoodTypes => 'Managing Food Types';
 
   @override
   String get managingFoodTypesDescription =>
-      'Go to the menu (three dots) in the top-right corner and select \"Manage Food Types\" to add, edit, or remove food types.';
+      '오른쪽 상단 모서리의 메뉴(세 점)로 이동하여 \"사료 종류 관리\"를 선택하여 사료 종류를 추가, 편집 또는 제거합니다.';
 
   @override
-  String get usingFoodTypes => 'Using Food Types';
+  String get usingFoodTypes => '사료 종류 사용';
 
   @override
   String get usingFoodTypesDescription =>
-      'When adding a feeding record, select from your saved food types. This helps maintain consistency in tracking.';
+      '급여 기록을 추가할 때 저장된 사료 종류에서 선택합니다. 이렇게 하면 추적의 일관성이 유지됩니다.';
 
   @override
-  String get localStorage => 'Local Storage';
+  String get localStorage => '로컬 저장소';
 
   @override
   String get localStorageDescription =>
-      'All your data is stored locally on your device. Your pet information stays private and is accessible offline.';
+      '모든 데이터는 기기에 로컬로 저장됩니다. 반려동물 정보는 비공개로 유지되며 오프라인에서 액세스할 수 있습니다.';
 
   @override
-  String get customization => 'Customization';
+  String get customization => '사용자 지정';
 
   @override
-  String get themeColors => 'Theme Colors';
+  String get themeColors => '테마 색상';
 
   @override
   String get themeColorsDescription =>
-      'Change the app\'s theme color by tapping the palette icon in the top-right corner. Choose from a variety of colors to personalize your experience.';
+      '오른쪽 상단 모서리의 팔레트 아이콘을 탭하여 앱의 테마 색상을 변경합니다. 다양한 색상 중에서 선택하여 경험을 개인화합니다.';
 
   @override
   String thisWillAddAFeedingRecordToCats(int count) {
-    return 'This will add a feeding record to $count cat(s):';
+    return '이것은 $count마리의 고양이에게 급여 기록을 추가합니다:';
   }
 
   @override
-  String get type => 'type';
+  String get type => '종류';
 
   @override
-  String get types => 'types';
+  String get types => '종류';
 
   @override
-  String get noFoodTypesYet => 'No food types yet';
+  String get noFoodTypesYet => '아직 사료 종류가 없습니다';
 
   @override
-  String get foodTypeName => 'Food Type Name';
+  String get foodTypeName => '사료 종류 이름';
 
   @override
-  String get addNewFoodType => 'Add New Food Type';
+  String get addNewFoodType => '새 사료 종류 추가';
 
   @override
   String get addAndManageFoodTypesForFeedingRecords =>
-      'Add and manage food types for feeding records';
+      '급여 기록을 위한 사료 종류 추가 및 관리';
 }
