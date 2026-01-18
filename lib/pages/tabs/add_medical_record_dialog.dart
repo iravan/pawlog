@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/medical_record.dart';
 
@@ -101,6 +102,7 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final isEdit = widget.record != null;
     
     return Dialog(
@@ -151,7 +153,7 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          isEdit ? 'Edit Medical Record' : 'Add Medical Record',
+                          isEdit ? l10n.editMedicalRecord : l10n.addMedicalRecord,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
@@ -161,8 +163,8 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
                         const SizedBox(height: 4),
                         Text(
                           isEdit
-                              ? 'Update medical information'
-                              : 'Record medical information',
+                              ? l10n.updateMedicalInformation
+                              : l10n.recordMedicalInformation,
                           style: TextStyle(
                             fontSize: 13,
                             color: Colors.grey.shade600,
@@ -191,8 +193,8 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
                       TextFormField(
                         controller: _titleController,
                         decoration: InputDecoration(
-                          labelText: 'Title',
-                          hintText: 'Enter record title',
+                          labelText: l10n.title,
+                          hintText: l10n.enterTitle,
                           prefixIcon: Icon(
                             Icons.title,
                             color: Theme.of(context).colorScheme.primary,
@@ -205,10 +207,10 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
                         style: const TextStyle(fontSize: 16),
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter a title';
+                            return l10n.pleaseEnterATitle;
                           }
                           if (value.trim().length > 20) {
-                            return 'Title must be 20 characters or less';
+                            return l10n.pleaseEnterATitle;
                           }
                           return null;
                         },
@@ -216,7 +218,7 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
                       const SizedBox(height: 24),
                       // Date Section
                       Text(
-                        'Date',
+                        l10n.date,
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
@@ -265,8 +267,8 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
                       TextFormField(
                         controller: _notesController,
                         decoration: InputDecoration(
-                          labelText: 'Notes (optional)',
-                          hintText: 'Add any additional notes...',
+                          labelText: l10n.notes,
+                          hintText: l10n.enterNotes,
                           prefixIcon: Icon(
                             Icons.note,
                             color: Theme.of(context).colorScheme.primary,
@@ -313,7 +315,7 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
                       ),
                     ),
                     child: Text(
-                      'Cancel',
+                      l10n.cancel,
                       style: TextStyle(
                         color: Colors.grey.shade700,
                         fontWeight: FontWeight.w500,
@@ -328,8 +330,8 @@ class _AddMedicalRecordDialogState extends State<AddMedicalRecordDialog> {
                       size: 20,
                     ),
                     label: Text(
-                      isEdit ? 'Save' : 'Add',
-                      style: const TextStyle(
+                      isEdit ? l10n.saveChanges : l10n.add,
+                      style: TextStyle(
                         fontWeight: FontWeight.w500,
                       ),
                     ),

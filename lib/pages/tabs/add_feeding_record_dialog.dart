@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/feeding_record.dart';
 
@@ -121,6 +122,7 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final isEdit = widget.record != null;
     
     return Dialog(
@@ -171,7 +173,7 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          isEdit ? 'Edit Feeding Record' : 'Add Feeding Record',
+                          isEdit ? l10n.editFeedingRecord : l10n.addFeedingRecord,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
@@ -181,8 +183,8 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                         const SizedBox(height: 4),
                         Text(
                           isEdit
-                              ? 'Update feeding information'
-                              : 'Record your cat\'s feeding',
+                              ? l10n.updateFeedingInformation
+                              : l10n.recordYourPetsFeeding,
                           style: TextStyle(
                             fontSize: 13,
                             color: Colors.grey.shade600,
@@ -233,8 +235,8 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                           return DropdownButtonFormField<String>(
                             value: validSelectedValue,
                             decoration: InputDecoration(
-                              labelText: 'Food Type',
-                              hintText: 'Select food type',
+                              labelText: l10n.foodType,
+                              hintText: l10n.selectFoodType,
                               prefixIcon: Icon(
                                 Icons.restaurant,
                                 color: Theme.of(context).colorScheme.primary,
@@ -255,7 +257,7 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                             },
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Please select a food type';
+                                return l10n.pleaseSelectAFoodType;
                               }
                               return null;
                             },
@@ -267,8 +269,8 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                       TextFormField(
                         controller: _amountController,
                         decoration: InputDecoration(
-                          labelText: 'Amount (grams)',
-                          hintText: '0.5 - 1000',
+                          labelText: l10n.amount,
+                          hintText: l10n.enterAmount,
                           prefixIcon: Icon(
                             Icons.scale,
                             color: Theme.of(context).colorScheme.primary,
@@ -285,18 +287,18 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                         style: const TextStyle(fontSize: 16),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter amount';
+                            return l10n.pleaseEnterAValidAmount;
                           }
                           final amount = double.tryParse(value);
                           if (amount == null) {
-                            return 'Please enter a valid number';
+                            return l10n.pleaseEnterAValidAmount;
                           }
                           if (amount < 0.5 || amount > 1000) {
-                            return 'Amount must be between 0.5 and 1000';
+                            return l10n.pleaseEnterAValidAmount;
                           }
                           final parts = value.split('.');
                           if (parts.length > 1 && parts[1].length > 2) {
-                            return 'Maximum 2 decimal places allowed';
+                            return l10n.pleaseEnterAValidAmount;
                           }
                           return null;
                         },
@@ -304,7 +306,7 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                       const SizedBox(height: 24),
                       // Date Section
                       Text(
-                        'Date',
+                        l10n.date,
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
@@ -353,8 +355,8 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                       TextFormField(
                         controller: _notesController,
                         decoration: InputDecoration(
-                          labelText: 'Notes (optional)',
-                          hintText: 'Add any additional notes...',
+                          labelText: l10n.notes,
+                          hintText: l10n.enterNotes,
                           prefixIcon: Icon(
                             Icons.note,
                             color: Theme.of(context).colorScheme.primary,
@@ -401,7 +403,7 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                       ),
                     ),
                     child: Text(
-                      'Cancel',
+                      l10n.cancel,
                       style: TextStyle(
                         color: Colors.grey.shade700,
                         fontWeight: FontWeight.w500,
@@ -412,8 +414,8 @@ class _AddFeedingRecordDialogState extends State<AddFeedingRecordDialog> {
                   ElevatedButton.icon(
                     onPressed: _saveRecord,
                     icon: const Icon(Icons.check, size: 20),
-                    label: const Text(
-                      'Save',
+                    label: Text(
+                      l10n.saveChanges,
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                       ),

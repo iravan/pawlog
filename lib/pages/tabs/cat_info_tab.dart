@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/cat.dart';
 import '../../utils/string_utils.dart';
@@ -11,6 +12,7 @@ class CatInfoTab extends StatelessWidget {
   const CatInfoTab({super.key, required this.catId});
 
   Future<void> _deleteCat(BuildContext context) async {
+    final l10n = AppLocalizations.of(context)!;
     final catProvider = Provider.of<CatProvider>(context, listen: false);
     final cat = catProvider.getCatById(catId);
 
@@ -18,12 +20,14 @@ class CatInfoTab extends StatelessWidget {
 
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (context) {
+        final l10n = AppLocalizations.of(context)!;
+        return AlertDialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
         title: Text(
-          'Delete Pet',
+          l10n.deletePet,
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500,
@@ -31,12 +35,7 @@ class CatInfoTab extends StatelessWidget {
           ),
         ),
         content: Text(
-          'Are you sure you want to delete "${cat.name}"?\n\n'
-          'This will permanently delete:\n'
-          '- The pet profile\n'
-          '- All weight records\n'
-          '- All feeding records\n\n'
-          'This action cannot be undone.',
+          l10n.deletePetConfirm(cat.name),
           style: TextStyle(
             fontSize: 14,
             color: Colors.grey.shade700,
@@ -46,7 +45,7 @@ class CatInfoTab extends StatelessWidget {
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
             child: Text(
-              'Cancel',
+              l10n.cancel,
               style: TextStyle(
                 color: Colors.grey.shade600,
               ),
@@ -62,10 +61,11 @@ class CatInfoTab extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
               ),
             ),
-            child: const Text('Delete'),
+            child: Text(l10n.delete),
           ),
         ],
-      ),
+        );
+      },
     );
 
     if (confirmed == true && context.mounted) {
@@ -74,7 +74,7 @@ class CatInfoTab extends StatelessWidget {
         Navigator.of(context).pop(); // Go back to main page
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${cat.name} has been deleted'),
+            content: Text(l10n.petHasBeenDeleted(cat.name)),
           ),
         );
       }
@@ -88,7 +88,8 @@ class CatInfoTab extends StatelessWidget {
         final cat = catProvider.getCatById(catId);
 
         if (cat == null) {
-          return const Center(child: Text('Pet not found'));
+          final l10n = AppLocalizations.of(context)!;
+          return Center(child: Text(l10n.petNotFound));
         }
 
         final weightRecords = catProvider.getWeightRecords(catId);
@@ -211,6 +212,7 @@ class CatInfoTab extends StatelessWidget {
     CatProvider catProvider,
     Cat cat,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -240,7 +242,7 @@ class CatInfoTab extends StatelessWidget {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    'Tags',
+                    l10n.tags,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -252,7 +254,7 @@ class CatInfoTab extends StatelessWidget {
               OutlinedButton.icon(
                 onPressed: () => _showAddTagDialog(context, catProvider, cat),
                 icon: const Icon(Icons.add, size: 18),
-                label: const Text('Add'),
+                label: Text(l10n.add),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 12,
@@ -271,7 +273,7 @@ class CatInfoTab extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Center(
                 child: Text(
-                  'No tags yet',
+                  l10n.noTagsYet,
                   style: TextStyle(
                     fontSize: 14,
                     color: Colors.grey.shade500,
@@ -319,6 +321,7 @@ class CatInfoTab extends StatelessWidget {
   }
 
   Widget _buildWeightCard(BuildContext context, dynamic latestWeightRecord) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -356,7 +359,7 @@ class CatInfoTab extends StatelessWidget {
                     ),
                     const SizedBox(width: 12),
                     Text(
-                      'Latest Weight',
+                      l10n.latestWeight,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -387,7 +390,7 @@ class CatInfoTab extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Text(
-                  'No weight records yet',
+                  l10n.noWeightRecordsYet,
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.grey.shade600,
@@ -403,6 +406,7 @@ class CatInfoTab extends StatelessWidget {
     Cat cat,
     CatProvider catProvider,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       children: [
         SizedBox(
@@ -415,8 +419,8 @@ class CatInfoTab extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.edit_outlined, size: 20),
-            label: const Text(
-              'Edit',
+            label: Text(
+              l10n.edit,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
@@ -443,7 +447,7 @@ class CatInfoTab extends StatelessWidget {
               color: Colors.grey.shade500,
             ),
             label: Text(
-              'Delete',
+              l10n.delete,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
@@ -511,12 +515,13 @@ class _AddTagDialogState extends State<_AddTagDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return AlertDialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
       title: Text(
-        'Add Tag',
+        l10n.addTag,
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w500,
@@ -526,9 +531,9 @@ class _AddTagDialogState extends State<_AddTagDialog> {
       content: TextField(
         controller: _tagController,
         autofocus: true,
-        decoration: const InputDecoration(
-          labelText: 'Tag name',
-          hintText: 'Enter tag name',
+        decoration: InputDecoration(
+          labelText: l10n.tagName,
+          hintText: l10n.enterTagName,
         ),
         onSubmitted: (_) => _addTag(),
       ),
@@ -536,7 +541,7 @@ class _AddTagDialogState extends State<_AddTagDialog> {
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
           child: Text(
-            'Cancel',
+            l10n.cancel,
             style: TextStyle(
               color: Colors.grey.shade600,
             ),
@@ -552,7 +557,7 @@ class _AddTagDialogState extends State<_AddTagDialog> {
               borderRadius: BorderRadius.circular(6),
             ),
           ),
-          child: const Text('Add'),
+          child: Text(l10n.add),
         ),
       ],
     );

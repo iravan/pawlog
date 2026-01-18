@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../l10n/app_localizations.dart';
 import '../providers/cat_provider.dart';
+import '../providers/theme_provider.dart';
 import '../models/group.dart';
 import '../models/cat.dart';
 import '../utils/string_utils.dart';
@@ -10,6 +12,7 @@ import 'group_feeding_dialog.dart';
 import 'create_edit_group_dialog.dart';
 import 'food_types_dialog.dart';
 import 'add_cat_dialog.dart';
+import 'help_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -86,52 +89,55 @@ class _MainPageState extends State<MainPage> {
 
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        title: Text(
-          'Delete Group',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-            color: Colors.grey.shade900,
+      builder: (context) {
+        final l10n = AppLocalizations.of(context)!;
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
           ),
-        ),
-        content: Text(
-          catsInGroup.isEmpty
-              ? 'Are you sure you want to delete "${group.name}"?'
-              : 'Are you sure you want to delete "${group.name}"?\n\n'
-                  'This will remove ${catsInGroup.length} cat(s) from this group.',
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey.shade700,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(
-              'Cancel',
-              style: TextStyle(
-                color: Colors.grey.shade600,
-              ),
+          title: Text(
+            l10n.deleteGroupTitle,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              color: Colors.grey.shade900,
             ),
           ),
-          ElevatedButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.error,
-              foregroundColor: Colors.white,
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6),
+          content: Text(
+            catsInGroup.isEmpty
+                ? l10n.deleteGroupConfirmEmpty(group.name)
+                : l10n.deleteGroupConfirmWithPetsFixed(
+                    group.name, catsInGroup.length),
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey.shade700,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text(
+                l10n.cancel,
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                ),
               ),
             ),
-            child: const Text('Delete'),
-          ),
-        ],
-      ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.error,
+                foregroundColor: Colors.white,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6),
+                ),
+              ),
+              child: Text(l10n.delete),
+            ),
+          ],
+        );
+      },
     );
 
     if (confirmed == true && context.mounted) {
@@ -144,13 +150,33 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final catProvider = Provider.of<CatProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Pets'),
+        title: Text(l10n.myPets),
         backgroundColor: Colors.white,
         actions: [
+          // Help button
+          IconButton(
+            icon: Icon(Icons.help_outline),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HelpPage(),
+                ),
+              );
+            },
+            tooltip: 'Help',
+          ),
+          // Theme color picker button
+          IconButton(
+            icon: Icon(Icons.palette_outlined),
+            onPressed: () => _showThemeColorPicker(context),
+            tooltip: 'Change theme color',
+          ),
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),
             onSelected: (value) async {
@@ -168,8 +194,8 @@ class _MainPageState extends State<MainPage> {
                   if (error == null) {
                     // Success
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Data imported successfully!'),
+                      SnackBar(
+                        content: Text(l10n.dataImportedSuccessfully),
                         backgroundColor: Colors.green,
                       ),
                     );
@@ -200,33 +226,33 @@ class _MainPageState extends State<MainPage> {
               }
             },
             itemBuilder: (context) => [
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: 'food_types',
                 child: Row(
                   children: [
                     Icon(Icons.restaurant_menu, size: 20),
                     SizedBox(width: 12),
-                    Text('Manage Food Types'),
+                    Text(l10n.manageFoodTypes),
                   ],
                 ),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: 'import',
                 child: Row(
                   children: [
                     Icon(Icons.upload_file, size: 20),
                     SizedBox(width: 12),
-                    Text('Import Data'),
+                    Text(l10n.importData),
                   ],
                 ),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: 'export',
                 child: Row(
                   children: [
                     Icon(Icons.download, size: 20),
                     SizedBox(width: 12),
-                    Text('Export Data'),
+                    Text(l10n.exportData),
                   ],
                 ),
               ),
@@ -236,8 +262,8 @@ class _MainPageState extends State<MainPage> {
       ),
       body: catProvider.groups.isEmpty &&
               catProvider.cats.where((cat) => cat.groupId == null).isEmpty
-          ? const Center(
-              child: Text('No groups or pets available'),
+          ? Center(
+              child: Text(l10n.noGroupsOrPetsAvailable),
             )
           : Column(
               children: [
@@ -246,7 +272,7 @@ class _MainPageState extends State<MainPage> {
                 // Cat List
                 Expanded(
                   child: ListView(
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 80),
                     children: [
                       // Groups
                       ...catProvider.groups.map((group) {
@@ -297,14 +323,14 @@ class _MainPageState extends State<MainPage> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _createGroup(context),
         icon: const Icon(Icons.add, size: 24),
-        label: const Text(
-          'New Group',
+        label: Text(
+          l10n.newGroup,
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w600,
           ),
         ),
-        tooltip: 'Create Group',
+        tooltip: l10n.createGroup,
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Colors.white,
         elevation: 4,
@@ -331,6 +357,7 @@ class _MainPageState extends State<MainPage> {
   }
 
   Widget _buildTagFilterRow(BuildContext context, CatProvider catProvider) {
+    final l10n = AppLocalizations.of(context)!;
     final allTags = _getAllTags(catProvider);
 
     if (allTags.isEmpty) {
@@ -360,7 +387,7 @@ class _MainPageState extends State<MainPage> {
               ),
               const SizedBox(width: 8),
               Text(
-                'Filter by tags:',
+                l10n.filterByTags,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
@@ -376,7 +403,7 @@ class _MainPageState extends State<MainPage> {
                     });
                   },
                   child: Text(
-                    'Clear',
+                    l10n.clear,
                     style: TextStyle(
                       fontSize: 12,
                       color: Theme.of(context).colorScheme.primary,
@@ -441,6 +468,7 @@ class _MainPageState extends State<MainPage> {
     bool isExpanded,
     CatProvider catProvider,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       elevation: 1,
@@ -502,7 +530,7 @@ class _MainPageState extends State<MainPage> {
                           GroupFeedingDialog(groupId: group.id),
                     );
                   },
-                  tooltip: 'Feed Group',
+                  tooltip: l10n.feedGroup,
                   color: Colors.orange,
                 ),
                 PopupMenuButton<String>(
@@ -514,29 +542,32 @@ class _MainPageState extends State<MainPage> {
                       _deleteGroup(context, group);
                     }
                   },
-                  itemBuilder: (context) => [
-                    const PopupMenuItem(
-                      value: 'edit',
-                      child: Row(
-                        children: [
-                          Icon(Icons.edit, size: 20),
-                          SizedBox(width: 8),
-                          Text('Edit Group'),
-                        ],
+                  itemBuilder: (context) {
+                    final l10n = AppLocalizations.of(context)!;
+                    return [
+                      PopupMenuItem(
+                        value: 'edit',
+                        child: Row(
+                          children: [
+                            Icon(Icons.edit, size: 20),
+                            SizedBox(width: 8),
+                            Text(l10n.editGroup),
+                          ],
+                        ),
                       ),
-                    ),
-                    const PopupMenuItem(
-                      value: 'delete',
-                      child: Row(
-                        children: [
-                          Icon(Icons.delete, size: 20, color: Colors.red),
-                          SizedBox(width: 8),
-                          Text('Delete Group',
-                              style: TextStyle(color: Colors.red)),
-                        ],
+                      PopupMenuItem(
+                        value: 'delete',
+                        child: Row(
+                          children: [
+                            Icon(Icons.delete, size: 20, color: Colors.red),
+                            SizedBox(width: 8),
+                            Text(l10n.deleteGroup,
+                                style: TextStyle(color: Colors.red)),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ];
+                  },
                 ),
               ],
             ),
@@ -548,10 +579,10 @@ class _MainPageState extends State<MainPage> {
                 ? Column(
                     children: [
                       if (catsInGroup.isEmpty)
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Text(
-                            'No cats in this group',
+                            l10n.noPetsInThisGroup,
                             style: TextStyle(
                               color: Colors.grey,
                               fontSize: 14,
@@ -577,7 +608,7 @@ class _MainPageState extends State<MainPage> {
                               );
                             },
                             icon: const Icon(Icons.add, size: 20),
-                            label: const Text('Add Pet'),
+                            label: Text(l10n.addPet),
                             style: OutlinedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 12),
                               shape: RoundedRectangleBorder(
@@ -603,7 +634,7 @@ class _MainPageState extends State<MainPage> {
                     _expandedGroups[group.id] = !isExpanded;
                   });
                 },
-                tooltip: isExpanded ? 'Collapse' : 'Expand',
+                tooltip: isExpanded ? l10n.collapse : l10n.expand,
               ),
             ),
           ),
@@ -618,6 +649,7 @@ class _MainPageState extends State<MainPage> {
     bool isExpanded,
     CatProvider catProvider,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       elevation: 1,
@@ -647,7 +679,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             title: Text(
-              'Ungrouped Pets',
+              l10n.ungroupedPets,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -655,7 +687,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             subtitle: Text(
-              '${catsWithoutGroup.length} pet${catsWithoutGroup.length != 1 ? 's' : ''}',
+              l10n.petCount(catsWithoutGroup.length),
               style: TextStyle(
                 fontSize: 13,
                 color: Colors.grey.shade600,
@@ -686,7 +718,7 @@ class _MainPageState extends State<MainPage> {
                               );
                             },
                             icon: const Icon(Icons.add, size: 20),
-                            label: const Text('Add Pet'),
+                            label: Text(l10n.addPet),
                             style: OutlinedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 12),
                               shape: RoundedRectangleBorder(
@@ -712,7 +744,7 @@ class _MainPageState extends State<MainPage> {
                     _expandedGroups['ungrouped'] = !isExpanded;
                   });
                 },
-                tooltip: isExpanded ? 'Collapse' : 'Expand',
+                tooltip: isExpanded ? l10n.collapse : l10n.expand,
               ),
             ),
           ),
@@ -819,6 +851,94 @@ class _MainPageState extends State<MainPage> {
           ),
         );
       },
+    );
+  }
+
+  void _showThemeColorPicker(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    final l10n = AppLocalizations.of(context)!;
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        title: Row(
+          children: [
+            Icon(Icons.palette, color: themeProvider.primaryColor),
+            const SizedBox(width: 12),
+            Text(
+              'Theme Color',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: Colors.grey.shade900,
+              ),
+            ),
+          ],
+        ),
+        content: Container(
+          width: double.maxFinite,
+          child: Wrap(
+            spacing: 12,
+            runSpacing: 12,
+            alignment: WrapAlignment.center,
+            children: ThemeProvider.colorOptions.map((color) {
+              final isSelected =
+                  color.value == themeProvider.primaryColor.value;
+              return GestureDetector(
+                onTap: () {
+                  themeProvider.setPrimaryColor(color);
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: color,
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: isSelected
+                          ? Colors.grey.shade900
+                          : Colors.grey.shade300,
+                      width: isSelected ? 3 : 2,
+                    ),
+                    boxShadow: isSelected
+                        ? [
+                            BoxShadow(
+                              color: color.withOpacity(0.4),
+                              blurRadius: 8,
+                              spreadRadius: 2,
+                            ),
+                          ]
+                        : null,
+                  ),
+                  child: isSelected
+                      ? Icon(
+                          Icons.check,
+                          color: Colors.white,
+                          size: 24,
+                        )
+                      : null,
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(
+              l10n.cancel,
+              style: TextStyle(
+                color: Colors.grey.shade700,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

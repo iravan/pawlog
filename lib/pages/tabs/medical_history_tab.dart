@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/medical_record.dart';
 import 'add_medical_record_dialog.dart';
@@ -12,6 +13,7 @@ class MedicalHistoryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Consumer<CatProvider>(
       builder: (context, catProvider, _) {
         final records = catProvider.getMedicalRecords(catId);
@@ -29,7 +31,7 @@ class MedicalHistoryTab extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'No medical records yet',
+                    l10n.noMedicalRecordsYet,
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.grey.shade600,
@@ -37,7 +39,7 @@ class MedicalHistoryTab extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Tap the + button to add a record',
+                    l10n.tapTheButtonToAddARecord,
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.grey.shade500,
@@ -54,8 +56,8 @@ class MedicalHistoryTab extends StatelessWidget {
                 );
               },
               icon: const Icon(Icons.add, size: 24),
-              label: const Text(
-                'Add Record',
+              label: Text(
+                l10n.addRecord,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,

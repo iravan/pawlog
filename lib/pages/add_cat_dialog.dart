@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../l10n/app_localizations.dart';
 import '../providers/cat_provider.dart';
 import '../models/cat.dart';
 
@@ -79,6 +80,7 @@ class _AddCatDialogState extends State<AddCatDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final catProvider = Provider.of<CatProvider>(context);
     final group = widget.groupId != null
         ? catProvider.getGroupById(widget.groupId!)
@@ -132,7 +134,7 @@ class _AddCatDialogState extends State<AddCatDialog> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Add New Pet',
+                          l10n.addNewPet,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
@@ -160,7 +162,7 @@ class _AddCatDialogState extends State<AddCatDialog> {
                         ] else
                           const SizedBox(height: 4),
                         Text(
-                          'Create a new pet profile',
+                          l10n.createANewPetProfile,
                           style: TextStyle(
                             fontSize: 13,
                             color: Colors.grey.shade600,
@@ -187,7 +189,7 @@ class _AddCatDialogState extends State<AddCatDialog> {
                     children: [
                       // Pet Type Section
                       Text(
-                        'Pet Type',
+                        l10n.petType,
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
@@ -234,7 +236,7 @@ class _AddCatDialogState extends State<AddCatDialog> {
                                         style: const TextStyle(fontSize: 24)),
                                     const SizedBox(width: 8),
                                     Text(
-                                      'Cat',
+                                      l10n.cat,
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600,
@@ -288,7 +290,7 @@ class _AddCatDialogState extends State<AddCatDialog> {
                                         style: const TextStyle(fontSize: 24)),
                                     const SizedBox(width: 8),
                                     Text(
-                                      'Dog',
+                                      l10n.dog,
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600,
@@ -311,8 +313,8 @@ class _AddCatDialogState extends State<AddCatDialog> {
                       TextFormField(
                         controller: _nameController,
                         decoration: InputDecoration(
-                          labelText: 'Name',
-                          hintText: 'Enter pet name',
+                          labelText: l10n.name,
+                          hintText: l10n.enterPetName,
                           prefixIcon: Icon(
                             Icons.pets,
                             color: Theme.of(context).colorScheme.primary,
@@ -323,7 +325,7 @@ class _AddCatDialogState extends State<AddCatDialog> {
                         style: const TextStyle(fontSize: 16),
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter a cat name';
+                            return l10n.pleaseEnterACatName;
                           }
                           return null;
                         },
@@ -333,8 +335,8 @@ class _AddCatDialogState extends State<AddCatDialog> {
                       TextFormField(
                         controller: _descriptionController,
                         decoration: InputDecoration(
-                          labelText: 'Description (optional)',
-                          hintText: 'Tell us about your pet...',
+                          labelText: l10n.descriptionOptional,
+                          hintText: l10n.tellUsAboutYourPet,
                           prefixIcon: Icon(
                             Icons.text_fields,
                             color: Theme.of(context).colorScheme.primary,
@@ -348,7 +350,7 @@ class _AddCatDialogState extends State<AddCatDialog> {
                       const SizedBox(height: 24),
                       // Icon Selection Section
                       Text(
-                        'Select Icon',
+                        l10n.selectIcon,
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
@@ -455,7 +457,7 @@ class _AddCatDialogState extends State<AddCatDialog> {
                       ),
                     ),
                     child: Text(
-                      'Cancel',
+                      l10n.cancel,
                       style: TextStyle(
                         color: Colors.grey.shade700,
                         fontWeight: FontWeight.w500,
@@ -466,8 +468,8 @@ class _AddCatDialogState extends State<AddCatDialog> {
                   ElevatedButton.icon(
                     onPressed: _save,
                     icon: const Icon(Icons.add, size: 20),
-                    label: const Text(
-                      'Add Pet',
+                    label: Text(
+                      l10n.addPet,
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                       ),

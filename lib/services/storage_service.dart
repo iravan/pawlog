@@ -15,6 +15,7 @@ class StorageService {
   static const String _foodTypesBoxName = 'foodTypes';
   static const String _settingsBoxName = 'settings';
   static const String _hasSeenOnboardingKey = 'hasSeenOnboarding';
+  static const String _themeColorKey = 'themeColor';
 
   static Future<void> init() async {
     await Hive.initFlutter();
@@ -267,6 +268,25 @@ class StorageService {
       return records;
     } catch (e) {
       return {};
+    }
+  }
+
+  // Theme color
+  static Future<void> saveThemeColor(int colorValue) async {
+    try {
+      final box = await Hive.openBox(_settingsBoxName);
+      await box.put(_themeColorKey, colorValue);
+    } catch (e) {
+      // Ignore errors
+    }
+  }
+
+  static Future<int?> getThemeColor() async {
+    try {
+      final box = await Hive.openBox(_settingsBoxName);
+      return box.get(_themeColorKey) as int?;
+    } catch (e) {
+      return null;
     }
   }
 }

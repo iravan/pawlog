@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/weight_record.dart';
 import 'add_weight_record_dialog.dart';
@@ -38,6 +39,7 @@ class WeightRecordsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Consumer<CatProvider>(
       builder: (context, catProvider, _) {
         final records = catProvider.getWeightRecords(catId);
@@ -55,7 +57,7 @@ class WeightRecordsTab extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'No weight records yet',
+                    l10n.noWeightRecordsYet,
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.grey.shade600,
@@ -63,7 +65,7 @@ class WeightRecordsTab extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Tap the + button to add a record',
+                    l10n.tapTheButtonToAddARecord,
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.grey.shade500,
@@ -80,8 +82,8 @@ class WeightRecordsTab extends StatelessWidget {
                 );
               },
               icon: const Icon(Icons.add, size: 24),
-              label: const Text(
-                'Add Weight',
+              label: Text(
+                l10n.addWeight,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
@@ -241,37 +243,40 @@ class WeightRecordsTab extends StatelessWidget {
                                                 BorderRadius.circular(6),
                                           ),
                                         ),
-                                        child: const Text('Delete'),
+                                        child: Text(l10n.delete),
                                       ),
                                     ],
                                   ),
                                 );
                               }
                             },
-                            itemBuilder: (context) => [
-                              const PopupMenuItem(
-                                value: 'edit',
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.edit, size: 20),
-                                    SizedBox(width: 8),
-                                    Text('Edit'),
-                                  ],
+                            itemBuilder: (context) {
+                              final l10n = AppLocalizations.of(context)!;
+                              return [
+                                PopupMenuItem(
+                                  value: 'edit',
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.edit, size: 20),
+                                      SizedBox(width: 8),
+                                      Text(l10n.edit),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              const PopupMenuItem(
-                                value: 'delete',
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.delete,
-                                        size: 20, color: Colors.red),
-                                    SizedBox(width: 8),
-                                    Text('Delete',
-                                        style: TextStyle(color: Colors.red)),
-                                  ],
+                                PopupMenuItem(
+                                  value: 'delete',
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.delete,
+                                          size: 20, color: Colors.red),
+                                      SizedBox(width: 8),
+                                      Text(l10n.delete,
+                                          style: TextStyle(color: Colors.red)),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ];
+                            },
                           ),
                         ),
                       )),

@@ -1,0 +1,739 @@
+{
+  "@@locale": "en",
+  "appTitle": "PawsLog",
+  "@appTitle": {
+    "description": "The app title"
+  },
+  "trackYourPetsHealth": "Track your pet's health and activities",
+  "@trackYourPetsHealth": {
+    "description": "Subtitle on login page"
+  },
+  "getStarted": "Get Started",
+  "@getStarted": {
+    "description": "Button on login page"
+  },
+  "myPets": "My Pets",
+  "@myPets": {
+    "description": "App bar title on main page"
+  },
+  "noGroupsOrPetsAvailable": "No groups or pets available",
+  "@noGroupsOrPetsAvailable": {
+    "description": "Empty state message"
+  },
+  "newGroup": "New Group",
+  "@newGroup": {
+    "description": "Floating action button label"
+  },
+  "createGroup": "Create Group",
+  "@createGroup": {
+    "description": "Tooltip for create group button"
+  },
+  "filterByTags": "Filter by tags:",
+  "@filterByTags": {
+    "description": "Label for tag filter section"
+  },
+  "clear": "Clear",
+  "@clear": {
+    "description": "Button to clear tag filters"
+  },
+  "ungroupedPets": "Ungrouped Pets",
+  "@ungroupedPets": {
+    "description": "Title for ungrouped pets section"
+  },
+  "petCount": "{count, plural, =0{0 pets} =1{1 pet} other{{count} pets}}",
+  "@petCount": {
+    "description": "Pet count text with pluralization",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noPetsInThisGroup": "No pets in this group",
+  "@noPetsInThisGroup": {
+    "description": "Empty state for group"
+  },
+  "addPet": "Add Pet",
+  "@addPet": {
+    "description": "Button to add a pet"
+  },
+  "expand": "Expand",
+  "@expand": {
+    "description": "Tooltip for expand button"
+  },
+  "collapse": "Collapse",
+  "@collapse": {
+    "description": "Tooltip for collapse button"
+  },
+  "feedGroup": "Feed Group",
+  "@feedGroup": {
+    "description": "Tooltip for feed group button"
+  },
+  "editGroup": "Edit Group",
+  "@editGroup": {
+    "description": "Menu item to edit group"
+  },
+  "deleteGroup": "Delete Group",
+  "@deleteGroup": {
+    "description": "Menu item to delete group"
+  },
+  "deleteGroupTitle": "Delete Group",
+  "@deleteGroupTitle": {
+    "description": "Dialog title for deleting group"
+  },
+  "deleteGroupConfirmEmpty": "Are you sure you want to delete \"{groupName}\"?",
+  "@deleteGroupConfirmEmpty": {
+    "description": "Confirmation message for deleting empty group",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteGroupConfirmWithPets": "Are you sure you want to delete \"{groupName}\"?\n\nThis will remove {count} cat(s) from this group.",
+  "@deleteGroupConfirmWithPets": {
+    "description": "Confirmation message for deleting group with pets",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button"
+  },
+  "manageFoodTypes": "Manage Food Types",
+  "@manageFoodTypes": {
+    "description": "Menu item for managing food types"
+  },
+  "importData": "Import Data",
+  "@importData": {
+    "description": "Menu item for importing data"
+  },
+  "exportData": "Export Data",
+  "@exportData": {
+    "description": "Menu item for exporting data"
+  },
+  "dataImportedSuccessfully": "Data imported successfully!",
+  "@dataImportedSuccessfully": {
+    "description": "Success message after importing"
+  },
+  "addNewPet": "Add New Pet",
+  "@addNewPet": {
+    "description": "Dialog title for adding pet"
+  },
+  "createANewPetProfile": "Create a new pet profile",
+  "@createANewPetProfile": {
+    "description": "Subtitle in add pet dialog"
+  },
+  "petType": "Pet Type",
+  "@petType": {
+    "description": "Label for pet type selection"
+  },
+  "cat": "Cat",
+  "@cat": {
+    "description": "Cat pet type"
+  },
+  "dog": "Dog",
+  "@dog": {
+    "description": "Dog pet type"
+  },
+  "name": "Name",
+  "@name": {
+    "description": "Name field label"
+  },
+  "enterPetName": "Enter pet name",
+  "@enterPetName": {
+    "description": "Hint for pet name field"
+  },
+  "pleaseEnterACatName": "Please enter a cat name",
+  "@pleaseEnterACatName": {
+    "description": "Validation error for pet name"
+  },
+  "descriptionOptional": "Description (optional)",
+  "@descriptionOptional": {
+    "description": "Description field label"
+  },
+  "tellUsAboutYourPet": "Tell us about your pet...",
+  "@tellUsAboutYourPet": {
+    "description": "Hint for description field"
+  },
+  "selectIcon": "Select Icon",
+  "@selectIcon": {
+    "description": "Label for icon selection"
+  },
+  "editGroupTitle": "Edit Group",
+  "@editGroupTitle": {
+    "description": "Dialog title for editing group"
+  },
+  "createGroupTitle": "Create Group",
+  "@createGroupTitle": {
+    "description": "Dialog title for creating group"
+  },
+  "updateGroupInformation": "Update group information",
+  "@updateGroupInformation": {
+    "description": "Subtitle in edit group dialog"
+  },
+  "organizeYourPetsIntoGroups": "Organize your pets into groups",
+  "@organizeYourPetsIntoGroups": {
+    "description": "Subtitle in create group dialog"
+  },
+  "enterGroupName": "Enter group name",
+  "@enterGroupName": {
+    "description": "Hint for group name field"
+  },
+  "pleaseEnterAGroupName": "Please enter a group name",
+  "@pleaseEnterAGroupName": {
+    "description": "Validation error for group name"
+  },
+  "describeThisGroup": "Describe this group...",
+  "@describeThisGroup": {
+    "description": "Hint for group description field"
+  },
+  "saveChanges": "Save Changes",
+  "@saveChanges": {
+    "description": "Button to save changes"
+  },
+  "deletePet": "Delete Pet",
+  "@deletePet": {
+    "description": "Dialog title for deleting pet"
+  },
+  "deletePetConfirm": "Are you sure you want to delete \"{petName}\"?\n\nThis will permanently delete:\n- The pet profile\n- All weight records\n- All feeding records\n\nThis action cannot be undone.",
+  "@deletePetConfirm": {
+    "description": "Confirmation message for deleting pet",
+    "placeholders": {
+      "petName": {
+        "type": "String"
+      }
+    }
+  },
+  "petHasBeenDeleted": "{petName} has been deleted",
+  "@petHasBeenDeleted": {
+    "description": "Message after pet deletion",
+    "placeholders": {
+      "petName": {
+        "type": "String"
+      }
+    }
+  },
+  "petNotFound": "Pet not found",
+  "@petNotFound": {
+    "description": "Error message when pet not found"
+  },
+  "tags": "Tags",
+  "@tags": {
+    "description": "Tags section title"
+  },
+  "add": "Add",
+  "@add": {
+    "description": "Add button"
+  },
+  "noTagsYet": "No tags yet",
+  "@noTagsYet": {
+    "description": "Empty state for tags"
+  },
+  "latestWeight": "Latest Weight",
+  "@latestWeight": {
+    "description": "Latest weight card title"
+  },
+  "noWeightRecordsYet": "No weight records yet",
+  "@noWeightRecordsYet": {
+    "description": "Empty state for weight records"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit button"
+  },
+  "addTag": "Add Tag",
+  "@addTag": {
+    "description": "Dialog title for adding tag"
+  },
+  "tagName": "Tag name",
+  "@tagName": {
+    "description": "Label for tag name field"
+  },
+  "enterTagName": "Enter tag name",
+  "@enterTagName": {
+    "description": "Hint for tag name field"
+  },
+  "noFeedingRecordsYet": "No feeding records yet",
+  "@noFeedingRecordsYet": {
+    "description": "Empty state for feeding records"
+  },
+  "tapTheButtonToAddARecord": "Tap the + button to add a record",
+  "@tapTheButtonToAddARecord": {
+    "description": "Hint text for empty records"
+  },
+  "addFeeding": "Add Feeding",
+  "@addFeeding": {
+    "description": "Button to add feeding record"
+  },
+  "addWeight": "Add Weight",
+  "@addWeight": {
+    "description": "Button to add weight record"
+  },
+  "addRecord": "Add Record",
+  "@addRecord": {
+    "description": "Button to add medical record"
+  },
+  "noMedicalRecordsYet": "No medical records yet",
+  "@noMedicalRecordsYet": {
+    "description": "Empty state for medical records"
+  },
+  "info": "Info",
+  "@info": {
+    "description": "Info tab label"
+  },
+  "medical": "Medical",
+  "@medical": {
+    "description": "Medical tab label"
+  },
+  "weight": "Weight",
+  "@weight": {
+    "description": "Weight tab label"
+  },
+  "feeding": "Feeding",
+  "@feeding": {
+    "description": "Feeding tab label"
+  },
+  "addFeedingRecord": "Add Feeding Record",
+  "@addFeedingRecord": {
+    "description": "Dialog title for adding feeding record"
+  },
+  "editFeedingRecord": "Edit Feeding Record",
+  "@editFeedingRecord": {
+    "description": "Dialog title for editing feeding record"
+  },
+  "recordYourPetsFeeding": "Record your pet's feeding",
+  "@recordYourPetsFeeding": {
+    "description": "Subtitle in add feeding dialog"
+  },
+  "updateFeedingInformation": "Update feeding information",
+  "@updateFeedingInformation": {
+    "description": "Subtitle in edit feeding dialog"
+  },
+  "foodType": "Food Type",
+  "@foodType": {
+    "description": "Label for food type field"
+  },
+  "selectFoodType": "Select food type",
+  "@selectFoodType": {
+    "description": "Hint for food type field"
+  },
+  "pleaseSelectAFoodType": "Please select a food type",
+  "@pleaseSelectAFoodType": {
+    "description": "Validation error for food type"
+  },
+  "amount": "Amount",
+  "@amount": {
+    "description": "Label for amount field"
+  },
+  "enterAmount": "Enter amount",
+  "@enterAmount": {
+    "description": "Hint for amount field"
+  },
+  "pleaseEnterAValidAmount": "Please enter a valid amount (0.5-1000)",
+  "@pleaseEnterAValidAmount": {
+    "description": "Validation error for amount"
+  },
+  "date": "Date",
+  "@date": {
+    "description": "Label for date field"
+  },
+  "selectDate": "Select date",
+  "@selectDate": {
+    "description": "Hint for date field"
+  },
+  "notes": "Notes",
+  "@notes": {
+    "description": "Label for notes field"
+  },
+  "enterNotes": "Enter notes (optional)",
+  "@enterNotes": {
+    "description": "Hint for notes field"
+  },
+  "addWeightRecord": "Add Weight Record",
+  "@addWeightRecord": {
+    "description": "Dialog title for adding weight record"
+  },
+  "editWeightRecord": "Edit Weight Record",
+  "@editWeightRecord": {
+    "description": "Dialog title for editing weight record"
+  },
+  "recordYourCatsWeight": "Record your cat's weight",
+  "@recordYourCatsWeight": {
+    "description": "Subtitle in add weight dialog"
+  },
+  "updateWeightInformation": "Update weight information",
+  "@updateWeightInformation": {
+    "description": "Subtitle in edit weight dialog"
+  },
+  "weightKg": "Weight (kg)",
+  "@weightKg": {
+    "description": "Label for weight field"
+  },
+  "enterWeight": "Enter weight",
+  "@enterWeight": {
+    "description": "Hint for weight field"
+  },
+  "pleaseEnterAValidWeight": "Please enter a valid weight",
+  "@pleaseEnterAValidWeight": {
+    "description": "Validation error for weight"
+  },
+  "addMedicalRecord": "Add Medical Record",
+  "@addMedicalRecord": {
+    "description": "Dialog title for adding medical record"
+  },
+  "editMedicalRecord": "Edit Medical Record",
+  "@editMedicalRecord": {
+    "description": "Dialog title for editing medical record"
+  },
+  "recordMedicalInformation": "Record medical information",
+  "@recordMedicalInformation": {
+    "description": "Subtitle in add medical dialog"
+  },
+  "updateMedicalInformation": "Update medical information",
+  "@updateMedicalInformation": {
+    "description": "Subtitle in edit medical dialog"
+  },
+  "title": "Title",
+  "@title": {
+    "description": "Label for title field"
+  },
+  "enterTitle": "Enter title",
+  "@enterTitle": {
+    "description": "Hint for title field"
+  },
+  "pleaseEnterATitle": "Please enter a title",
+  "@pleaseEnterATitle": {
+    "description": "Validation error for title"
+  },
+  "deleteGroupConfirmWithPetsFixed": "Are you sure you want to delete \"{groupName}\"?\n\nThis will remove {count} pet(s) from this group.",
+  "@deleteGroupConfirmWithPetsFixed": {
+    "description": "Confirmation message for deleting group with pets (fixed)",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editPetInformation": "Edit Pet Information",
+  "@editPetInformation": {
+    "description": "Dialog title for editing pet"
+  },
+  "updateYourPetsDetails": "Update your pet's details",
+  "@updateYourPetsDetails": {
+    "description": "Subtitle in edit pet dialog"
+  },
+  "groupOptional": "Group (optional)",
+  "@groupOptional": {
+    "description": "Label for group selection field"
+  },
+  "selectAGroup": "Select a group",
+  "@selectAGroup": {
+    "description": "Hint for group selection"
+  },
+  "noGroup": "No Group",
+  "@noGroup": {
+    "description": "Option for no group"
+  },
+  "description": "Description",
+  "@description": {
+    "description": "Description section title"
+  },
+  "group": "Group",
+  "@group": {
+    "description": "Group section title"
+  },
+  "catNotFound": "Cat Not Found",
+  "@catNotFound": {
+    "description": "App bar title when cat not found"
+  },
+  "help": "Help",
+  "@help": {
+    "description": "Help button tooltip"
+  },
+  "changeThemeColor": "Change theme color",
+  "@changeThemeColor": {
+    "description": "Theme color button tooltip"
+  },
+  "themeColor": "Theme Color",
+  "@themeColor": {
+    "description": "Theme color picker dialog title"
+  },
+  "foodTypeAdded": "{foodType} added",
+  "@foodTypeAdded": {
+    "description": "Snackbar message when food type is added",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFoodType": "Delete Food Type",
+  "@deleteFoodType": {
+    "description": "Dialog title for deleting food type"
+  },
+  "deleteFoodTypeConfirm": "Are you sure you want to delete \"{foodType}\"?\n\nThis will remove it from all feeding records.",
+  "@deleteFoodTypeConfirm": {
+    "description": "Confirmation message for deleting food type",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      }
+    }
+  },
+  "editFoodType": "Edit Food Type",
+  "@editFoodType": {
+    "description": "Dialog title for editing food type"
+  },
+  "enterFoodTypeName": "Enter food type name",
+  "@enterFoodTypeName": {
+    "description": "Hint for food type input"
+  },
+  "pleaseEnterAFoodTypeName": "Please enter a food type name",
+  "@pleaseEnterAFoodTypeName": {
+    "description": "Validation message for food type name"
+  },
+  "saveToAllCats": "Save to All Cats",
+  "@saveToAllCats": {
+    "description": "Button label for group feeding"
+  },
+  "addedToCats": "Added to {successCount} cat(s). {failedCount} cat(s) already have 5 records for this day.",
+  "@addedToCats": {
+    "description": "Message when group feeding is partially successful",
+    "placeholders": {
+      "successCount": {
+        "type": "int"
+      },
+      "failedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "addedToAllCats": "Added to all {count} cat(s) successfully.",
+  "@addedToAllCats": {
+    "description": "Message when group feeding is fully successful",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "groupFeeding": "Group Feeding",
+  "@groupFeeding": {
+    "description": "Dialog title for group feeding"
+  },
+  "recordFeedingForAllPetsInGroup": "Record feeding for all pets in this group",
+  "@recordFeedingForAllPetsInGroup": {
+    "description": "Subtitle for group feeding dialog"
+  },
+  "help": "Help",
+  "@help": {
+    "description": "Help page title"
+  },
+  "gettingStarted": "Getting Started",
+  "@gettingStarted": {
+    "description": "Help section title"
+  },
+  "creatingYourFirstPet": "Creating Your First Pet",
+  "@creatingYourFirstPet": {
+    "description": "Help item title"
+  },
+  "creatingYourFirstPetDescription": "Tap the \"New Group\" button at the bottom to create a group, then tap \"Add Pet\" to add your first pet to the group.",
+  "@creatingYourFirstPetDescription": {
+    "description": "Help item description"
+  },
+  "addingPets": "Adding Pets",
+  "@addingPets": {
+    "description": "Help item title"
+  },
+  "addingPetsDescription": "You can add pets directly to a group or add them without a group. Pets can be moved between groups later.",
+  "@addingPetsDescription": {
+    "description": "Help item description"
+  },
+  "petTypes": "Pet Types",
+  "@petTypes": {
+    "description": "Help item title"
+  },
+  "petTypesDescription": "Choose between Cat or Dog when adding a pet. You can also select a custom icon for each pet.",
+  "@petTypesDescription": {
+    "description": "Help item description"
+  },
+  "managingPets": "Managing Pets",
+  "@managingPets": {
+    "description": "Help section title"
+  },
+  "viewingPetDetails": "Viewing Pet Details",
+  "@viewingPetDetails": {
+    "description": "Help item title"
+  },
+  "viewingPetDetailsDescription": "Tap on any pet in the list to view detailed information, including weight records, feeding history, and medical records.",
+  "@viewingPetDetailsDescription": {
+    "description": "Help item description"
+  },
+  "editingPetInformation": "Editing Pet Information",
+  "@editingPetInformation": {
+    "description": "Help item title"
+  },
+  "editingPetInformationDescription": "Tap the \"Edit\" button in the pet's info tab to update name, description, icon, or group assignment.",
+  "@editingPetInformationDescription": {
+    "description": "Help item description"
+  },
+  "deletingPets": "Deleting Pets",
+  "@deletingPets": {
+    "description": "Help item title"
+  },
+  "deletingPetsDescription": "Use the \"Delete\" button in the pet's info tab to permanently remove a pet and all associated records.",
+  "@deletingPetsDescription": {
+    "description": "Help item description"
+  },
+  "recordingData": "Recording Data",
+  "@recordingData": {
+    "description": "Help section title"
+  },
+  "weightRecords": "Weight Records",
+  "@weightRecords": {
+    "description": "Help item title"
+  },
+  "weightRecordsDescription": "Track your pet's weight over time. Tap the + button in the Weight tab to add a new record.",
+  "@weightRecordsDescription": {
+    "description": "Help item description"
+  },
+  "feedingRecords": "Feeding Records",
+  "@feedingRecords": {
+    "description": "Help item title"
+  },
+  "feedingRecordsDescription": "Record feeding times, food types, and amounts. You can add up to 5 records per day per pet.",
+  "@feedingRecordsDescription": {
+    "description": "Help item description"
+  },
+  "medicalRecords": "Medical Records",
+  "@medicalRecords": {
+    "description": "Help item title"
+  },
+  "medicalRecordsDescription": "Keep track of vet visits, medications, vaccinations, and other medical information.",
+  "@medicalRecordsDescription": {
+    "description": "Help item description"
+  },
+  "groupsAndOrganization": "Groups & Organization",
+  "@groupsAndOrganization": {
+    "description": "Help section title"
+  },
+  "creatingGroups": "Creating Groups",
+  "@creatingGroups": {
+    "description": "Help item title"
+  },
+  "creatingGroupsDescription": "Create groups to organize your pets. Tap \"New Group\" to create a group, then add pets to it.",
+  "@creatingGroupsDescription": {
+    "description": "Help item description"
+  },
+  "groupFeedingDescription": "Use the group feeding feature to record the same feeding for all pets in a group at once.",
+  "@groupFeedingDescription": {
+    "description": "Help item description"
+  },
+  "tagsDescription": "Add tags to pets for easy filtering. Tap \"Add\" in the Tags section to create custom tags.",
+  "@tagsDescription": {
+    "description": "Help item description"
+  },
+  "dataManagement": "Data Management",
+  "@dataManagement": {
+    "description": "Help section title"
+  },
+  "exportingData": "Exporting Data",
+  "@exportingData": {
+    "description": "Help item title"
+  },
+  "exportingDataDescription": "Export your data to share or backup. Go to Settings and tap \"Export Data\".",
+  "@exportingDataDescription": {
+    "description": "Help item description"
+  },
+  "importingData": "Importing Data",
+  "@importingData": {
+    "description": "Help item title"
+  },
+  "importingDataDescription": "Import previously exported data to restore your pets and records.",
+  "@importingDataDescription": {
+    "description": "Help item description"
+  },
+  "foodTypes": "Food Types",
+  "@foodTypes": {
+    "description": "Help section title"
+  },
+  "managingFoodTypesDescription": "Go to the menu (three dots) in the top-right corner and select \"Manage Food Types\" to add, edit, or remove food types.",
+  "@managingFoodTypesDescription": {
+    "description": "Help item description"
+  },
+  "usingFoodTypes": "Using Food Types",
+  "@usingFoodTypes": {
+    "description": "Help item title"
+  },
+  "usingFoodTypesDescription": "When adding a feeding record, select from your saved food types. This helps maintain consistency in tracking.",
+  "@usingFoodTypesDescription": {
+    "description": "Help item description"
+  },
+  "localStorage": "Local Storage",
+  "@localStorage": {
+    "description": "Help item title"
+  },
+  "localStorageDescription": "All your data is stored locally on your device. Your pet information stays private and is accessible offline.",
+  "@localStorageDescription": {
+    "description": "Help item description"
+  },
+  "customization": "Customization",
+  "@customization": {
+    "description": "Help section title"
+  },
+  "themeColors": "Theme Colors",
+  "@themeColors": {
+    "description": "Help item title"
+  },
+  "themeColorsDescription": "Change the app's theme color by tapping the palette icon in the top-right corner. Choose from a variety of colors to personalize your experience.",
+  "@themeColorsDescription": {
+    "description": "Help item description"
+  },
+  "thisWillAddAFeedingRecordToCats": "This will add a feeding record to {count} cat(s):",
+  "@thisWillAddAFeedingRecordToCats": {
+    "description": "Message in group feeding dialog",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "type": "type",
+  "@type": {
+    "description": "Singular form of type"
+  },
+  "types": "types",
+  "@types": {
+    "description": "Plural form of type"
+  },
+  "noFoodTypesYet": "No food types yet",
+  "@noFoodTypesYet": {
+    "description": "Empty state message for food types"
+  },
+  "foodTypeName": "Food Type Name",
+  "@foodTypeName": {
+    "description": "Label for food type name input"
+  },
+  "addNewFoodType": "Add New Food Type",
+  "@addNewFoodType": {
+    "description": "Section title for adding food type"
+  },
+  "addAndManageFoodTypesForFeedingRecords": "Add and manage food types for feeding records",
+  "@addAndManageFoodTypesForFeedingRecords": {
+    "description": "Subtitle for food types dialog"
+  }
+}

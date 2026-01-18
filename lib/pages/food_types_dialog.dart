@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../l10n/app_localizations.dart';
 import '../providers/cat_provider.dart';
 
 class FoodTypesDialog extends StatefulWidget {
@@ -25,9 +26,10 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
       await catProvider.addFoodType(foodType);
       _newFoodTypeController.clear();
       if (mounted) {
+        final l10n = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('$foodType added'),
+            content: Text(l10n.foodTypeAdded(foodType)),
             duration: const Duration(seconds: 1),
           ),
         );
@@ -38,7 +40,9 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
   Future<void> _deleteFoodType(String foodType) async {
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (context) => Dialog(
+      builder: (context) {
+        final l10n = AppLocalizations.of(context)!;
+        return Dialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
@@ -62,7 +66,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Delete Food Type',
+                l10n.deleteFoodType,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
@@ -71,7 +75,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
               ),
               const SizedBox(height: 12),
               Text(
-                'Are you sure you want to delete "$foodType"?\n\nThis will remove it from all feeding records.',
+                l10n.deleteFoodTypeConfirm(foodType),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14,
@@ -95,7 +99,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                       ),
                     ),
                     child: Text(
-                      'Cancel',
+                      l10n.cancel,
                       style: TextStyle(
                         color: Colors.grey.shade700,
                         fontWeight: FontWeight.w500,
@@ -117,8 +121,8 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text(
-                      'Delete',
+                    child: Text(
+                      l10n.delete,
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                       ),
@@ -129,7 +133,8 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
             ],
           ),
         ),
-      ),
+        );
+      },
     );
 
     if (confirmed == true && mounted) {
@@ -140,6 +145,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Consumer<CatProvider>(
       builder: (context, catProvider, _) {
         return Dialog(
@@ -190,7 +196,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Manage Food Types',
+                              l10n.manageFoodTypes,
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w700,
@@ -199,7 +205,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              'Add and manage food types for feeding records',
+                              l10n.addAndManageFoodTypesForFeedingRecords,
                               style: TextStyle(
                                 fontSize: 13,
                                 color: Colors.grey.shade600,
@@ -224,7 +230,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                       children: [
                         // Add new food type section
                         Text(
-                          'Add New Food Type',
+                          l10n.addNewFoodType,
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -238,8 +244,8 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                               child: TextField(
                                 controller: _newFoodTypeController,
                                 decoration: InputDecoration(
-                                  labelText: 'Food Type Name',
-                                  hintText: 'e.g., Dry Food, Wet Food',
+                                  labelText: l10n.foodTypeName,
+                                  hintText: l10n.enterFoodTypeName,
                                   prefixIcon: Icon(
                                     Icons.restaurant,
                                     color:
@@ -256,7 +262,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                             ElevatedButton.icon(
                               onPressed: _addFoodType,
                               icon: const Icon(Icons.add, size: 20),
-                              label: const Text('Add'),
+                              label: Text(l10n.add),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
                                     Theme.of(context).colorScheme.primary,
@@ -279,7 +285,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Food Types',
+                              l10n.foodTypes,
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
@@ -288,7 +294,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                             ),
                             if (catProvider.foodTypes.isNotEmpty)
                               Text(
-                                '${catProvider.foodTypes.length} ${catProvider.foodTypes.length == 1 ? 'type' : 'types'}',
+                                '${catProvider.foodTypes.length} ${catProvider.foodTypes.length == 1 ? l10n.type : l10n.types}',
                                 style: TextStyle(
                                   fontSize: 13,
                                   color: Colors.grey.shade600,
@@ -314,7 +320,7 @@ class _FoodTypesDialogState extends State<FoodTypesDialog> {
                                 ),
                                 const SizedBox(height: 16),
                                 Text(
-                                  'No food types yet',
+                                  l10n.noFoodTypesYet,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,

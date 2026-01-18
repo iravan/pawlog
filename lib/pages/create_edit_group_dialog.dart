@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../models/group.dart';
 
 class CreateEditGroupDialog extends StatefulWidget {
@@ -66,6 +67,7 @@ class _CreateEditGroupDialogState extends State<CreateEditGroupDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final isEdit = widget.group != null;
 
     return Dialog(
@@ -116,7 +118,7 @@ class _CreateEditGroupDialogState extends State<CreateEditGroupDialog> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          isEdit ? 'Edit Group' : 'Create Group',
+                          isEdit ? l10n.editGroupTitle : l10n.createGroupTitle,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
@@ -126,8 +128,8 @@ class _CreateEditGroupDialogState extends State<CreateEditGroupDialog> {
                         const SizedBox(height: 4),
                         Text(
                           isEdit
-                              ? 'Update group information'
-                              : 'Organize your cats into groups',
+                              ? l10n.updateGroupInformation
+                              : l10n.organizeYourPetsIntoGroups,
                           style: TextStyle(
                             fontSize: 13,
                             color: Colors.grey.shade600,
@@ -156,8 +158,8 @@ class _CreateEditGroupDialogState extends State<CreateEditGroupDialog> {
                       TextFormField(
                         controller: _nameController,
                         decoration: InputDecoration(
-                          labelText: 'Name',
-                          hintText: 'Enter group name',
+                          labelText: l10n.name,
+                          hintText: l10n.enterGroupName,
                           prefixIcon: Icon(
                             Icons.group,
                             color: Theme.of(context).colorScheme.primary,
@@ -168,7 +170,7 @@ class _CreateEditGroupDialogState extends State<CreateEditGroupDialog> {
                         style: const TextStyle(fontSize: 16),
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter a group name';
+                            return l10n.pleaseEnterAGroupName;
                           }
                           return null;
                         },
@@ -178,8 +180,8 @@ class _CreateEditGroupDialogState extends State<CreateEditGroupDialog> {
                       TextFormField(
                         controller: _descriptionController,
                         decoration: InputDecoration(
-                          labelText: 'Description (optional)',
-                          hintText: 'Describe this group...',
+                          labelText: l10n.descriptionOptional,
+                          hintText: l10n.describeThisGroup,
                           prefixIcon: Icon(
                             Icons.text_fields,
                             color: Theme.of(context).colorScheme.primary,
@@ -193,7 +195,7 @@ class _CreateEditGroupDialogState extends State<CreateEditGroupDialog> {
                       const SizedBox(height: 24),
                       // Icon Selection Section
                       Text(
-                        'Select Icon',
+                        l10n.selectIcon,
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
@@ -300,7 +302,7 @@ class _CreateEditGroupDialogState extends State<CreateEditGroupDialog> {
                       ),
                     ),
                     child: Text(
-                      'Cancel',
+                      l10n.cancel,
                       style: TextStyle(
                         color: Colors.grey.shade700,
                         fontWeight: FontWeight.w500,
@@ -315,7 +317,7 @@ class _CreateEditGroupDialogState extends State<CreateEditGroupDialog> {
                       size: 20,
                     ),
                     label: Text(
-                      isEdit ? 'Save Changes' : 'Create Group',
+                      isEdit ? l10n.saveChanges : l10n.createGroupTitle,
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
                       ),

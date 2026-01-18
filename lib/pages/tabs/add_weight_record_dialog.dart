@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/weight_record.dart';
 
@@ -80,6 +81,7 @@ class _AddWeightRecordDialogState extends State<AddWeightRecordDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final isEdit = widget.record != null;
     
     return Dialog(
@@ -130,7 +132,7 @@ class _AddWeightRecordDialogState extends State<AddWeightRecordDialog> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          isEdit ? 'Edit Weight Record' : 'Add Weight Record',
+                          isEdit ? l10n.editWeightRecord : l10n.addWeightRecord,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
@@ -140,8 +142,8 @@ class _AddWeightRecordDialogState extends State<AddWeightRecordDialog> {
                         const SizedBox(height: 4),
                         Text(
                           isEdit
-                              ? 'Update weight information'
-                              : 'Record your cat\'s weight',
+                              ? l10n.updateWeightInformation
+                              : l10n.recordYourCatsWeight,
                           style: TextStyle(
                             fontSize: 13,
                             color: Colors.grey.shade600,
@@ -170,8 +172,8 @@ class _AddWeightRecordDialogState extends State<AddWeightRecordDialog> {
                       TextFormField(
                         controller: _weightController,
                         decoration: InputDecoration(
-                          labelText: 'Weight (kg)',
-                          hintText: 'Enter weight in kilograms',
+                          labelText: l10n.weightKg,
+                          hintText: l10n.enterWeight,
                           prefixIcon: Icon(
                             Icons.scale,
                             color: Theme.of(context).colorScheme.primary,
@@ -183,11 +185,11 @@ class _AddWeightRecordDialogState extends State<AddWeightRecordDialog> {
                         style: const TextStyle(fontSize: 16),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter weight';
+                            return l10n.pleaseEnterAValidWeight;
                           }
                           final weight = double.tryParse(value);
                           if (weight == null || weight <= 0) {
-                            return 'Please enter a valid weight';
+                            return l10n.pleaseEnterAValidWeight;
                           }
                           return null;
                         },
@@ -195,7 +197,7 @@ class _AddWeightRecordDialogState extends State<AddWeightRecordDialog> {
                       const SizedBox(height: 24),
                       // Date Section
                       Text(
-                        'Date',
+                        l10n.date,
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
@@ -275,7 +277,7 @@ class _AddWeightRecordDialogState extends State<AddWeightRecordDialog> {
                       ),
                     ),
                     child: Text(
-                      'Cancel',
+                      l10n.cancel,
                       style: TextStyle(
                         color: Colors.grey.shade700,
                         fontWeight: FontWeight.w500,
@@ -286,8 +288,8 @@ class _AddWeightRecordDialogState extends State<AddWeightRecordDialog> {
                   ElevatedButton.icon(
                     onPressed: _saveRecord,
                     icon: const Icon(Icons.check, size: 20),
-                    label: const Text(
-                      'Save',
+                    label: Text(
+                      l10n.saveChanges,
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                       ),

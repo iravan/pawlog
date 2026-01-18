@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import '../l10n/app_localizations.dart';
 import '../providers/cat_provider.dart';
 import '../models/feeding_record.dart';
 
@@ -47,7 +48,8 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
     }
   }
 
-  void _saveRecord() async {
+  void _saveRecord(BuildContext context) async {
+    final l10n = AppLocalizations.of(context)!;
     if (_formKey.currentState!.validate()) {
       final amount = double.tryParse(_amountController.text);
       if (amount != null &&
@@ -89,7 +91,8 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  'Added to $successCount cat(s). $failedCount cat(s) already have 5 records for this day.',
+                  // Note: count parameter is unused but required by generated code until regeneration
+                  l10n.addedToCats(successCount, failedCount, 0),
                 ),
                 backgroundColor: Colors.orange,
               ),
@@ -98,7 +101,7 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  'Feeding record added to all $successCount cat(s) in the group',
+                  l10n.addedToAllCats(successCount),
                 ),
               ),
             );
@@ -110,6 +113,7 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final catProvider = Provider.of<CatProvider>(context);
     final group = catProvider.getGroupById(widget.groupId);
     final catsInGroup = catProvider.getCatsByGroup(widget.groupId);
@@ -121,7 +125,7 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
             Text(group.icon, style: const TextStyle(fontSize: 24)),
             const SizedBox(width: 8),
           ],
-          Text(group?.name ?? 'Group Feeding'),
+          Text(group?.name ?? l10n.groupFeeding),
         ],
       ),
       content: Form(
@@ -132,7 +136,7 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'This will add a feeding record to ${catsInGroup.length} cat(s):',
+                l10n.thisWillAddAFeedingRecordToCats(catsInGroup.length),
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.grey.shade700,
@@ -175,8 +179,8 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
                         (uniqueFoodTypes.isNotEmpty
                             ? uniqueFoodTypes.first
                             : null),
-                    decoration: const InputDecoration(
-                      labelText: 'Food Type',
+                    decoration: InputDecoration(
+                      labelText: l10n.foodType,
                       prefixIcon: Icon(Icons.restaurant),
                     ),
                     items: uniqueFoodTypes.map((foodType) {
@@ -192,7 +196,7 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
                     },
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please select a food type';
+                        return l10n.pleaseSelectAFoodType;
                       }
                       return null;
                     },
@@ -202,10 +206,10 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _amountController,
-                decoration: const InputDecoration(
-                  labelText: 'Amount (grams)',
+                decoration: InputDecoration(
+                  labelText: l10n.amount,
                   prefixIcon: Icon(Icons.scale),
-                  hintText: '0.5 - 1000',
+                  hintText: l10n.enterAmount,
                 ),
                 keyboardType:
                     const TextInputType.numberWithOptions(decimal: true),
@@ -214,19 +218,19 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
                 ],
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter amount';
+                    return l10n.pleaseEnterAValidAmount;
                   }
                   final amount = double.tryParse(value);
                   if (amount == null) {
-                    return 'Please enter a valid number';
+                    return l10n.pleaseEnterAValidAmount;
                   }
                   if (amount < 0.5 || amount > 1000) {
-                    return 'Amount must be between 0.5 and 1000';
+                    return l10n.pleaseEnterAValidAmount;
                   }
                   // Check decimal places
                   final parts = value.split('.');
                   if (parts.length > 1 && parts[1].length > 2) {
-                    return 'Maximum 2 decimal places allowed';
+                    return l10n.pleaseEnterAValidAmount;
                   }
                   return null;
                 },
@@ -235,8 +239,8 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
               InkWell(
                 onTap: () => _selectDate(context),
                 child: InputDecorator(
-                  decoration: const InputDecoration(
-                    labelText: 'Date',
+                  decoration: InputDecoration(
+                    labelText: l10n.date,
                     prefixIcon: Icon(Icons.calendar_today),
                   ),
                   child: Text(
@@ -247,8 +251,8 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _notesController,
-                decoration: const InputDecoration(
-                  labelText: 'Notes (optional)',
+                decoration: InputDecoration(
+                  labelText: l10n.notes,
                   prefixIcon: Icon(Icons.note),
                 ),
                 maxLines: 3,
@@ -260,11 +264,11 @@ class _GroupFeedingDialogState extends State<GroupFeedingDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(l10n.cancel),
         ),
         ElevatedButton(
-          onPressed: _saveRecord,
-          child: const Text('Save to All Cats'),
+          onPressed: () => _saveRecord(context),
+          child: Text(l10n.saveToAllCats),
         ),
       ],
     );

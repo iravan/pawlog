@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../l10n/app_localizations.dart';
 import '../../providers/cat_provider.dart';
 import '../../models/cat.dart';
 
@@ -20,16 +21,14 @@ class _EditCatDialogState extends State<EditCatDialog> {
   String? _selectedGroupId;
 
   final List<String> _iconOptions = [
-    // Cats
-    '🐱', '🐈', '🐈‍⬛', '😸', '😹', '😻', '😼', '😽',
-    '🙀', '😿', '😾',
-    // Dogs
-    '🐶', '🐕', '🐕‍🦺', '😊', '😍', '😎', '🤗', '🦮',
-    '🐩', '🐺',
+    // Cats - most common
+    '🐱', '🐈', '🐈‍⬛', '😸', '😻',
+    // Dogs - most common
+    '🐶', '🐕', '🐕‍🦺', '😊',
     // Other
-    '🐾', '🦁', '🐯', '🐅', '🐆',
+    '🐾', '🦁', '🐯',
   ];
-  
+
   PetType _selectedPetType = PetType.cat;
 
   @override
@@ -68,6 +67,7 @@ class _EditCatDialogState extends State<EditCatDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Consumer<CatProvider>(
       builder: (context, catProvider, _) {
         return Dialog(
@@ -118,7 +118,7 @@ class _EditCatDialogState extends State<EditCatDialog> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Edit Pet Information',
+                              l10n.editPetInformation,
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w700,
@@ -127,7 +127,7 @@ class _EditCatDialogState extends State<EditCatDialog> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              'Update your pet\'s details',
+                              l10n.updateYourPetsDetails,
                               style: TextStyle(
                                 fontSize: 13,
                                 color: Colors.grey.shade600,
@@ -152,39 +152,39 @@ class _EditCatDialogState extends State<EditCatDialog> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                      // Pet Name Section
-                      TextFormField(
-                        controller: _nameController,
-                        decoration: InputDecoration(
-                          labelText: 'Name',
-                          hintText: 'Enter pet name',
-                          prefixIcon: Icon(
-                            Icons.pets,
-                            color: Theme.of(context).colorScheme.primary,
+                          // Pet Name Section
+                          TextFormField(
+                            controller: _nameController,
+                            decoration: InputDecoration(
+                              labelText: l10n.name,
+                              hintText: l10n.enterPetName,
+                              prefixIcon: Icon(
+                                Icons.pets,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              filled: true,
+                              fillColor: Colors.grey.shade50,
+                            ),
+                            style: const TextStyle(fontSize: 16),
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return l10n.pleaseEnterACatName;
+                              }
+                              return null;
+                            },
                           ),
-                          filled: true,
-                          fillColor: Colors.grey.shade50,
-                        ),
-                        style: const TextStyle(fontSize: 16),
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Please enter a pet name';
-                          }
-                          return null;
-                        },
-                      ),
                           const SizedBox(height: 24),
                           // Description Section
                           _buildSectionTitle(
-                            'Description',
+                            l10n.description,
                             Icons.description_outlined,
                           ),
                           const SizedBox(height: 12),
                           TextFormField(
                             controller: _descriptionController,
                             decoration: InputDecoration(
-                              labelText: 'Description (optional)',
-                              hintText: 'Tell us about your cat...',
+                              labelText: l10n.descriptionOptional,
+                              hintText: l10n.tellUsAboutYourPet,
                               prefixIcon: Icon(
                                 Icons.text_fields,
                                 color: Theme.of(context).colorScheme.primary,
@@ -197,80 +197,83 @@ class _EditCatDialogState extends State<EditCatDialog> {
                           ),
                           const SizedBox(height: 24),
                           // Icon Selection Section
-                          _buildSectionTitle('Icon', Icons.emoji_emotions_outlined),
+                          _buildSectionTitle(
+                              l10n.selectIcon, Icons.emoji_emotions_outlined),
                           const SizedBox(height: 16),
-                          Container(
-                            padding: const EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                              color: Colors.grey.shade50,
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(color: Colors.grey.shade200),
-                            ),
-                            child: Wrap(
-                              spacing: 12,
-                              runSpacing: 12,
-                              alignment: WrapAlignment.center,
-                              children: _iconOptions.map((icon) {
+                          SizedBox(
+                            height: 72,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4),
+                              itemCount: _iconOptions.length,
+                              itemBuilder: (context, index) {
+                                final icon = _iconOptions[index];
                                 final isSelected = icon == _selectedIcon;
-                                return GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      _selectedIcon = icon;
-                                    });
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: const Duration(milliseconds: 200),
-                                    width: 56,
-                                    height: 56,
-                                    decoration: BoxDecoration(
-                                      color: isSelected
-                                          ? Theme.of(context)
-                                              .colorScheme
-                                              .primary
-                                              .withOpacity(0.15)
-                                          : Colors.white,
-                                      borderRadius: BorderRadius.circular(12),
-                                      border: Border.all(
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 4),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _selectedIcon = icon;
+                                      });
+                                    },
+                                    child: AnimatedContainer(
+                                      duration:
+                                          const Duration(milliseconds: 200),
+                                      width: 56,
+                                      height: 56,
+                                      decoration: BoxDecoration(
                                         color: isSelected
                                             ? Theme.of(context)
                                                 .colorScheme
                                                 .primary
-                                            : Colors.grey.shade300,
-                                        width: isSelected ? 2 : 1,
+                                                .withOpacity(0.15)
+                                            : Colors.white,
+                                        borderRadius: BorderRadius.circular(12),
+                                        border: Border.all(
+                                          color: isSelected
+                                              ? Theme.of(context)
+                                                  .colorScheme
+                                                  .primary
+                                              : Colors.grey.shade300,
+                                          width: isSelected ? 2 : 1,
+                                        ),
+                                        boxShadow: isSelected
+                                            ? [
+                                                BoxShadow(
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .primary
+                                                      .withOpacity(0.2),
+                                                  blurRadius: 8,
+                                                  offset: const Offset(0, 2),
+                                                ),
+                                              ]
+                                            : null,
                                       ),
-                                      boxShadow: isSelected
-                                          ? [
-                                              BoxShadow(
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .primary
-                                                    .withOpacity(0.2),
-                                                blurRadius: 8,
-                                                offset: const Offset(0, 2),
-                                              ),
-                                            ]
-                                          : null,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        icon,
-                                        style: const TextStyle(fontSize: 28),
+                                      child: Center(
+                                        child: Text(
+                                          icon,
+                                          style: const TextStyle(fontSize: 28),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 );
-                              }).toList(),
+                              },
                             ),
                           ),
                           const SizedBox(height: 24),
                           // Group Selection Section
-                          _buildSectionTitle('Group', Icons.group_outlined),
+                          _buildSectionTitle(l10n.group, Icons.group_outlined),
                           const SizedBox(height: 12),
                           DropdownButtonFormField<String?>(
                             value: _selectedGroupId,
                             decoration: InputDecoration(
-                              labelText: 'Group (optional)',
-                              hintText: 'Select a group',
+                              labelText: l10n.groupOptional,
+                              hintText: l10n.selectAGroup,
                               prefixIcon: Icon(
                                 Icons.group,
                                 color: Theme.of(context).colorScheme.primary,
@@ -290,7 +293,7 @@ class _EditCatDialogState extends State<EditCatDialog> {
                                     ),
                                     const SizedBox(width: 12),
                                     Text(
-                                      'No Group',
+                                      l10n.noGroup,
                                       style: TextStyle(
                                         color: Colors.grey.shade700,
                                       ),
@@ -356,7 +359,7 @@ class _EditCatDialogState extends State<EditCatDialog> {
                           ),
                         ),
                         child: Text(
-                          'Cancel',
+                          l10n.cancel,
                           style: TextStyle(
                             color: Colors.grey.shade700,
                             fontWeight: FontWeight.w500,
@@ -367,14 +370,15 @@ class _EditCatDialogState extends State<EditCatDialog> {
                       ElevatedButton.icon(
                         onPressed: _save,
                         icon: const Icon(Icons.check, size: 20),
-                        label: const Text(
-                          'Save Changes',
+                        label: Text(
+                          l10n.saveChanges,
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Theme.of(context).colorScheme.primary,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
                           foregroundColor: Colors.white,
                           elevation: 0,
                           padding: const EdgeInsets.symmetric(
@@ -418,4 +422,3 @@ class _EditCatDialogState extends State<EditCatDialog> {
     );
   }
 }
-

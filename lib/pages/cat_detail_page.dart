@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../l10n/app_localizations.dart';
 import '../providers/cat_provider.dart';
 import '../utils/string_utils.dart';
 import 'tabs/cat_info_tab.dart';
@@ -40,13 +41,14 @@ class _CatDetailPageState extends State<CatDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final catProvider = Provider.of<CatProvider>(context);
     final cat = catProvider.getCatById(widget.catId);
 
     if (cat == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Cat Not Found')),
-        body: const Center(child: Text('Cat not found')),
+        appBar: AppBar(title: Text(l10n.catNotFound)),
+        body: Center(child: Text(l10n.catNotFound)),
       );
     }
 
@@ -77,10 +79,10 @@ class _CatDetailPageState extends State<CatDetailPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _buildTabIndicator(0, 'Info', _currentPage == 0),
-                  _buildTabIndicator(1, 'Medical', _currentPage == 1),
-                  _buildTabIndicator(2, 'Weight', _currentPage == 2),
-                  _buildTabIndicator(3, 'Feeding', _currentPage == 3),
+                  _buildTabIndicator(0, l10n.info, _currentPage == 0),
+                  _buildTabIndicator(1, l10n.medical, _currentPage == 1),
+                  _buildTabIndicator(2, l10n.weight, _currentPage == 2),
+                  _buildTabIndicator(3, l10n.feeding, _currentPage == 3),
                 ],
               ),
             ),

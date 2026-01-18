@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'l10n/app_localizations.dart';
 import 'services/storage_service.dart';
 import 'providers/auth_provider.dart';
 import 'providers/cat_provider.dart';
+import 'providers/theme_provider.dart';
 import 'pages/login_page.dart';
 import 'pages/main_page.dart';
 
@@ -35,6 +38,27 @@ class _MyAppState extends State<MyApp> {
     if (_initialRoute == null) {
       // Show a loading screen while checking first run
       return MaterialApp(
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'),
+          Locale('fr'),
+          Locale('de'),
+          Locale('es'),
+          Locale('it'),
+          Locale('pt'),
+          Locale('nl'),
+          Locale('zh', 'CN'),
+          Locale('zh', 'HK'),
+          Locale('ja'),
+          Locale('ko'),
+          Locale('th'),
+          Locale('vi'),
+        ],
         home: Scaffold(
           body: Center(
             child: CircularProgressIndicator(),
@@ -46,6 +70,7 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(
           create: (_) {
             final provider = CatProvider();
@@ -54,12 +79,35 @@ class _MyAppState extends State<MyApp> {
           },
         ),
       ],
-      child: MaterialApp(
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, _) => MaterialApp(
         title: 'PawsLog',
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'), // English
+          Locale('fr'), // French
+          Locale('de'), // German
+          Locale('es'), // Spanish
+          Locale('it'), // Italian
+          Locale('pt'), // Portuguese
+          Locale('nl'), // Dutch
+          Locale('zh', 'CN'), // Chinese Simplified
+          Locale('zh', 'HK'), // Chinese Traditional Hong Kong
+          Locale('zh', 'TW'), // Chinese Traditional Taiwan
+          Locale('ja'), // Japanese
+          Locale('ko'), // Korean
+          Locale('th'), // Thai
+          Locale('vi'), // Vietnamese
+        ],
         theme: ThemeData(
           // Bootstrap-like color scheme
           colorScheme: ColorScheme.light(
-            primary: const Color(0xFF0D6EFD), // Bootstrap primary blue
+            primary: themeProvider.primaryColor,
             secondary: const Color(0xFF6C757D), // Bootstrap secondary gray
             surface: Colors.white,
             background:
@@ -96,7 +144,7 @@ class _MyAppState extends State<MyApp> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(6), // Bootstrap default
               ),
-              backgroundColor: const Color(0xFF0D6EFD),
+              backgroundColor: themeProvider.primaryColor,
               foregroundColor: Colors.white,
               textStyle: const TextStyle(
                 fontSize: 16,
@@ -110,8 +158,8 @@ class _MyAppState extends State<MyApp> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(6),
               ),
-              side: const BorderSide(color: Color(0xFF0D6EFD), width: 1),
-              foregroundColor: const Color(0xFF0D6EFD),
+              side: BorderSide(color: themeProvider.primaryColor, width: 1),
+              foregroundColor: themeProvider.primaryColor,
               textStyle: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
@@ -120,7 +168,7 @@ class _MyAppState extends State<MyApp> {
           ),
           textButtonTheme: TextButtonThemeData(
             style: TextButton.styleFrom(
-              foregroundColor: const Color(0xFF0D6EFD),
+              foregroundColor: themeProvider.primaryColor,
               textStyle: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
@@ -141,7 +189,7 @@ class _MyAppState extends State<MyApp> {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
-              borderSide: const BorderSide(color: Color(0xFF0D6EFD), width: 2),
+              borderSide: BorderSide(color: themeProvider.primaryColor, width: 2),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
@@ -215,7 +263,7 @@ class _MyAppState extends State<MyApp> {
           ),
           // Bootstrap-style FloatingActionButton
           floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: const Color(0xFF0D6EFD),
+            backgroundColor: themeProvider.primaryColor,
             foregroundColor: Colors.white,
             elevation: 4,
             highlightElevation: 8,
@@ -233,6 +281,7 @@ class _MyAppState extends State<MyApp> {
           '/login': (context) => const LoginPage(),
           '/main': (context) => const MainPage(),
         },
+        ),
       ),
     );
   }
