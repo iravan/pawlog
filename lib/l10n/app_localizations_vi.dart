@@ -613,4 +613,28 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get yesterday => 'Hôm qua';
+
+  @override
+  String get deleteWeightRecord => 'Xóa Bản Ghi Cân Nặng';
+
+  @override
+  String deleteWeightRecordConfirm(String weight) {
+    return 'Bạn có chắc chắn muốn xóa bản ghi cân nặng này ($weight kg)?';
+  }
+
+  @override
+  String get deleteFeedingRecord => 'Xóa Bản Ghi Cho Ăn';
+
+  @override
+  String deleteFeedingRecordConfirm(String foodType, String amount) {
+    return 'Bạn có chắc chắn muốn xóa bản ghi cho ăn này ($foodType • ${amount}g)?';
+  }
+
+  @override
+  String get deleteMedicalRecord => 'Xóa Bản Ghi Y Tế';
+
+  @override
+  String deleteMedicalRecordConfirm(String title) {
+    return 'Bạn có chắc chắn muốn xóa \"$title\"?';
+  }
 }

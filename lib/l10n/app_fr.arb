@@ -189,5 +189,47 @@
   "defaultFoodTypeWetFood": "Nourriture humide",
   "defaultFoodTypeDryFood": "Nourriture sèche",
   "today": "Aujourd'hui",
-  "yesterday": "Hier"
+  "yesterday": "Hier",
+  "deleteWeightRecord": "Supprimer l'Enregistrement de Poids",
+  "@deleteWeightRecord": {
+    "description": "Dialog title for deleting weight record"
+  },
+  "deleteWeightRecordConfirm": "Êtes-vous sûr de vouloir supprimer cet enregistrement de poids ({weight} kg) ?",
+  "@deleteWeightRecordConfirm": {
+    "description": "Confirmation message for deleting weight record",
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFeedingRecord": "Supprimer l'Enregistrement d'Alimentation",
+  "@deleteFeedingRecord": {
+    "description": "Dialog title for deleting feeding record"
+  },
+  "deleteFeedingRecordConfirm": "Êtes-vous sûr de vouloir supprimer cet enregistrement d'alimentation ({foodType} • {amount}g) ?",
+  "@deleteFeedingRecordConfirm": {
+    "description": "Confirmation message for deleting feeding record",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteMedicalRecord": "Supprimer l'Enregistrement Médical",
+  "@deleteMedicalRecord": {
+    "description": "Dialog title for deleting medical record"
+  },
+  "deleteMedicalRecordConfirm": "Êtes-vous sûr de vouloir supprimer \"{title}\" ?",
+  "@deleteMedicalRecordConfirm": {
+    "description": "Confirmation message for deleting medical record",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

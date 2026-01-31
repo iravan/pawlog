@@ -189,5 +189,47 @@
   "defaultFoodTypeWetFood": "습식 사료",
   "defaultFoodTypeDryFood": "건식 사료",
   "today": "오늘",
-  "yesterday": "어제"
+  "yesterday": "어제",
+  "deleteWeightRecord": "체중 기록 삭제",
+  "@deleteWeightRecord": {
+    "description": "Dialog title for deleting weight record"
+  },
+  "deleteWeightRecordConfirm": "이 체중 기록({weight} kg)을 삭제하시겠습니까?",
+  "@deleteWeightRecordConfirm": {
+    "description": "Confirmation message for deleting weight record",
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFeedingRecord": "급식 기록 삭제",
+  "@deleteFeedingRecord": {
+    "description": "Dialog title for deleting feeding record"
+  },
+  "deleteFeedingRecordConfirm": "이 급식 기록({foodType} • {amount}g)을 삭제하시겠습니까?",
+  "@deleteFeedingRecordConfirm": {
+    "description": "Confirmation message for deleting feeding record",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteMedicalRecord": "의료 기록 삭제",
+  "@deleteMedicalRecord": {
+    "description": "Dialog title for deleting medical record"
+  },
+  "deleteMedicalRecordConfirm": "\"{title}\"을(를) 삭제하시겠습니까?",
+  "@deleteMedicalRecordConfirm": {
+    "description": "Confirmation message for deleting medical record",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

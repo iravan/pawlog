@@ -206,7 +206,7 @@ class WeightRecordsTab extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     title: Text(
-                                      'Delete Weight Record',
+                                      l10n.deleteWeightRecord,
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w500,
@@ -214,7 +214,7 @@ class WeightRecordsTab extends StatelessWidget {
                                       ),
                                     ),
                                     content: Text(
-                                      'Are you sure you want to delete this weight record (${record.weight} kg)?',
+                                      l10n.deleteWeightRecordConfirm('${record.weight}'),
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.grey.shade700,
@@ -225,7 +225,7 @@ class WeightRecordsTab extends StatelessWidget {
                                         onPressed: () =>
                                             Navigator.of(context).pop(),
                                         child: Text(
-                                          'Cancel',
+                                          l10n.cancel,
                                           style: TextStyle(
                                             color: Colors.grey.shade600,
                                           ),
@@ -297,8 +297,8 @@ class WeightRecordsTab extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.add, size: 24),
-            label: const Text(
-              'Add Weight',
+            label: Text(
+              l10n.addWeight,
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,

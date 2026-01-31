@@ -170,7 +170,7 @@ class MedicalHistoryTab extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                             ),
                             title: Text(
-                              'Delete Medical Record',
+                              l10n.deleteMedicalRecord,
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
@@ -178,7 +178,7 @@ class MedicalHistoryTab extends StatelessWidget {
                               ),
                             ),
                             content: Text(
-                              'Are you sure you want to delete "${record.title}"?',
+                              l10n.deleteMedicalRecordConfirm(record.title),
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.grey.shade700,
@@ -188,7 +188,7 @@ class MedicalHistoryTab extends StatelessWidget {
                               TextButton(
                                 onPressed: () => Navigator.of(context).pop(),
                                 child: Text(
-                                  'Cancel',
+                                  l10n.cancel,
                                   style: TextStyle(
                                     color: Colors.grey.shade600,
                                   ),
@@ -209,35 +209,38 @@ class MedicalHistoryTab extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(6),
                                   ),
                                 ),
-                                child: const Text('Delete'),
+                                child: Text(l10n.delete),
                               ),
                             ],
                           ),
                         );
                       }
                     },
-                    itemBuilder: (context) => [
-                      const PopupMenuItem(
-                        value: 'edit',
-                        child: Row(
-                          children: [
-                            Icon(Icons.edit, size: 20),
-                            SizedBox(width: 8),
-                            Text('Edit'),
-                          ],
+                    itemBuilder: (context) {
+                      final l10n = AppLocalizations.of(context)!;
+                      return [
+                        PopupMenuItem(
+                          value: 'edit',
+                          child: Row(
+                            children: [
+                              Icon(Icons.edit, size: 20),
+                              SizedBox(width: 8),
+                              Text(l10n.edit),
+                            ],
+                          ),
                         ),
-                      ),
-                      const PopupMenuItem(
-                        value: 'delete',
-                        child: Row(
-                          children: [
-                            Icon(Icons.delete, size: 20, color: Colors.red),
-                            SizedBox(width: 8),
-                            Text('Delete', style: TextStyle(color: Colors.red)),
-                          ],
+                        PopupMenuItem(
+                          value: 'delete',
+                          child: Row(
+                            children: [
+                              Icon(Icons.delete, size: 20, color: Colors.red),
+                              SizedBox(width: 8),
+                              Text(l10n.delete, style: TextStyle(color: Colors.red)),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ];
+                    },
                   ),
                 ),
               );
@@ -251,8 +254,8 @@ class MedicalHistoryTab extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.add, size: 24),
-            label: const Text(
-              'Add Record',
+            label: Text(
+              l10n.addRecord,
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,

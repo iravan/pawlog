@@ -604,4 +604,28 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get yesterday => '昨日';
+
+  @override
+  String get deleteWeightRecord => '体重記録を削除';
+
+  @override
+  String deleteWeightRecordConfirm(String weight) {
+    return 'この体重記録（$weight kg）を削除してもよろしいですか？';
+  }
+
+  @override
+  String get deleteFeedingRecord => '給餌記録を削除';
+
+  @override
+  String deleteFeedingRecordConfirm(String foodType, String amount) {
+    return 'この給餌記録（$foodType • ${amount}g）を削除してもよろしいですか？';
+  }
+
+  @override
+  String get deleteMedicalRecord => '医療記録を削除';
+
+  @override
+  String deleteMedicalRecordConfirm(String title) {
+    return '「$title」を削除してもよろしいですか？';
+  }
 }

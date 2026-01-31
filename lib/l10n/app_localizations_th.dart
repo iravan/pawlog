@@ -611,4 +611,28 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get yesterday => 'เมื่อวาน';
+
+  @override
+  String get deleteWeightRecord => 'ลบบันทึกน้ำหนัก';
+
+  @override
+  String deleteWeightRecordConfirm(String weight) {
+    return 'คุณแน่ใจหรือไม่ว่าต้องการลบบันทึกน้ำหนักนี้ ($weight กก.)?';
+  }
+
+  @override
+  String get deleteFeedingRecord => 'ลบบันทึกการให้อาหาร';
+
+  @override
+  String deleteFeedingRecordConfirm(String foodType, String amount) {
+    return 'คุณแน่ใจหรือไม่ว่าต้องการลบบันทึกการให้อาหารนี้ ($foodType • $amountก.)?';
+  }
+
+  @override
+  String get deleteMedicalRecord => 'ลบบันทึกทางการแพทย์';
+
+  @override
+  String deleteMedicalRecordConfirm(String title) {
+    return 'คุณแน่ใจหรือไม่ว่าต้องการลบ \"$title\"?';
+  }
 }

@@ -189,5 +189,47 @@
   "defaultFoodTypeWetFood": "อาหารเปียก",
   "defaultFoodTypeDryFood": "อาหารแห้ง",
   "today": "วันนี้",
-  "yesterday": "เมื่อวาน"
+  "yesterday": "เมื่อวาน",
+  "deleteWeightRecord": "ลบบันทึกน้ำหนัก",
+  "@deleteWeightRecord": {
+    "description": "Dialog title for deleting weight record"
+  },
+  "deleteWeightRecordConfirm": "คุณแน่ใจหรือไม่ว่าต้องการลบบันทึกน้ำหนักนี้ ({weight} กก.)?",
+  "@deleteWeightRecordConfirm": {
+    "description": "Confirmation message for deleting weight record",
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFeedingRecord": "ลบบันทึกการให้อาหาร",
+  "@deleteFeedingRecord": {
+    "description": "Dialog title for deleting feeding record"
+  },
+  "deleteFeedingRecordConfirm": "คุณแน่ใจหรือไม่ว่าต้องการลบบันทึกการให้อาหารนี้ ({foodType} • {amount}ก.)?",
+  "@deleteFeedingRecordConfirm": {
+    "description": "Confirmation message for deleting feeding record",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteMedicalRecord": "ลบบันทึกทางการแพทย์",
+  "@deleteMedicalRecord": {
+    "description": "Dialog title for deleting medical record"
+  },
+  "deleteMedicalRecordConfirm": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{title}\"?",
+  "@deleteMedicalRecordConfirm": {
+    "description": "Confirmation message for deleting medical record",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

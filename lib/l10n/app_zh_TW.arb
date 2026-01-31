@@ -189,5 +189,47 @@
   "defaultFoodTypeWetFood": "濕糧",
   "defaultFoodTypeDryFood": "乾糧",
   "today": "今天",
-  "yesterday": "昨天"
+  "yesterday": "昨天",
+  "deleteWeightRecord": "刪除體重記錄",
+  "@deleteWeightRecord": {
+    "description": "Dialog title for deleting weight record"
+  },
+  "deleteWeightRecordConfirm": "您確定要刪除此體重記錄（{weight} 公斤）嗎？",
+  "@deleteWeightRecordConfirm": {
+    "description": "Confirmation message for deleting weight record",
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFeedingRecord": "刪除餵食記錄",
+  "@deleteFeedingRecord": {
+    "description": "Dialog title for deleting feeding record"
+  },
+  "deleteFeedingRecordConfirm": "您確定要刪除此餵食記錄（{foodType} • {amount}克）嗎？",
+  "@deleteFeedingRecordConfirm": {
+    "description": "Confirmation message for deleting feeding record",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteMedicalRecord": "刪除醫療記錄",
+  "@deleteMedicalRecord": {
+    "description": "Dialog title for deleting medical record"
+  },
+  "deleteMedicalRecordConfirm": "您確定要刪除「{title}」嗎？",
+  "@deleteMedicalRecordConfirm": {
+    "description": "Confirmation message for deleting medical record",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

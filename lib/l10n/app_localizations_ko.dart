@@ -605,4 +605,28 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get yesterday => '어제';
+
+  @override
+  String get deleteWeightRecord => '체중 기록 삭제';
+
+  @override
+  String deleteWeightRecordConfirm(String weight) {
+    return '이 체중 기록($weight kg)을 삭제하시겠습니까?';
+  }
+
+  @override
+  String get deleteFeedingRecord => '급식 기록 삭제';
+
+  @override
+  String deleteFeedingRecordConfirm(String foodType, String amount) {
+    return '이 급식 기록($foodType • ${amount}g)을 삭제하시겠습니까?';
+  }
+
+  @override
+  String get deleteMedicalRecord => '의료 기록 삭제';
+
+  @override
+  String deleteMedicalRecordConfirm(String title) {
+    return '\"$title\"을(를) 삭제하시겠습니까?';
+  }
 }

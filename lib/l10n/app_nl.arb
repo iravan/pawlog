@@ -189,5 +189,47 @@
   "defaultFoodTypeWetFood": "Natvoer",
   "defaultFoodTypeDryFood": "Droogvoer",
   "today": "Vandaag",
-  "yesterday": "Gisteren"
+  "yesterday": "Gisteren",
+  "deleteWeightRecord": "Gewichtsrecord Verwijderen",
+  "@deleteWeightRecord": {
+    "description": "Dialog title for deleting weight record"
+  },
+  "deleteWeightRecordConfirm": "Weet u zeker dat u dit gewichtsrecord ({weight} kg) wilt verwijderen?",
+  "@deleteWeightRecordConfirm": {
+    "description": "Confirmation message for deleting weight record",
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFeedingRecord": "Voedingsrecord Verwijderen",
+  "@deleteFeedingRecord": {
+    "description": "Dialog title for deleting feeding record"
+  },
+  "deleteFeedingRecordConfirm": "Weet u zeker dat u dit voedingsrecord ({foodType} • {amount}g) wilt verwijderen?",
+  "@deleteFeedingRecordConfirm": {
+    "description": "Confirmation message for deleting feeding record",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteMedicalRecord": "Medisch Record Verwijderen",
+  "@deleteMedicalRecord": {
+    "description": "Dialog title for deleting medical record"
+  },
+  "deleteMedicalRecordConfirm": "Weet u zeker dat u \"{title}\" wilt verwijderen?",
+  "@deleteMedicalRecordConfirm": {
+    "description": "Confirmation message for deleting medical record",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

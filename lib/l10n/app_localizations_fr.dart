@@ -627,4 +627,29 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get yesterday => 'Hier';
+
+  @override
+  String get deleteWeightRecord => 'Supprimer l\'Enregistrement de Poids';
+
+  @override
+  String deleteWeightRecordConfirm(String weight) {
+    return 'Êtes-vous sûr de vouloir supprimer cet enregistrement de poids ($weight kg) ?';
+  }
+
+  @override
+  String get deleteFeedingRecord =>
+      'Supprimer l\'Enregistrement d\'Alimentation';
+
+  @override
+  String deleteFeedingRecordConfirm(String foodType, String amount) {
+    return 'Êtes-vous sûr de vouloir supprimer cet enregistrement d\'alimentation ($foodType • ${amount}g) ?';
+  }
+
+  @override
+  String get deleteMedicalRecord => 'Supprimer l\'Enregistrement Médical';
+
+  @override
+  String deleteMedicalRecordConfirm(String title) {
+    return 'Êtes-vous sûr de vouloir supprimer \"$title\" ?';
+  }
 }

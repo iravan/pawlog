@@ -216,7 +216,7 @@ class FeedingRecordsTab extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     title: Text(
-                                      'Delete Feeding Record',
+                                      l10n.deleteFeedingRecord,
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w500,
@@ -224,7 +224,7 @@ class FeedingRecordsTab extends StatelessWidget {
                                       ),
                                     ),
                                     content: Text(
-                                      'Are you sure you want to delete this feeding record (${record.foodType} • ${record.amount}g)?',
+                                      l10n.deleteFeedingRecordConfirm(record.foodType, '${record.amount}'),
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.grey.shade700,
@@ -235,7 +235,7 @@ class FeedingRecordsTab extends StatelessWidget {
                                         onPressed: () =>
                                             Navigator.of(context).pop(),
                                         child: Text(
-                                          'Cancel',
+                                          l10n.cancel,
                                           style: TextStyle(
                                             color: Colors.grey.shade600,
                                           ),
@@ -307,8 +307,8 @@ class FeedingRecordsTab extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.add, size: 24),
-            label: const Text(
-              'Add Feeding',
+            label: Text(
+              l10n.addFeeding,
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,

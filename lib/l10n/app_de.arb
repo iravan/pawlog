@@ -803,5 +803,47 @@
   "yesterday": "Gestern",
   "@yesterday": {
     "description": "Label for yesterday's date"
+  },
+  "deleteWeightRecord": "Gewichtsaufzeichnung löschen",
+  "@deleteWeightRecord": {
+    "description": "Dialog title for deleting weight record"
+  },
+  "deleteWeightRecordConfirm": "Möchten Sie diese Gewichtsaufzeichnung ({weight} kg) wirklich löschen?",
+  "@deleteWeightRecordConfirm": {
+    "description": "Confirmation message for deleting weight record",
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFeedingRecord": "Fütterungsaufzeichnung löschen",
+  "@deleteFeedingRecord": {
+    "description": "Dialog title for deleting feeding record"
+  },
+  "deleteFeedingRecordConfirm": "Möchten Sie diese Fütterungsaufzeichnung ({foodType} • {amount}g) wirklich löschen?",
+  "@deleteFeedingRecordConfirm": {
+    "description": "Confirmation message for deleting feeding record",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteMedicalRecord": "Medizinische Aufzeichnung löschen",
+  "@deleteMedicalRecord": {
+    "description": "Dialog title for deleting medical record"
+  },
+  "deleteMedicalRecordConfirm": "Möchten Sie \"{title}\" wirklich löschen?",
+  "@deleteMedicalRecordConfirm": {
+    "description": "Confirmation message for deleting medical record",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   }
 }

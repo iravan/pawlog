@@ -1224,6 +1224,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Yesterday'**
   String get yesterday;
+
+  /// Dialog title for deleting weight record
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Weight Record'**
+  String get deleteWeightRecord;
+
+  /// Confirmation message for deleting weight record
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this weight record ({weight} kg)?'**
+  String deleteWeightRecordConfirm(String weight);
+
+  /// Dialog title for deleting feeding record
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Feeding Record'**
+  String get deleteFeedingRecord;
+
+  /// Confirmation message for deleting feeding record
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this feeding record ({foodType} • {amount}g)?'**
+  String deleteFeedingRecordConfirm(String foodType, String amount);
+
+  /// Dialog title for deleting medical record
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Medical Record'**
+  String get deleteMedicalRecord;
+
+  /// Confirmation message for deleting medical record
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete \"{title}\"?'**
+  String deleteMedicalRecordConfirm(String title);
 }
 
 class _AppLocalizationsDelegate

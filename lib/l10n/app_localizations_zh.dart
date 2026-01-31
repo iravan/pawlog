@@ -592,6 +592,30 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get yesterday => '昨天';
+
+  @override
+  String get deleteWeightRecord => '刪除體重記錄';
+
+  @override
+  String deleteWeightRecordConfirm(String weight) {
+    return '您確定要刪除此體重記錄（$weight 公斤）嗎？';
+  }
+
+  @override
+  String get deleteFeedingRecord => '刪除餵食記錄';
+
+  @override
+  String deleteFeedingRecordConfirm(String foodType, String amount) {
+    return '您確定要刪除此餵食記錄（$foodType • $amount克）嗎？';
+  }
+
+  @override
+  String get deleteMedicalRecord => '刪除醫療記錄';
+
+  @override
+  String deleteMedicalRecordConfirm(String title) {
+    return '您確定要刪除「$title」嗎？';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1182,6 +1206,30 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get yesterday => '昨天';
+
+  @override
+  String get deleteWeightRecord => '删除体重记录';
+
+  @override
+  String deleteWeightRecordConfirm(String weight) {
+    return '您确定要删除此体重记录（$weight 公斤）吗？';
+  }
+
+  @override
+  String get deleteFeedingRecord => '删除喂食记录';
+
+  @override
+  String deleteFeedingRecordConfirm(String foodType, String amount) {
+    return '您确定要删除此喂食记录（$foodType • $amount克）吗？';
+  }
+
+  @override
+  String get deleteMedicalRecord => '删除医疗记录';
+
+  @override
+  String deleteMedicalRecordConfirm(String title) {
+    return '您确定要删除「$title」吗？';
+  }
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).
@@ -1772,6 +1820,30 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get yesterday => '昨天';
+
+  @override
+  String get deleteWeightRecord => '刪除體重記錄';
+
+  @override
+  String deleteWeightRecordConfirm(String weight) {
+    return '您確定要刪除此體重記錄（$weight 公斤）嗎？';
+  }
+
+  @override
+  String get deleteFeedingRecord => '刪除餵食記錄';
+
+  @override
+  String deleteFeedingRecordConfirm(String foodType, String amount) {
+    return '您確定要刪除此餵食記錄（$foodType • $amount克）嗎？';
+  }
+
+  @override
+  String get deleteMedicalRecord => '刪除醫療記錄';
+
+  @override
+  String deleteMedicalRecordConfirm(String title) {
+    return '您確定要刪除「$title」嗎？';
+  }
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -2363,4 +2435,28 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get yesterday => '昨天';
+
+  @override
+  String get deleteWeightRecord => '刪除體重記錄';
+
+  @override
+  String deleteWeightRecordConfirm(String weight) {
+    return '您確定要刪除此體重記錄（$weight 公斤）嗎？';
+  }
+
+  @override
+  String get deleteFeedingRecord => '刪除餵食記錄';
+
+  @override
+  String deleteFeedingRecordConfirm(String foodType, String amount) {
+    return '您確定要刪除此餵食記錄（$foodType • $amount克）嗎？';
+  }
+
+  @override
+  String get deleteMedicalRecord => '刪除醫療記錄';
+
+  @override
+  String deleteMedicalRecordConfirm(String title) {
+    return '您確定要刪除「$title」嗎？';
+  }
 }

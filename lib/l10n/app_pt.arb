@@ -189,5 +189,47 @@
   "defaultFoodTypeWetFood": "Comida úmida",
   "defaultFoodTypeDryFood": "Comida seca",
   "today": "Hoje",
-  "yesterday": "Ontem"
+  "yesterday": "Ontem",
+  "deleteWeightRecord": "Excluir Registro de Peso",
+  "@deleteWeightRecord": {
+    "description": "Dialog title for deleting weight record"
+  },
+  "deleteWeightRecordConfirm": "Tem certeza de que deseja excluir este registro de peso ({weight} kg)?",
+  "@deleteWeightRecordConfirm": {
+    "description": "Confirmation message for deleting weight record",
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFeedingRecord": "Excluir Registro de Alimentação",
+  "@deleteFeedingRecord": {
+    "description": "Dialog title for deleting feeding record"
+  },
+  "deleteFeedingRecordConfirm": "Tem certeza de que deseja excluir este registro de alimentação ({foodType} • {amount}g)?",
+  "@deleteFeedingRecordConfirm": {
+    "description": "Confirmation message for deleting feeding record",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteMedicalRecord": "Excluir Registro Médico",
+  "@deleteMedicalRecord": {
+    "description": "Dialog title for deleting medical record"
+  },
+  "deleteMedicalRecordConfirm": "Tem certeza de que deseja excluir \"{title}\"?",
+  "@deleteMedicalRecordConfirm": {
+    "description": "Confirmation message for deleting medical record",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

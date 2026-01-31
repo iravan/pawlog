@@ -189,5 +189,47 @@
   "defaultFoodTypeWetFood": "ウェットフード",
   "defaultFoodTypeDryFood": "ドライフード",
   "today": "今日",
-  "yesterday": "昨日"
+  "yesterday": "昨日",
+  "deleteWeightRecord": "体重記録を削除",
+  "@deleteWeightRecord": {
+    "description": "Dialog title for deleting weight record"
+  },
+  "deleteWeightRecordConfirm": "この体重記録（{weight} kg）を削除してもよろしいですか？",
+  "@deleteWeightRecordConfirm": {
+    "description": "Confirmation message for deleting weight record",
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFeedingRecord": "給餌記録を削除",
+  "@deleteFeedingRecord": {
+    "description": "Dialog title for deleting feeding record"
+  },
+  "deleteFeedingRecordConfirm": "この給餌記録（{foodType} • {amount}g）を削除してもよろしいですか？",
+  "@deleteFeedingRecordConfirm": {
+    "description": "Confirmation message for deleting feeding record",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteMedicalRecord": "医療記録を削除",
+  "@deleteMedicalRecord": {
+    "description": "Dialog title for deleting medical record"
+  },
+  "deleteMedicalRecordConfirm": "「{title}」を削除してもよろしいですか？",
+  "@deleteMedicalRecordConfirm": {
+    "description": "Confirmation message for deleting medical record",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

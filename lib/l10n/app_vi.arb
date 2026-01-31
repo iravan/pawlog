@@ -189,5 +189,47 @@
   "defaultFoodTypeWetFood": "Thức ăn ướt",
   "defaultFoodTypeDryFood": "Thức ăn khô",
   "today": "Hôm nay",
-  "yesterday": "Hôm qua"
+  "yesterday": "Hôm qua",
+  "deleteWeightRecord": "Xóa Bản Ghi Cân Nặng",
+  "@deleteWeightRecord": {
+    "description": "Dialog title for deleting weight record"
+  },
+  "deleteWeightRecordConfirm": "Bạn có chắc chắn muốn xóa bản ghi cân nặng này ({weight} kg)?",
+  "@deleteWeightRecordConfirm": {
+    "description": "Confirmation message for deleting weight record",
+    "placeholders": {
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFeedingRecord": "Xóa Bản Ghi Cho Ăn",
+  "@deleteFeedingRecord": {
+    "description": "Dialog title for deleting feeding record"
+  },
+  "deleteFeedingRecordConfirm": "Bạn có chắc chắn muốn xóa bản ghi cho ăn này ({foodType} • {amount}g)?",
+  "@deleteFeedingRecordConfirm": {
+    "description": "Confirmation message for deleting feeding record",
+    "placeholders": {
+      "foodType": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteMedicalRecord": "Xóa Bản Ghi Y Tế",
+  "@deleteMedicalRecord": {
+    "description": "Dialog title for deleting medical record"
+  },
+  "deleteMedicalRecordConfirm": "Bạn có chắc chắn muốn xóa \"{title}\"?",
+  "@deleteMedicalRecordConfirm": {
+    "description": "Confirmation message for deleting medical record",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }
