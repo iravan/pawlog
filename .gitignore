@@ -110,3 +110,6 @@ coverage/
 # Exclude local configuration files
 **/local.properties
 **/android/local.properties
+
+# graphify knowledge graph (generated)
+graphify-out/
