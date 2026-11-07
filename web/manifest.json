@@ -1,11 +1,11 @@
 {
-    "name": "pawslog",
-    "short_name": "pawslog",
+    "name": "PawsLog",
+    "short_name": "PawsLog",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#2f6b57",
+    "theme_color": "#2f6b57",
+    "description": "Track your pet's health, weight, feeding, and medical records.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

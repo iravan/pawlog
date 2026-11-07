@@ -1,8 +1,7 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:yaml/yaml.dart';
 import '../models/cat.dart';
 import '../models/group.dart';
@@ -12,7 +11,7 @@ import '../models/medical_record.dart';
 import '../providers/cat_provider.dart';
 
 class ExportImportService {
-  /// Export all data to YAML format and share it
+  /// Export all data to YAML format and share/download it
   static Future<String?> exportToYaml(CatProvider catProvider) async {
     try {
       // Collect all data
@@ -92,19 +91,22 @@ class ExportImportService {
 
       // Convert to YAML string
       final yamlString = _mapToYaml(yamlData);
-
-      // Save to temporary file and share
-      final directory = await getTemporaryDirectory();
       final timestamp =
           DateTime.now().toIso8601String().replaceAll(':', '-').split('.')[0];
-      final file = File('${directory.path}/pawslog_export_$timestamp.yaml');
-      await file.writeAsString(yamlString);
+      final filename = 'pawslog_export_$timestamp.yaml';
+      final bytes = utf8.encode(yamlString);
 
-      // Share the file
       await Share.shareXFiles(
-        [XFile(file.path)],
-        text: 'PawsLog Data Export',
+        [
+          XFile.fromData(
+            bytes,
+            mimeType: 'text/yaml',
+            name: filename,
+          ),
+        ],
+        text: kIsWeb ? null : 'PawsLog Data Export',
         subject: 'PawsLog Backup',
+        fileNameOverrides: [filename],
       );
 
       return null; // Success

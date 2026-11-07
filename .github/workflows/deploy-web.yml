@@ -1,0 +1,56 @@
+name: Deploy Flutter web into docs/app
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/app/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-web
+  cancel-in-progress: true
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build web
+        run: flutter build web --release --base-href "/pawlog/app/" --web-resources-cdn
+
+      - name: Update docs/app
+        run: |
+          rm -rf docs/app
+          mkdir -p docs/app
+          cp -R build/web/. docs/app/
+          touch docs/.nojekyll
+          touch docs/app/.nojekyll
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/app docs/.nojekyll
+          if git diff --cached --quiet; then
+            echo "No web app changes"
+            exit 0
+          fi
+          git commit -m "Deploy Flutter web app to docs/app"
+          git push

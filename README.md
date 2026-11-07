@@ -2,7 +2,8 @@
 
 Track your pet's health and daily care — weight, feeding, medical records, groups, and tags. Built with Flutter. Data stays on device.
 
-**Landing page:** [iravan.github.io/pawlog](https://iravan.github.io/pawlog/)
+**Landing page:** [iravan.github.io/pawlog](https://iravan.github.io/pawlog/)  
+**Web app:** [iravan.github.io/pawlog/app](https://iravan.github.io/pawlog/app/)
 
 ## Features
 
