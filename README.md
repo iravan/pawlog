@@ -1,16 +1,35 @@
-# pawlog
+# PawsLog
 
-A new Flutter project.
+Track your pet's health and daily care — weight, feeding, medical records, groups, and tags. Built with Flutter. Data stays on device.
 
-## Getting Started
+**Landing page:** [iravan.github.io/pawlog](https://iravan.github.io/pawlog/)
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Pet profiles with icons, descriptions, groups, and tags
+- Weight, feeding, and medical history tabs
+- Group feeding for multiple pets at once
+- Import / export data
+- Multi-language UI
+- Theme color customization
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Getting started
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+flutter run
+```
+
+Requires Flutter SDK with Dart `>=3.3.4`.
+
+## Project
+
+| | |
+|---|---|
+| Package name | `pawlog` |
+| Version | see `pubspec.yaml` |
+| Platforms | iOS, Android, and desktop/web stubs |
+
+## License
+
+See repository for license details.

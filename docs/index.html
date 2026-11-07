@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PawsLog — track your pet's health, weight, feeding, and medical records.">
+  <title>PawsLog</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a2421;
+      --muted: #4a5a54;
+      --paper: #f3f0e8;
+      --leaf: #2f6b57;
+      --leaf-deep: #1e4a3c;
+      --accent: #c45c26;
+      --line: rgba(26, 36, 33, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% 0%, rgba(47, 107, 87, 0.14), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(196, 92, 38, 0.10), transparent 50%),
+        linear-gradient(180deg, #f7f4ec 0%, var(--paper) 40%, #e8efe9 100%);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+    }
+
+    .brand span {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 1.25rem;
+    }
+
+    .nav a:hover { color: var(--leaf-deep); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: calc(100vh - 5.5rem);
+      padding: 2rem 0 4rem;
+    }
+
+    .hero h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 34ch;
+      margin-bottom: 1.75rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--leaf);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.85rem 1.35rem;
+      border-radius: 10px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .cta:hover {
+      background: var(--leaf-deep);
+      transform: translateY(-1px);
+    }
+
+    .cta.secondary {
+      background: transparent;
+      color: var(--leaf-deep);
+      border: 1.5px solid var(--line);
+      margin-left: 0.75rem;
+    }
+
+    .cta.secondary:hover {
+      border-color: var(--leaf);
+      background: rgba(47, 107, 87, 0.06);
+    }
+
+    .ctas { display: flex; flex-wrap: wrap; gap: 0.75rem 0; }
+
+    .phone {
+      justify-self: end;
+      width: min(320px, 100%);
+      aspect-ratio: 9 / 18;
+      border-radius: 28px;
+      padding: 0.7rem;
+      background: linear-gradient(160deg, #24352f, #1a2421);
+      box-shadow:
+        0 30px 60px rgba(26, 36, 33, 0.25),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      animation: rise 0.9s ease both;
+    }
+
+    .phone-screen {
+      height: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), transparent 30%),
+        linear-gradient(165deg, #2f6b57 0%, #1e4a3c 55%, #16362c 100%);
+      color: #f7f4ec;
+      padding: 2rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .phone-screen .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .phone-screen .chip {
+      display: inline-block;
+      align-self: start;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    .phone-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 14px;
+      padding: 1rem;
+      animation: fade-up 0.8s ease 0.2s both;
+    }
+
+    .phone-card strong {
+      display: block;
+      font-size: 1.4rem;
+      margin-top: 0.25rem;
+    }
+
+    .features {
+      padding: 4rem 0 5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .features h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .features > .wrap > p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 42ch;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .feature {
+      padding: 1.4rem 1.25rem;
+      border-top: 2px solid var(--leaf);
+      animation: fade-up 0.7s ease both;
+    }
+
+    .feature:nth-child(2) { animation-delay: 0.1s; }
+    .feature:nth-child(3) { animation-delay: 0.2s; }
+
+    .feature h3 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature p { color: var(--muted); font-size: 0.98rem; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer a { color: var(--leaf-deep); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 1.5rem;
+      }
+      .phone { justify-self: start; }
+      .grid { grid-template-columns: 1fr; }
+      .nav { display: none; }
+      .cta.secondary { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./">
+        <img src="app_icon.png" alt="PawsLog icon">
+        <span>PawsLog</span>
+      </a>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="https://github.com/iravan/pawlog">GitHub</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>PawsLog</h1>
+        <p>Track weight, feeding, and medical history for every pet — organized by groups, tags, and daily records.</p>
+        <div class="ctas">
+          <a class="cta" href="https://github.com/iravan/pawlog">View on GitHub</a>
+          <a class="cta secondary" href="https://github.com/iravan/pawlog#readme">Get started</a>
+        </div>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="phone-screen">
+          <div class="mark">PawsLog</div>
+          <span class="chip">My Pets</span>
+          <div class="phone-card">
+            Latest weight
+            <strong>4.2 kg</strong>
+          </div>
+          <div class="phone-card">
+            Feeding today
+            <strong>Wet food · 80g</strong>
+          </div>
+          <div class="phone-card">
+            Medical
+            <strong>Vaccination due</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="wrap" style="width:100%;padding:0;">
+        <h2>Built for everyday pet care</h2>
+        <p>Keep health notes close without cloud accounts or clutter.</p>
+        <div class="grid">
+          <article class="feature">
+            <h3>Weight & feeding</h3>
+            <p>Log daily meals and weight trends so you notice changes early.</p>
+          </article>
+          <article class="feature">
+            <h3>Medical records</h3>
+            <p>Store visits, vaccines, and notes in one place per pet.</p>
+          </article>
+          <article class="feature">
+            <h3>Groups & tags</h3>
+            <p>Organize multi-pet homes and filter with custom tags.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>PawsLog — open source Flutter app</span>
+      <a href="https://github.com/iravan/pawlog">github.com/iravan/pawlog</a>
+    </footer>
+  </div>
+</body>
+</html>
